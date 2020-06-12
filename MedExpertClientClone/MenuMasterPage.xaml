@@ -6,15 +6,55 @@
              x:Class="MedExpertClientClone.MenuMasterPage"
              Title="Menu">
     <ContentPage.Content>
-        <StackLayout>
-            <Button x:Name="btnAudits" Text="Проверки"/>
-            <Button x:Name="btnTasks" Text="Задачи"/>
-            <Button x:Name="btnProjects" Text="Проекты"/>
-            <Button x:Name="btnProfile" Text="Профиль"/>
-            <Button x:Name="btnSettings" Text="Настройки"/>
-            <Button x:Name="btnUpdating" Text="В обновлении"/>
-            <Button x:Name="btnHelp" Text="Помощь"/>
-            <Button x:Name="btnExit" Text="Выход"/>
+        <StackLayout Padding="60,70,10,0">
+            <Label Text="Баир Баиров" Style="{StaticResource Title}"/>
+
+            <Grid Margin="0,20,0,0" RowSpacing="15">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition  Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <Label Grid.Row="0" Grid.Column="0" x:Name="btnAudits" Text="Проверки" Style="{StaticResource Text}"/>
+                <Label Grid.Row="1" Grid.Column="0" x:Name="btnTasks">
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span Text="Задачи" Style="{StaticResource Text}"/>
+                            <Span FontAttributes="Bold"
+                                  Text=" в разработке"
+                                  FontSize="Small"
+                                  TextColor="LightCoral"
+                                  FontFamily="{StaticResource SemiBoldFont}"/>
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+                <Label Grid.Row="2" Grid.Column="0" x:Name="btnProjects">
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span Text="Проекты" Style="{StaticResource Text}"/>
+                            <Span FontAttributes="Bold"
+                                  Text=" в разработке"
+                                  FontSize="Small"
+                                  TextColor="LightCoral"
+                                  FontFamily="{StaticResource SemiBoldFont}"/>
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+                <Label Grid.Row="3" Grid.Column="0" x:Name="btnProfile" Text="Профиль" Style="{StaticResource Text}"/>
+                <Label Grid.Row="4" Grid.Column="0" x:Name="btnSettings" Text="Настройки" Style="{StaticResource Text}"/>
+                <Label Grid.Row="5" Grid.Column="0" x:Name="btnUpdating" Text="В обновлении" Style="{StaticResource Text}"/>
+                <Label Grid.Row="6" Grid.Column="0" x:Name="btnHelp" Text="Помощь" Style="{StaticResource Text}"/>
+                <Label Grid.Row="7" Grid.Column="0" x:Name="btnExit" Text="Выход" Style="{StaticResource Text}"/>
+            </Grid>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

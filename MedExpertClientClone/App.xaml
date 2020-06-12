@@ -1,5 +1,49 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Application xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:d="http://xamarin.com/schemas/2014/forms/design" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d" x:Class="MedExpertClientClone.App">
+<Application xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="MedExpertClientClone.App">
     <Application.Resources>
+
+        <!--  font families  -->
+        <OnPlatform x:Key="BoldFont" x:TypeArguments="x:String">
+            <On Platform="Android" Value="Gilroy-Bold.ttf#Gilroy" />
+            <On Platform="iOS" Value="Gilroy-Bold" />
+        </OnPlatform>
+        <OnPlatform x:Key="RegularFont" x:TypeArguments="x:String">
+            <On Platform="Android" Value="Gilroy-Regular.ttf#Gilroy-Regular" />
+            <On Platform="iOS" Value="Gilroy-Regular" />
+        </OnPlatform>
+        <OnPlatform x:Key="SemiBoldFont" x:TypeArguments="x:String">
+            <On Platform="Android" Value="Gilroy-SemiBold.ttf#Gilroy-SemiBold" />
+            <On Platform="iOS" Value="Gilroy-SemiBold" />
+        </OnPlatform>
+        <OnPlatform x:Key="MediumFont" x:TypeArguments="x:String">
+            <On Platform="Android" Value="Gilroy-Medium.ttf#Gilroy-Medium" />
+            <On Platform="iOS" Value="Gilroy-Medium" />
+        </OnPlatform>
+
+        <Color x:Key="Primary">#FFF</Color>
+
+        <Style TargetType="NavigationPage">
+            <Setter Property="BarBackgroundColor" Value="{StaticResource Primary}" />
+            <Setter Property="BarTextColor" Value="Black" />
+        </Style>
+
+        <Style x:Key="Title" TargetType="Label">
+            <Setter Property="FontFamily" Value="{StaticResource SemiBoldFont}" />
+            <Setter Property="FontSize" Value="20" />
+            <Setter Property="TextColor" Value="#2B3845"/>
+            <Setter Property="FontAttributes" Value="Bold"/>
+        </Style>
+
+        <Style x:Key="Text" TargetType="Label">
+            <Setter Property="FontFamily" Value="{StaticResource MediumFont}" />
+            <Setter Property="FontSize" Value="18" />
+            <Setter Property="TextColor" Value="#2B3845"/>
+        </Style>
+
     </Application.Resources>
 </Application>

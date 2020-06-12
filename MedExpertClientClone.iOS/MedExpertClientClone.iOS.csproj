@@ -137,5 +137,9 @@
     <BundleResource Include="Resources\nav-menu-icon%402x.png" />
     <BundleResource Include="Resources\nav-menu-icon%403x.png" />
     <BundleResource Include="Resources\nav-menu-icon.png" />
+    <BundleResource Include="Resources\Gilroy-Bold.ttf" />
+    <BundleResource Include="Resources\Gilroy-Medium.ttf" />
+    <BundleResource Include="Resources\Gilroy-Regular.ttf" />
+    <BundleResource Include="Resources\Gilroy-SemiBold.ttf" />
   </ItemGroup>
 </Project>

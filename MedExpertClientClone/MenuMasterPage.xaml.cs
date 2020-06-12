@@ -11,14 +11,24 @@ namespace MedExpertClientClone
         public MenuMasterPage()
         {
             InitializeComponent();
-            btnAudits.Clicked += (s, e) => PageSelected?.Invoke(this, PageType.Audits);
-            btnTasks.Clicked += (s, e) => PageSelected?.Invoke(this, PageType.Tasks);
-            btnProjects.Clicked += (s, e) => PageSelected?.Invoke(this, PageType.Projects);
-            btnProfile.Clicked += (s, e) => PageSelected?.Invoke(this, PageType.Profile);
-            btnSettings.Clicked += (s, e) => PageSelected?.Invoke(this, PageType.Settings);
-            btnUpdating.Clicked += (s, e) => PageSelected?.Invoke(this, PageType.Updating);
-            btnHelp.Clicked += (s, e) => PageSelected?.Invoke(this, PageType.Help);
-            btnExit.Clicked += (s, e) => PageSelected?.Invoke(this, PageType.Exit);
+            btnAudits.GestureRecognizers.Add(CreateTapGesture(PageType.Audits));
+            btnTasks.GestureRecognizers.Add(CreateTapGesture(PageType.Tasks));
+            btnProjects.GestureRecognizers.Add(CreateTapGesture(PageType.Projects));
+            btnProfile.GestureRecognizers.Add(CreateTapGesture(PageType.Profile));
+            btnSettings.GestureRecognizers.Add(CreateTapGesture(PageType.Settings));
+            btnUpdating.GestureRecognizers.Add(CreateTapGesture(PageType.Updating));
+            btnHelp.GestureRecognizers.Add(CreateTapGesture(PageType.Help));
+            btnExit.GestureRecognizers.Add(CreateTapGesture(PageType.Exit));
+        }
+
+        private IGestureRecognizer CreateTapGesture(PageType audits)
+        {
+            var tap = new TapGestureRecognizer();
+            tap.Tapped += (s, e) =>
+            {
+                PageSelected?.Invoke(this, audits);
+            };
+            return tap;
         }
     }
 }
