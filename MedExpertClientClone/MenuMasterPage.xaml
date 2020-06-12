@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+             ios:Page.UseSafeArea="True"
+             x:Class="MedExpertClientClone.MenuMasterPage"
+             Title="Menu">
+    <ContentPage.Content>
+        <StackLayout>
+            <Button x:Name="btnAudits" Text="Проверки"/>
+            <Button x:Name="btnTasks" Text="Задачи"/>
+            <Button x:Name="btnProjects" Text="Проекты"/>
+            <Button x:Name="btnProfile" Text="Профиль"/>
+            <Button x:Name="btnSettings" Text="Настройки"/>
+            <Button x:Name="btnUpdating" Text="В обновлении"/>
+            <Button x:Name="btnHelp" Text="Помощь"/>
+            <Button x:Name="btnExit" Text="Выход"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
