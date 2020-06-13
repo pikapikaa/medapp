@@ -141,5 +141,29 @@
     <BundleResource Include="Resources\Gilroy-Medium.ttf" />
     <BundleResource Include="Resources\Gilroy-Regular.ttf" />
     <BundleResource Include="Resources\Gilroy-SemiBold.ttf" />
+    <BundleResource Include="Resources\audits_menu_item_active%402x.png" />
+    <BundleResource Include="Resources\audits_menu_item_active%403x.png" />
+    <BundleResource Include="Resources\audits_menu_item_active.png" />
+    <BundleResource Include="Resources\audits_menu_item_inactive.png" />
+    <BundleResource Include="Resources\audits_menu_item_inactive%402x.png" />
+    <BundleResource Include="Resources\audits_menu_item_inactive%403x.png" />
+    <BundleResource Include="Resources\tasks_menu_item_inactive%402x.png" />
+    <BundleResource Include="Resources\tasks_menu_item_inactive%403x.png" />
+    <BundleResource Include="Resources\tasks_menu_tem_inactive.png" />
+    <BundleResource Include="Resources\download_menu_item_inactive.png" />
+    <BundleResource Include="Resources\profile_menu_item_inactive.png" />
+    <BundleResource Include="Resources\project_menu_item_inactive.png" />
+    <BundleResource Include="Resources\setting_menu_item_inactive.png" />
+    <BundleResource Include="Resources\download_menu_item_inactive%402x.png" />
+    <BundleResource Include="Resources\profile_menu_item_inactive%402x.png" />
+    <BundleResource Include="Resources\project_menu_item_inactive%402x.png" />
+    <BundleResource Include="Resources\setting_menu_item_inactive%402x.png" />
+    <BundleResource Include="Resources\download_menu_item_inactive%403x.png" />
+    <BundleResource Include="Resources\profile_menu_item_inactive%403x.png" />
+    <BundleResource Include="Resources\project_menu_item_inactive%403x.png" />
+    <BundleResource Include="Resources\setting_menu_item_inactive%403x.png" />
+    <BundleResource Include="Resources\exit_menu_item%402x.png" />
+    <BundleResource Include="Resources\exit_menu_item%403x.png" />
+    <BundleResource Include="Resources\exit_menu_item.png" />
   </ItemGroup>
 </Project>
