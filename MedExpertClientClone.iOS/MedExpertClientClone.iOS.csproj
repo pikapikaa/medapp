@@ -125,6 +125,9 @@
   <ItemGroup>
     <PackageReference Include="Xamarin.Forms" Version="4.5.0.495" />
     <PackageReference Include="Xamarin.Essentials" Version="1.3.1" />
+    <PackageReference Include="Xamarin.Forms.PancakeView">
+      <Version>1.4.2</Version>
+    </PackageReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <ItemGroup>
@@ -165,5 +168,17 @@
     <BundleResource Include="Resources\exit_menu_item%402x.png" />
     <BundleResource Include="Resources\exit_menu_item%403x.png" />
     <BundleResource Include="Resources\exit_menu_item.png" />
+    <BundleResource Include="Resources\new_audits%402x.png" />
+    <BundleResource Include="Resources\new_audits%403x.png" />
+    <BundleResource Include="Resources\new_audits.png" />
+    <BundleResource Include="Resources\running_audits%402x.png" />
+    <BundleResource Include="Resources\running_audits%403x.png" />
+    <BundleResource Include="Resources\running_audits.png" />
+    <BundleResource Include="Resources\finished_audits%402x.png" />
+    <BundleResource Include="Resources\finished_audits%403x.png" />
+    <BundleResource Include="Resources\finished_audits.png" />
+    <BundleResource Include="Resources\all_audits%402x.png" />
+    <BundleResource Include="Resources\all_audits%403x.png" />
+    <BundleResource Include="Resources\all_audits.png" />
   </ItemGroup>
 </Project>

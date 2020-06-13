@@ -1,11 +1,209 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:pancake="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
              xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
              ios:Page.UseSafeArea="True"
              Title="Проверки"
              x:Class="MedExpertClientClone.Views.AuditOperationGroupsView">
+
+    <NavigationPage.TitleView>
+        <Label Text="Проверки" Style="{StaticResource TitlePage}"/>
+    </NavigationPage.TitleView>
+
     <ContentPage.Content>
-        <Label Text="AuditOperationGroupsView"/>
+
+        <Grid Margin="12"
+              ColumnSpacing="12"
+              RowSpacing="12">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <!-- Новые проверки -->
+            <pancake:PancakeView Elevation="3"
+                                 Grid.Row="0"
+                                 Grid.Column="0"
+                                 BackgroundColor="White"
+                                 CornerRadius="8">
+                <!--<pancake:PancakeView.GestureRecognizers>
+                <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"
+                                      NumberOfTapsRequired="1" />
+            </pancake:PancakeView.GestureRecognizers>-->
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+
+                    <StackLayout HeightRequest="5"
+                                 BackgroundColor="#3960E2"/>
+
+                    <StackLayout Grid.Row="1"
+                                 Margin="0,16,0,16"
+                                 VerticalOptions="Center"
+                                 HorizontalOptions="Center">
+                        <Image Source="new_audits"
+                               WidthRequest="25"
+                               HeightRequest="25"/>
+                        <Label Text="Новые"
+                               HorizontalOptions="Center"
+                               Margin="0,15,0,0"
+                               Style="{StaticResource Title}"/>
+                        <Label Text="Всего 123"
+                               HorizontalOptions="Center"
+                               Style="{StaticResource GrayText}"/>
+                    </StackLayout>
+                </Grid>
+            </pancake:PancakeView>
+
+            <!-- Проверки в работе -->
+            <pancake:PancakeView Elevation="3"
+                              Grid.Row="0"
+                              Grid.Column="1"
+                              BackgroundColor="White"
+                              CornerRadius="8">
+                <!--<pancake:PancakeView.GestureRecognizers>
+                <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"
+                                      NumberOfTapsRequired="1" />
+            </pancake:PancakeView.GestureRecognizers>-->
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+
+                    <StackLayout HeightRequest="5"
+                             BackgroundColor="#3CBB78"/>
+
+                    <StackLayout Grid.Row="1"
+                             Margin="0,16,0,16"
+                             VerticalOptions="Center"
+                             HorizontalOptions="Center">
+                        <Image Source="running_audits"
+                           WidthRequest="25"
+                           HeightRequest="25"/>
+                        <Label Text="Выполняются"
+                           HorizontalOptions="Center"
+                           Margin="0,15,0,0"
+                           Style="{StaticResource Title}"/>
+                        <Label Text="Всего 3113"
+                           HorizontalOptions="Center"
+                           Style="{StaticResource GrayText}"/>
+                    </StackLayout>
+                </Grid>
+            </pancake:PancakeView>
+
+            <!-- Завершенные -->
+            <pancake:PancakeView Elevation="3"
+                             Grid.Row="1"
+                             Grid.Column="0"
+                             BackgroundColor="White"
+                             CornerRadius="8">
+                <!--<pancake:PancakeView.GestureRecognizers>
+                <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"
+                                      NumberOfTapsRequired="1" />
+            </pancake:PancakeView.GestureRecognizers>-->
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+
+                    <StackLayout HeightRequest="5"
+                             BackgroundColor="#834EA0"/>
+
+                    <StackLayout Grid.Row="1"
+                             Margin="0,16,0,16"
+                             VerticalOptions="Center"
+                             HorizontalOptions="Center">
+                        <Image Source="finished_audits"
+                           WidthRequest="25"
+                           HeightRequest="25"/>
+                        <Label Text="Завершенные"
+                           HorizontalOptions="Center"
+                           Margin="0,15,0,0"
+                           Style="{StaticResource Title}"/>
+                        <Label Text="Всего 3113"
+                           HorizontalOptions="Center"
+                           Style="{StaticResource GrayText}"/>
+                    </StackLayout>
+                </Grid>
+            </pancake:PancakeView>
+
+            <!-- Все проверки -->
+            <pancake:PancakeView Elevation="3"
+                             Grid.Row="1"
+                             Grid.Column="1"
+                             BackgroundColor="White"
+                             CornerRadius="8">
+                <!--<pancake:PancakeView.GestureRecognizers>
+                <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"
+                                      NumberOfTapsRequired="1" />
+            </pancake:PancakeView.GestureRecognizers>-->
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+
+                    <StackLayout HeightRequest="5"
+                             BackgroundColor="#4858A5"/>
+
+                    <StackLayout Grid.Row="1"
+                             Margin="0,16,0,16"
+                             VerticalOptions="Center"
+                             HorizontalOptions="Center">
+                        <Image Source="all_audits"
+                           WidthRequest="25"
+                           HeightRequest="25"/>
+                        <Label Text="Все"
+                           HorizontalOptions="Center"
+                           Margin="0,15,0,0"
+                           Style="{StaticResource Title}"/>
+                        <Label Text="Всего 3113"
+                           HorizontalOptions="Center"
+                           Style="{StaticResource GrayText}"/>
+                    </StackLayout>
+                </Grid>
+            </pancake:PancakeView>
+
+            <!--  Кнопка добавления проверки -->
+            <pancake:PancakeView Grid.Row="2"
+                             Grid.ColumnSpan="2"
+                             x:Name="SwapPanel"
+                             HorizontalOptions="Center"
+                             VerticalOptions="End"
+                             BackgroundColor="#3960E2"
+                             Elevation="4"
+                             HasShadow="True"
+                             CornerRadius="25"
+                             HeightRequest="50"
+                             WidthRequest="300"
+                             Margin="0,0,0,1">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+
+                    <Label Text="Добавить проверку"
+                       Style="{StaticResource TitleWhite}"
+                       x:Name="AddAuditBtn"
+                       VerticalOptions="Center"
+                       HorizontalOptions="Center"/>
+                </Grid>
+                <!--<pancake:PancakeView.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding OpenAddAuditPageCommand}"/>
+                </pancake:PancakeView.GestureRecognizers>-->
+            </pancake:PancakeView>
+
+        </Grid>
+
     </ContentPage.Content>
 </ContentPage>

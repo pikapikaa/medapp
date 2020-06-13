@@ -25,11 +25,24 @@
             <On Platform="iOS" Value="Gilroy-Medium" />
         </OnPlatform>
 
+        <OnPlatform x:Key="MarginTitlePage" x:TypeArguments="Thickness">
+            <On Platform="Android" Value="0,0,50,0" />
+            <On Platform="iOS" Value="0,8,50,0" />
+        </OnPlatform>
+
         <Color x:Key="Primary">#FFF</Color>
 
         <Style TargetType="NavigationPage">
             <Setter Property="BarBackgroundColor" Value="{StaticResource Primary}" />
             <Setter Property="BarTextColor" Value="Black" />
+        </Style>
+
+        <Style x:Key="TitlePage" TargetType="Label">
+            <Setter Property="FontFamily" Value="{StaticResource SemiBoldFont}" />
+            <Setter Property="FontSize" Value="23" />
+            <Setter Property="TextColor" Value="#2B3845"/>
+            <Setter Property="Margin" Value="{StaticResource MarginTitlePage}"/>
+            <Setter Property="HorizontalTextAlignment" Value="Center"/>
         </Style>
 
         <Style x:Key="Title" TargetType="Label">
@@ -39,10 +52,23 @@
             <Setter Property="FontAttributes" Value="Bold"/>
         </Style>
 
+        <Style x:Key="TitleWhite" TargetType="Label">
+            <Setter Property="FontFamily" Value="{StaticResource SemiBoldFont}" />
+            <Setter Property="FontSize" Value="20" />
+            <Setter Property="TextColor" Value="White"/>
+            <Setter Property="FontAttributes" Value="Bold"/>
+        </Style>
+
         <Style x:Key="Text" TargetType="Label">
             <Setter Property="FontFamily" Value="{StaticResource MediumFont}" />
             <Setter Property="FontSize" Value="18" />
             <Setter Property="TextColor" Value="#2B3845"/>
+        </Style>
+
+        <Style x:Key="GrayText" TargetType="Label">
+            <Setter Property="FontFamily" Value="{StaticResource MediumFont}" />
+            <Setter Property="FontSize" Value="18" />
+            <Setter Property="TextColor" Value="#989BA8"/>
         </Style>
 
     </Application.Resources>
