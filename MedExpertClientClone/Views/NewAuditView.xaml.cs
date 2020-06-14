@@ -5,12 +5,12 @@ using Xamarin.Forms;
 
 namespace MedExpertClientClone.Views
 {
-    public partial class AuditOperationGroupsView : ContentPage
+    public partial class NewAuditView : ContentPage
     {
-        public AuditOperationGroupsView()
+        public NewAuditView()
         {
             InitializeComponent();
-            BindingContext = new AuditOperationGroupsViewModel()
+            BindingContext = new NewAuditViewModel()
             {
                 Navigation = this.Navigation
             };

@@ -198,9 +198,9 @@
                        VerticalOptions="Center"
                        HorizontalOptions="Center"/>
                 </Grid>
-                <!--<pancake:PancakeView.GestureRecognizers>
+                <pancake:PancakeView.GestureRecognizers>
                     <TapGestureRecognizer Command="{Binding OpenAddAuditPageCommand}"/>
-                </pancake:PancakeView.GestureRecognizers>-->
+                </pancake:PancakeView.GestureRecognizers>
             </pancake:PancakeView>
 
         </Grid>
