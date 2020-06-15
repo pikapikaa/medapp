@@ -216,5 +216,11 @@
     <BundleResource Include="Resources\three_dots_icon%402x.png" />
     <BundleResource Include="Resources\three_dots_icon%403x.png" />
     <BundleResource Include="Resources\three_dots_icon.png" />
+    <BundleResource Include="Resources\check_box_active%402x.png" />
+    <BundleResource Include="Resources\check_box_active%403x.png" />
+    <BundleResource Include="Resources\check_box_active.png" />
+    <BundleResource Include="Resources\check_box_inactive%402x.png" />
+    <BundleResource Include="Resources\check_box_inactive%403x.png" />
+    <BundleResource Include="Resources\check_box_inactive.png" />
   </ItemGroup>
 </Project>

@@ -75,9 +75,9 @@
                            HeightRequest="10"/>
 
                     </Grid>
-                    <!--<pancake:PancakeView.GestureRecognizers>
-                    <TapGestureRecognizer Command="{Binding OpenAddAuditPageCommand}"/>
-                </pancake:PancakeView.GestureRecognizers>-->
+                    <pancake:PancakeView.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding OpenAuditBaseListViewCommand}"/>
+                    </pancake:PancakeView.GestureRecognizers>
                 </pancake:PancakeView>
 
                 <!-- Вид проверки -->
@@ -107,9 +107,9 @@
                            HeightRequest="10"/>
 
                     </Grid>
-                    <!--<pancake:PancakeView.GestureRecognizers>
-                    <TapGestureRecognizer Command="{Binding OpenAddAuditPageCommand}"/>
-                </pancake:PancakeView.GestureRecognizers>-->
+                    <pancake:PancakeView.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding OpenAuditTypeViewCommand}"/>
+                    </pancake:PancakeView.GestureRecognizers>
                 </pancake:PancakeView>
 
                 <!-- Период -->

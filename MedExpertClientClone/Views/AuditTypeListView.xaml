@@ -1,44 +1,34 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:pancake="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
-             xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
-             ios:Page.UseSafeArea="True"
-             x:Name="auditSubjectListView"
-             x:Class="MedExpertClientClone.Views.AuditSubjectListView">
+             x:Class="MedExpertClientClone.Views.AuditTypeListView">
 
     <NavigationPage.TitleView>
         <StackLayout Orientation="Horizontal"
                      Margin="10"
                      VerticalOptions="CenterAndExpand">
             <ImageButton Source="close_page_icon"
-                         Clicked="Button_Clicked"
+                         Clicked="ImageButton_Clicked"
                          HeightRequest="15"
                          WidthRequest="15"
                          BackgroundColor="Transparent"/>
             <Label Text="Предмет проверки"
-                   Margin="20,0,0,0"
+                   Margin="50,0,0,0"
                    Style="{StaticResource Title}"/>
         </StackLayout>
 
     </NavigationPage.TitleView>
 
-    <ContentPage.ToolbarItems>
-        <ToolbarItem IconImageSource="search_icon"/>
-        <ToolbarItem IconImageSource="three_dots_icon" />
-    </ContentPage.ToolbarItems>
-
     <ContentPage.Content>
 
-        <ListView ItemsSource="{Binding AuditSubjects}"
+         <ListView ItemsSource="{Binding AuditTypes}"
                   SeparatorVisibility="None"
                   HasUnevenRows="True"
-                  Margin="20,20,20,0"
-                  x:Name="auditSubjectlistView">
+                  Margin="20,10,10,0">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
-                        <Grid RowSpacing="0">
+                        <Grid RowSpacing="5">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="*" />
                                 <ColumnDefinition Width="Auto" />
@@ -54,30 +44,22 @@
                                    Text="{Binding Name}"
                                    VerticalTextAlignment="Center"
                                    Style="{StaticResource NormalText}">
+                                <!--<Label.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding Source={x:Reference auditSubjectListView}, Path=BindingContext.ClickCheckBoxCommand}"
+                                                          CommandParameter="{Binding .}"
+                                                          NumberOfTapsRequired="1" />
+                                </Label.GestureRecognizers>-->
                             </Label>
-
-                            <Image Source="check_box_inactive"
-                                   Grid.Column="1"
-                                   Grid.Row="0"
-                                   IsVisible="{Binding IsChecked, Converter={StaticResource InverseBoolConverter}}"/>
-
-                            <Image Source="check_box_active"
-                                   Grid.Column="1"
-                                   Grid.Row="0"
-                                   IsVisible="{Binding IsChecked}"/>
-
-                            <BoxView Grid.ColumnSpan="2"
+                            <!--<CheckBox Grid.Column="1"
+                                      Grid.Row="0"
+                                      Color="Black"
+                                      />-->
+                            <!--<BoxView Grid.ColumnSpan="2"
                                      Grid.Row="1"
                                      HorizontalOptions="FillAndExpand"
                                      HeightRequest="1"
-                                     Margin="0,15,0,15"
-                                     Color="#E3E3E3"/>
-
-                            <Grid.GestureRecognizers>
-                                <TapGestureRecognizer Command="{Binding Source={x:Reference auditSubjectListView}, Path=BindingContext.ClickCheckBoxCommand}"
-                                                      CommandParameter="{Binding .}"
-                                                      NumberOfTapsRequired="1" />
-                            </Grid.GestureRecognizers>
+                                     Margin="0,5,0,5"
+                                     Color="#E3E3E3"/>-->
                         </Grid>
                     </ViewCell>
                 </DataTemplate>
@@ -85,4 +67,5 @@
         </ListView>
 
     </ContentPage.Content>
+
 </ContentPage>
