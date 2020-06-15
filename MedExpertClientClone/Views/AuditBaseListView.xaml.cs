@@ -1,20 +1,24 @@
 ﻿using System;
 using System.Collections.Generic;
 using MedExpertClientClone.ViewModels;
-using MedExpertClientClone.ViewModels.Base;
 using Xamarin.Forms;
 
 namespace MedExpertClientClone.Views
 {
-    public partial class NewAuditView : ContentPage
+    public partial class AuditBaseListView : ContentPage
     {
-        public NewAuditView()
+        public AuditBaseListView()
         {
             InitializeComponent();
-            BindingContext = new NewAuditViewModel()
+            BindingContext = new AuditBaseListViewModel()
             {
                 Navigation = this.Navigation
             };
+        }
+
+        void ImageButton_Clicked(System.Object sender, System.EventArgs e)
+        {
+            Navigation.PopModalAsync();
         }
     }
 }
