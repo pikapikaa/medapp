@@ -132,13 +132,7 @@
                                              Padding="10"
                                              CornerRadius="5">
                             <StackLayout VerticalOptions="Center">
-                                <Label Text="Начало"
-                                       IsVisible="{Binding IsChangedStartDate, Converter={StaticResource InverseBoolConverter}}"
-                                       Style="{StaticResource Text}"
-                                       VerticalOptions="Center"
-                                       HorizontalOptions="Start"/>
                                 <Label Text="{Binding PeriodDateInText}"
-                                       IsVisible="{Binding IsChangedStartDate}"
                                        Style="{StaticResource Text}"
                                        VerticalOptions="Center"
                                        HorizontalOptions="Start"/>
@@ -160,9 +154,9 @@
                                        HorizontalOptions="Start"/>
                             </StackLayout>
 
-                            <!--<pancake:PancakeView.GestureRecognizers>
+                            <pancake:PancakeView.GestureRecognizers>
                                 <TapGestureRecognizer Command="{Binding OpenCalendarPopupCommand}"/>
-                            </pancake:PancakeView.GestureRecognizers>-->
+                            </pancake:PancakeView.GestureRecognizers>
                         </pancake:PancakeView>
                     </Grid>
 

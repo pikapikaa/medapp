@@ -228,5 +228,8 @@
     <BundleResource Include="Resources\check_box_inactive%402x.png" />
     <BundleResource Include="Resources\check_box_inactive%403x.png" />
     <BundleResource Include="Resources\check_box_inactive.png" />
+    <BundleResource Include="Resources\logo_side_menu%402x.png" />
+    <BundleResource Include="Resources\logo_side_menu%403x.png" />
+    <BundleResource Include="Resources\logo_side_menu.png" />
   </ItemGroup>
 </Project>

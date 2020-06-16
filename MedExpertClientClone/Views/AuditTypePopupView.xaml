@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<pages:PopupPage xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
+                 xmlns="http://xamarin.com/schemas/2014/forms"
+                 xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                    x:Class="MedExpertClientClone.Views.AuditTypePopupView">
+    <StackLayout VerticalOptions="Center"
+                 HorizontalOptions="FillAndExpand"
+                 Padding="20,20,20,20">
+        <Frame BackgroundColor="White" Padding="0">
+            <StackLayout >
+                <Label Text="Плановая" Style="{StaticResource Text}" Padding="20,20,20,10"/>
+                <BoxView HorizontalOptions="FillAndExpand"
+                     HeightRequest="1"
+                     Color="#E3E3E3"/>
+                <Label Text="Внеплановая"
+                   Style="{StaticResource Text}"
+                   Padding="20,10,20,20"/>
+                <!--<Button Text="Закрыть"
+                    TextColor="Red"
+                    Clicked="Button_ClickedAsync"/>-->
+            </StackLayout>
+        </Frame>
+
+    </StackLayout>
+</pages:PopupPage>

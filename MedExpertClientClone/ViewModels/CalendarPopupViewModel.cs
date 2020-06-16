@@ -25,7 +25,8 @@ namespace MedExpertClientClone.ViewModels
             set
             {
                 _selectedDate = value;
-                OnPropertyChanged(nameof(SelectedDate));
+                SetProperty(ref _selectedDate, value);
+                //OnPropertyChanged(nameof(SelectedDate));
             }
         }
 
@@ -38,14 +39,15 @@ namespace MedExpertClientClone.ViewModels
             set
             {
                 _culture = value;
-                OnPropertyChanged(nameof(Culture));
+                SetProperty(ref _culture, value);
+                //OnPropertyChanged(nameof(Culture));
             }
         }
 
         /// <summary>
         /// 
         /// </summary>
-        public ICommand SelectStartDateCommand => new Command(async() =>
+        public ICommand SelectStartDateCommand => new Command(async () =>
         {
             MessagingCenter.Send(this, MessageKeys.StartDateAudit);
             await PopupNavigation.Instance.PopAsync();

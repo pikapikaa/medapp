@@ -7,16 +7,17 @@ using Xamarin.Forms;
 using System.Threading.Tasks;
 using Rg.Plugins.Popup.Services;
 using MedExpertClientClone.Models;
+using System.Runtime.CompilerServices;
 
 namespace MedExpertClientClone.ViewModels
 {
-    public class NewAuditViewModel : ViewModelBase
+    public class NewAuditViewModel : INotifyPropertyChanged
     {
-        public NewAudit Audit { get; private set; }
+        private bool isChangedStartDate = false;
 
-        private bool _isChangedStartDate = false;
+        private NewAudit Audit { get; set; }
 
-        public DateTime StartDate
+        public DateTime PeriodDateIn
         {
             get { return Audit.PeriodDateIn; }
             set
@@ -24,12 +25,13 @@ namespace MedExpertClientClone.ViewModels
                 if (Audit.PeriodDateIn != value)
                 {
                     Audit.PeriodDateIn = value;
-                    OnPropertyChanged(nameof(StartDate));
+                    OnPropertyChanged();
+                    OnPropertyChanged(nameof(PeriodDateInText));
                 }
             }
         }
 
-        public DateTime EndDate
+        public DateTime PeriodDateOut
         {
             get { return Audit.PeriodDateOut; }
             set
@@ -37,43 +39,53 @@ namespace MedExpertClientClone.ViewModels
                 if (Audit.PeriodDateOut != value)
                 {
                     Audit.PeriodDateOut = value;
-                    OnPropertyChanged(nameof(EndDate));
+                    OnPropertyChanged();
+                    OnPropertyChanged(nameof(PeriodDateOutText));
+                }
+            }
+        }
+
+        public bool IsChangedStartDate
+        {
+            get { return isChangedStartDate; }
+            set
+            {
+                if (isChangedStartDate != value)
+                {
+                    isChangedStartDate = value;
+                    OnPropertyChanged();
+                    OnPropertyChanged(nameof(PeriodDateInText));
                 }
             }
         }
 
         public string PeriodDateInText
         {
-            get { return Audit.PeriodDateInText; }
+            get
+            {
+                if (IsChangedStartDate)
+                {
+                    return $"{PeriodDateIn:dd.MM.yyyy}";
+                }
+                return "Начало";
+            }
         }
 
         public string PeriodDateOutText
         {
-            get { return Audit.PeriodDateOutText; }
-        }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        public bool IsChangedStartDate
-        {
-            get { return _isChangedStartDate; }
-            set
-            {
-                _isChangedStartDate = value;
-                OnPropertyChanged(nameof(IsChangedStartDate));
-            }
+            get { return $"{PeriodDateOut:dd.MM.yyyy}"; }
         }
 
         public INavigation Navigation { get; set; }
 
         public NewAuditViewModel()
         {
+
             Audit = new NewAudit();
             MessagingCenter.Subscribe<CalendarPopupViewModel>(this,
                    MessageKeys.StartDateAudit, sender =>
                    {
-                       StartDate = sender.SelectedDate;
+                       PeriodDateIn = sender.SelectedDate;
                        IsChangedStartDate = true;
                    });
         }
@@ -97,11 +109,9 @@ namespace MedExpertClientClone.ViewModels
         /// <summary>
         /// Команда для открытия видов проверок
         /// </summary>
-        public ICommand OpenAuditTypeViewCommand => new Command(
-            async () =>
+        public ICommand OpenAuditTypeViewCommand => new Command(async () =>
             {
-                string[] arr = { "Плановая", "Внеплановая" };
-                await DialogService.DisplayActionSheet("Вид проверки", "Отмена", null, arr);
+                await PopupNavigation.Instance.PushAsync(new AuditTypePopupView());
             });
 
         /// <summary>
@@ -111,5 +121,12 @@ namespace MedExpertClientClone.ViewModels
         {
             await PopupNavigation.Instance.PushAsync(new CalendarPopupView());
         });
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        void OnPropertyChanged([CallerMemberName] string name = "")
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
+        }
     }
 }
