@@ -7,8 +7,8 @@ namespace MedExpertClientClone.ViewModels.Base
     public static class MessageKeys
     {
         /// <summary>
-        /// Сообщение события показа видов проверок
+        /// Сообщение события изменения даты начала проверок
         /// </summary>
-        public const string AuditTypesPopUp = nameof(AuditTypesPopUp);
+        public const string StartDateAudit = nameof(StartDateAudit);
     }
 }

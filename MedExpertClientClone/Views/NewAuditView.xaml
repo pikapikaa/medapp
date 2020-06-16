@@ -131,13 +131,21 @@
                         <pancake:PancakeView BackgroundColor="#F2F2F2"
                                              Padding="10"
                                              CornerRadius="5">
-                            <Label Text="Начало"
-                                   Style="{StaticResource Text}"
-                                   VerticalOptions="Center"
-                                   HorizontalOptions="Start"/>
+                            <StackLayout VerticalOptions="Center">
+                                <Label Text="Начало"
+                                       IsVisible="{Binding IsChangedStartDate, Converter={StaticResource InverseBoolConverter}}"
+                                       Style="{StaticResource Text}"
+                                       VerticalOptions="Center"
+                                       HorizontalOptions="Start"/>
+                                <Label Text="{Binding PeriodDateInText}"
+                                       IsVisible="{Binding IsChangedStartDate}"
+                                       Style="{StaticResource Text}"
+                                       VerticalOptions="Center"
+                                       HorizontalOptions="Start"/>
+                            </StackLayout>
 
                             <pancake:PancakeView.GestureRecognizers>
-                                <TapGestureRecognizer Command="{Binding OpenAddAuditPageCommand}"/>
+                                <TapGestureRecognizer Command="{Binding OpenCalendarPopupCommand}"/>
                             </pancake:PancakeView.GestureRecognizers>
                         </pancake:PancakeView>
 
@@ -145,14 +153,16 @@
                                             Padding="10"
                                             BackgroundColor="#F2F2F2"
                                             CornerRadius="5">
-                            <Label Text="Конец"
-                                   Style="{StaticResource Text}"
-                                   VerticalOptions="Center"
-                                   HorizontalOptions="Start"/>
+                            <StackLayout VerticalOptions="Center">
+                                <Label Text="Конец"
+                                       Style="{StaticResource Text}"
+                                       VerticalOptions="Center"
+                                       HorizontalOptions="Start"/>
+                            </StackLayout>
 
                             <!--<pancake:PancakeView.GestureRecognizers>
-                        <TapGestureRecognizer Command="{Binding OpenAddAuditPageCommand}"/>
-                    </pancake:PancakeView.GestureRecognizers>-->
+                                <TapGestureRecognizer Command="{Binding OpenCalendarPopupCommand}"/>
+                            </pancake:PancakeView.GestureRecognizers>-->
                         </pancake:PancakeView>
                     </Grid>
 
