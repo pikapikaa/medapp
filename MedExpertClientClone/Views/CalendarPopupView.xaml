@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<pages:PopupPage xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
+                 xmlns="http://xamarin.com/schemas/2014/forms"
+                 xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                 xmlns:plugin="clr-namespace:Xamarin.Plugin.Calendar.Controls;assembly=Xamarin.Plugin.Calendar"
+                 x:Class="MedExpertClientClone.Views.CalendarPopupView">
+    <StackLayout VerticalOptions="Center"
+                 HorizontalOptions="FillAndExpand"
+                 Padding="20,20,20,20">
+        <Frame Padding="0">
+            <StackLayout BackgroundColor="White" Padding="0, 10, 0, 10">
+                <plugin:Calendar
+                    Padding="10,0"
+                    Culture="{Binding Culture}"
+                    FooterSectionVisible="False"
+                    HorizontalOptions="Center"
+                    SelectedDate="{Binding SelectedDate}"
+                    VerticalOptions="Center"
+                    WidthRequest="320" />
+                <Button Text="Выбрать"
+                        Style="{StaticResource TitleWhite}"
+                        BackgroundColor="#3960E2"
+                        Command="{Binding SelectStartDateCommand}"
+                        Margin="10"/>
+            </StackLayout>
+        </Frame>
+
+    </StackLayout>
+</pages:PopupPage>
