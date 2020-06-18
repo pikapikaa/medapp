@@ -9,19 +9,24 @@
                      Margin="10"
                      VerticalOptions="CenterAndExpand">
             <ImageButton Source="close_page_icon"
+                         BackgroundColor="Transparent"
+                         VerticalOptions="Center"
+                         HorizontalOptions="Start"
                          Command="{Binding ClosePageCommand}"
                          HeightRequest="15"
                          WidthRequest="15"
-                         BackgroundColor="Transparent"/>
-            <Label Text="Добавить сотрудника"
-                   Margin="50,0,0,0"
+                         />
+            <Label Text="Список сотрудников" 
+                   MaxLines="1"
+                   Margin="20,0,0,0"
+                   HorizontalTextAlignment="Start"
                    Style="{StaticResource Title}"/>
         </StackLayout>
     </NavigationPage.TitleView>
 
      <ContentPage.ToolbarItems>
-        <ToolbarItem IconImageSource="search_icon"/>
-        <ToolbarItem IconImageSource="three_dots_icon" />
+        <ToolbarItem IconImageSource="search_icon" />
+        <ToolbarItem IconImageSource="three_dots_icon" Command="{Binding OpenSortPopupCommand}" />
     </ContentPage.ToolbarItems>
 
      <ListView ItemsSource="{Binding Employees}"

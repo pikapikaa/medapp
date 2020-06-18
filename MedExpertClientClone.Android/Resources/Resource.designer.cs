@@ -15577,41 +15577,47 @@ namespace MedExpertClientClone.Droid
 			// aapt resource value: 0x7F07008C
 			public const int project_menu_item_inactive = 2131165324;
 			
-			// aapt resource value: 0x7F07008D
-			public const int roundedbg = 2131165325;
-			
-			// aapt resource value: 0x7F07008E
-			public const int roundedbgdark = 2131165326;
-			
 			// aapt resource value: 0x7F07008F
-			public const int running_audits = 2131165327;
+			public const int roundedbg = 2131165327;
 			
 			// aapt resource value: 0x7F070090
-			public const int search_icon = 2131165328;
+			public const int roundedbgdark = 2131165328;
+			
+			// aapt resource value: 0x7F07008D
+			public const int round_check_box_active = 2131165325;
+			
+			// aapt resource value: 0x7F07008E
+			public const int round_check_box_inactive = 2131165326;
 			
 			// aapt resource value: 0x7F070091
-			public const int setting_menu_item_inactive = 2131165329;
+			public const int running_audits = 2131165329;
 			
 			// aapt resource value: 0x7F070092
-			public const int subject_new_audit = 2131165330;
+			public const int search_icon = 2131165330;
 			
 			// aapt resource value: 0x7F070093
-			public const int sun_new_audit = 2131165331;
+			public const int setting_menu_item_inactive = 2131165331;
 			
 			// aapt resource value: 0x7F070094
-			public const int tasks_menu_item_inactive = 2131165332;
+			public const int subject_new_audit = 2131165332;
 			
 			// aapt resource value: 0x7F070095
-			public const int three_dots_icon = 2131165333;
+			public const int sun_new_audit = 2131165333;
 			
 			// aapt resource value: 0x7F070096
-			public const int tooltip_frame_dark = 2131165334;
+			public const int tasks_menu_item_inactive = 2131165334;
 			
 			// aapt resource value: 0x7F070097
-			public const int tooltip_frame_light = 2131165335;
+			public const int three_dots_icon = 2131165335;
 			
 			// aapt resource value: 0x7F070098
-			public const int type_new_audit = 2131165336;
+			public const int tooltip_frame_dark = 2131165336;
+			
+			// aapt resource value: 0x7F070099
+			public const int tooltip_frame_light = 2131165337;
+			
+			// aapt resource value: 0x7F07009A
+			public const int type_new_audit = 2131165338;
 			
 			static Drawable()
 			{

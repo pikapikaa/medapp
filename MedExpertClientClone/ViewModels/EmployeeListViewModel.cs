@@ -7,7 +7,7 @@ using MedExpertClientClone.Models;
 using Rg.Plugins.Popup.Services;
 using Xamarin.Forms;
 using System.Linq;
-
+using MedExpertClientClone.Views;
 
 namespace MedExpertClientClone.ViewModels
 {
@@ -38,6 +38,10 @@ namespace MedExpertClientClone.ViewModels
                 new Employee(){ FullName = "Раднаев Жамбал"},
                 new Employee(){FullName = "Будаев Будажаб"},
                 new Employee(){ FullName = "Потапов Александр"},
+                new Employee(){FullName = "Миронов Вячеслав"},
+                new Employee(){ FullName = "Воронин Роман"},
+                new Employee(){FullName = "Аранзаев Михаил"},
+                new Employee(){ FullName = "Деревянко Александр"},
             };
         }
 
@@ -63,6 +67,14 @@ namespace MedExpertClientClone.ViewModels
                 }
             }
             OnPropertyChanged(nameof(Employees));
+        });
+
+        /// <summary>
+        /// Команда закрытия страницы
+        /// </summary>
+        public ICommand OpenSortPopupCommand => new Command(async () =>
+        {
+            await PopupNavigation.Instance.PushAsync(new SortPopupView(), false);
         });
 
         void OnPropertyChanged([CallerMemberName] string name = "")

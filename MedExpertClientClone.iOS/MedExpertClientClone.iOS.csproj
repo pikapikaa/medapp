@@ -231,5 +231,11 @@
     <BundleResource Include="Resources\logo_side_menu%402x.png" />
     <BundleResource Include="Resources\logo_side_menu%403x.png" />
     <BundleResource Include="Resources\logo_side_menu.png" />
+    <BundleResource Include="Resources\round_check_box_inactive%402x.png" />
+    <BundleResource Include="Resources\round_check_box_inactive%403x.png" />
+    <BundleResource Include="Resources\round_check_box_inactive.png" />
+    <BundleResource Include="Resources\round_check_box_active%402x.png" />
+    <BundleResource Include="Resources\round_check_box_active%403x.png" />
+    <BundleResource Include="Resources\round_check_box_active.png" />
   </ItemGroup>
 </Project>
