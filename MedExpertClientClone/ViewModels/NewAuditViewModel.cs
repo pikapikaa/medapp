@@ -174,6 +174,14 @@ namespace MedExpertClientClone.ViewModels
             await PopupNavigation.Instance.PushAsync(page);
         });
 
+        /// <summary>
+        /// Команда для открытия списка сотрудников
+        /// </summary>
+        public ICommand OpenEmployeeListViewCommand => new Command(() =>
+        {
+            Navigation.PushModalAsync(new NavigationPage(new EmployeeListView()), true);
+        });
+
         public event PropertyChangedEventHandler PropertyChanged;
 
         void OnPropertyChanged([CallerMemberName] string name = "")

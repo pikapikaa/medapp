@@ -181,9 +181,9 @@
                                    HorizontalOptions="Start"/>
 
                         </Grid>
-                        <!--<pancake:PancakeView.GestureRecognizers>
-                    <TapGestureRecognizer Command="{Binding OpenAddAuditPageCommand}"/>
-                </pancake:PancakeView.GestureRecognizers>-->
+                        <pancake:PancakeView.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding OpenEmployeeListViewCommand}"/>
+                        </pancake:PancakeView.GestureRecognizers>
                     </pancake:PancakeView>
 
                     <!-- Добавить проверяющих -->
