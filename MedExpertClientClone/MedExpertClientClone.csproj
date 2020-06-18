@@ -27,5 +27,16 @@
     <Folder Include="ViewModels\Base\" />
     <Folder Include="Services\" />
     <Folder Include="Services\Dialog\" />
+    <Folder Include="Views\Popups\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Condition=" '$(EnableDefaultCompileItems)' == 'true' " Update="Views\Popups\AuditTypePopupView.xaml.cs">
+      <DependentUpon>AuditTypePopupView.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Condition=" '$(EnableDefaultCompileItems)' == 'true' " Update="Views\Popups\CalendarPopupView.xaml.cs">
+      <DependentUpon>CalendarPopupView.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
   </ItemGroup>
 </Project>

@@ -8,6 +8,7 @@ using Rg.Plugins.Popup.Services;
 using Xamarin.Forms;
 using System.Linq;
 using MedExpertClientClone.Views;
+using MedExpertClientClone.Views.Popups;
 
 namespace MedExpertClientClone.ViewModels
 {
@@ -54,7 +55,7 @@ namespace MedExpertClientClone.ViewModels
         });
 
         /// <summary>
-        /// Команда закрытия страницы
+        /// Команда выбора пользователя из списка
         /// </summary>
         public ICommand ClickCheckBoxCommand => new Command(async (emp) =>
         {
@@ -70,11 +71,19 @@ namespace MedExpertClientClone.ViewModels
         });
 
         /// <summary>
-        /// Команда закрытия страницы
+        /// Команда открытия окна сортировки
         /// </summary>
         public ICommand OpenSortPopupCommand => new Command(async () =>
         {
             await PopupNavigation.Instance.PushAsync(new SortPopupView(), false);
+        });
+
+        /// <summary>
+        /// Команда открытия окна меню
+        /// </summary>
+        public ICommand OpenMenuPopupCommand => new Command(async () =>
+        {
+            await PopupNavigation.Instance.PushAsync(new MenuPopupView(), false);
         });
 
         void OnPropertyChanged([CallerMemberName] string name = "")

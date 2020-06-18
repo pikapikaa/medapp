@@ -26,7 +26,7 @@
 
      <ContentPage.ToolbarItems>
         <ToolbarItem IconImageSource="search_icon" />
-        <ToolbarItem IconImageSource="three_dots_icon" Command="{Binding OpenSortPopupCommand}" />
+        <ToolbarItem IconImageSource="three_dots_icon" Command="{Binding OpenMenuPopupCommand}" />
     </ContentPage.ToolbarItems>
 
      <ListView ItemsSource="{Binding Employees}"
