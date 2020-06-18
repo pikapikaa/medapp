@@ -3,6 +3,7 @@ using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Windows.Input;
 using MedExpertClientClone.Models;
+using Rg.Plugins.Popup.Services;
 using Xamarin.Forms;
 
 namespace MedExpertClientClone.ViewModels
@@ -11,7 +12,7 @@ namespace MedExpertClientClone.ViewModels
     {
         public ObservableCollection<AuditType> AuditTypes { get; private set; }
         public event PropertyChangedEventHandler PropertyChanged;
-        public ICommand OpenAddAuditPageCommand { protected set; get; }
+
         public INavigation Navigation { get; set; }
         public AuditTypeListViewModel()
         {
@@ -21,5 +22,13 @@ namespace MedExpertClientClone.ViewModels
                 new AuditType(){ Name = "Внеплановая"}
             };
         }
+
+        /// <summary>
+        /// Команда 
+        /// </summary>
+        public ICommand ClosePopupCommand => new Command(async () =>
+        {
+            await PopupNavigation.Instance.PopAsync();
+        });
     }
 }
