@@ -139,7 +139,7 @@
                             </StackLayout>
 
                             <pancake:PancakeView.GestureRecognizers>
-                                <TapGestureRecognizer Command="{Binding OpenCalendarPopupCommand}"/>
+                                <TapGestureRecognizer Command="{Binding OpenStartCalendarPopupCommand}"/>
                             </pancake:PancakeView.GestureRecognizers>
                         </pancake:PancakeView>
 
@@ -148,14 +148,14 @@
                                             BackgroundColor="#F2F2F2"
                                             CornerRadius="5">
                             <StackLayout VerticalOptions="Center">
-                                <Label Text="Конец"
+                                <Label Text="{Binding PeriodDateOutText}"
                                        Style="{StaticResource Text}"
                                        VerticalOptions="Center"
                                        HorizontalOptions="Start"/>
                             </StackLayout>
 
                             <pancake:PancakeView.GestureRecognizers>
-                                <TapGestureRecognizer Command="{Binding OpenCalendarPopupCommand}"/>
+                                <TapGestureRecognizer Command="{Binding OpenEndCalendarPopupCommand}"/>
                             </pancake:PancakeView.GestureRecognizers>
                         </pancake:PancakeView>
                     </Grid>

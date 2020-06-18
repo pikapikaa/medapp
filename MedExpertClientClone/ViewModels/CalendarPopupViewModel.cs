@@ -4,6 +4,7 @@ using System.Windows.Input;
 using MedExpertClientClone.ViewModels.Base;
 using Xamarin.Forms;
 using Rg.Plugins.Popup.Services;
+using MedExpertClientClone.Models;
 
 namespace MedExpertClientClone.ViewModels
 {
@@ -11,6 +12,7 @@ namespace MedExpertClientClone.ViewModels
     {
         private DateTime _selectedDate = DateTime.Today;
         private CultureInfo _culture = new CultureInfo("ru", false);
+        private CalendarType calendarType;
 
         public CalendarPopupViewModel()
         {
@@ -26,12 +28,11 @@ namespace MedExpertClientClone.ViewModels
             {
                 _selectedDate = value;
                 SetProperty(ref _selectedDate, value);
-                //OnPropertyChanged(nameof(SelectedDate));
             }
         }
 
         /// <summary>
-        /// 
+        /// Язык
         /// </summary>
         public CultureInfo Culture
         {
@@ -40,7 +41,19 @@ namespace MedExpertClientClone.ViewModels
             {
                 _culture = value;
                 SetProperty(ref _culture, value);
-                //OnPropertyChanged(nameof(Culture));
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public CalendarType CalendarType
+        {
+            get { return calendarType; }
+            set
+            {
+                calendarType = value;
+                SetProperty(ref calendarType, value);
             }
         }
 
@@ -49,7 +62,14 @@ namespace MedExpertClientClone.ViewModels
         /// </summary>
         public ICommand SelectStartDateCommand => new Command(async () =>
         {
-            MessagingCenter.Send(this, MessageKeys.StartDateAudit);
+            if (CalendarType == CalendarType.StartDate)
+            {
+                MessagingCenter.Send(this, MessageKeys.StartDateAudit);
+            }
+            else if (CalendarType == CalendarType.EndDate)
+            {
+                MessagingCenter.Send(this, MessageKeys.EndDateAudit);
+            }
             await PopupNavigation.Instance.PopAsync();
         });
 

@@ -8,12 +8,14 @@ using System.Threading.Tasks;
 using Rg.Plugins.Popup.Services;
 using MedExpertClientClone.Models;
 using System.Runtime.CompilerServices;
+using System.Globalization;
 
 namespace MedExpertClientClone.ViewModels
 {
     public class NewAuditViewModel : INotifyPropertyChanged
     {
         private bool isChangedStartDate = false;
+        private bool isChangedEndDate = false;
 
         private NewAudit Audit { get; set; }
 
@@ -59,13 +61,27 @@ namespace MedExpertClientClone.ViewModels
             }
         }
 
+        public bool IsChangedEndDate
+        {
+            get { return isChangedEndDate; }
+            set
+            {
+                if (isChangedEndDate != value)
+                {
+                    isChangedEndDate = value;
+                    OnPropertyChanged();
+                    OnPropertyChanged(nameof(PeriodDateOutText));
+                }
+            }
+        }
+
         public string PeriodDateInText
         {
             get
             {
                 if (IsChangedStartDate)
                 {
-                    return $"{PeriodDateIn:dd.MM.yyyy}";
+                    return $"С {PeriodDateIn:dd.MM.yyyy}";
                 }
                 return "Начало";
             }
@@ -73,7 +89,14 @@ namespace MedExpertClientClone.ViewModels
 
         public string PeriodDateOutText
         {
-            get { return $"{PeriodDateOut:dd.MM.yyyy}"; }
+            get
+            {
+                if (IsChangedEndDate)
+                {
+                    return $"По {PeriodDateOut:dd.MM.yyyy}";
+                }
+                return "Конец";
+            }
         }
 
         public INavigation Navigation { get; set; }
@@ -88,6 +111,13 @@ namespace MedExpertClientClone.ViewModels
                        PeriodDateIn = sender.SelectedDate;
                        IsChangedStartDate = true;
                    });
+
+            MessagingCenter.Subscribe<CalendarPopupViewModel>(this,
+                  MessageKeys.EndDateAudit, sender =>
+                  {
+                      PeriodDateOut = sender.SelectedDate;
+                      IsChangedEndDate = true;
+                  });
         }
 
         /// <summary>
@@ -115,11 +145,33 @@ namespace MedExpertClientClone.ViewModels
             });
 
         /// <summary>
-        /// Команда для выбора периода
+        /// Команда для выбора начала периода проверки
         /// </summary>
-        public ICommand OpenCalendarPopupCommand => new Command(async () =>
+        public ICommand OpenStartCalendarPopupCommand => new Command(async () =>
         {
-            await PopupNavigation.Instance.PushAsync(new CalendarPopupView());
+            var calendarViewModel = new CalendarPopupViewModel
+            {
+                CalendarType = CalendarType.StartDate
+            };
+
+            var page = new CalendarPopupView();
+            page.BindingContext = calendarViewModel;
+            await PopupNavigation.Instance.PushAsync(page);
+        });
+
+        /// <summary>
+        /// Команда для выбора конца периода проверки
+        /// </summary>
+        public ICommand OpenEndCalendarPopupCommand => new Command(async () =>
+        {
+            var calendarViewModel = new CalendarPopupViewModel
+            {
+                CalendarType = CalendarType.EndDate
+            };
+
+            var page = new CalendarPopupView();
+            page.BindingContext = calendarViewModel;
+            await PopupNavigation.Instance.PushAsync(page);
         });
 
         public event PropertyChangedEventHandler PropertyChanged;
