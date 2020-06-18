@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Name="employeetListView"
              x:Class="MedExpertClientClone.Views.EmployeeListView">
 
     <NavigationPage.TitleView>
@@ -22,5 +23,59 @@
         <ToolbarItem IconImageSource="search_icon"/>
         <ToolbarItem IconImageSource="three_dots_icon" />
     </ContentPage.ToolbarItems>
+
+     <ListView ItemsSource="{Binding Employees}"
+                  SeparatorVisibility="None"
+                  HasUnevenRows="True"
+                  Margin="20,20,20,0"
+                  x:Name="auditSubjectlistView">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Grid RowSpacing="0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="Auto" />
+                            </Grid.ColumnDefinitions>
+
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+
+                            <Label Grid.Column="0"
+                                   Grid.Row="0"
+                                   Text="{Binding FullName}"
+                                   VerticalTextAlignment="Center"
+                                   Style="{StaticResource NormalText}">
+                            </Label>
+
+                            <Image Source="check_box_inactive"
+                                   Grid.Column="1"
+                                   Grid.Row="0"
+                                   IsVisible="{Binding IsChecked, Converter={StaticResource InverseBoolConverter}}"/>
+
+                            <Image Source="check_box_active"
+                                   Grid.Column="1"
+                                   Grid.Row="0"
+                                   IsVisible="{Binding IsChecked}"/>
+
+                            <BoxView Grid.ColumnSpan="2"
+                                     Grid.Row="1"
+                                     HorizontalOptions="FillAndExpand"
+                                     HeightRequest="1"
+                                     Margin="0,15,0,15"
+                                     Color="#E3E3E3"/>
+
+                            <Grid.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding Source={x:Reference employeetListView}, Path=BindingContext.ClickCheckBoxCommand}"
+                                                      CommandParameter="{Binding .}"
+                                                      NumberOfTapsRequired="1" />
+                            </Grid.GestureRecognizers>
+                        </Grid>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
 
 </ContentPage>
