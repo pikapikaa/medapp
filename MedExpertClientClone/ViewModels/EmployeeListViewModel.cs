@@ -14,6 +14,8 @@ namespace MedExpertClientClone.ViewModels
 {
     public class EmployeeListViewModel : INotifyPropertyChanged
     {
+        private bool isEntryVisible = false;
+
         public INavigation Navigation { get; set; }
 
         private ObservableCollection<Employee> employees =
@@ -26,6 +28,16 @@ namespace MedExpertClientClone.ViewModels
             {
                 employees = value;
                 OnPropertyChanged(nameof(Employees));
+            }
+        }
+
+        public bool IsEntryVisible
+        {
+            get { return isEntryVisible; }
+            set
+            {
+                isEntryVisible = value;
+                OnPropertyChanged(nameof(IsEntryVisible));
             }
         }
 
@@ -84,6 +96,14 @@ namespace MedExpertClientClone.ViewModels
         public ICommand OpenMenuPopupCommand => new Command(async () =>
         {
             await PopupNavigation.Instance.PushAsync(new MenuPopupView(), false);
+        });
+
+        /// <summary>
+        /// Команда
+        /// </summary>
+        public ICommand ShowSearchEntryCommand => new Command(() =>
+        {
+            IsEntryVisible = !IsEntryVisible;
         });
 
         void OnPropertyChanged([CallerMemberName] string name = "")

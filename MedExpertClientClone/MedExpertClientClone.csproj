@@ -28,6 +28,7 @@
     <Folder Include="Services\" />
     <Folder Include="Services\Dialog\" />
     <Folder Include="Views\Popups\" />
+    <Folder Include="Renderers\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Condition=" '$(EnableDefaultCompileItems)' == 'true' " Update="Views\Popups\AuditTypePopupView.xaml.cs">
