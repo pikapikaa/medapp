@@ -2,6 +2,7 @@
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Windows.Input;
+using MedExpertClientClone.ViewModels.Base;
 using MedExpertClientClone.Views;
 using Rg.Plugins.Popup.Services;
 using Xamarin.Forms;
@@ -109,6 +110,30 @@ namespace MedExpertClientClone.ViewModels
         /// </summary>
         public ICommand CloseSortPopupCommand => new Command(async () =>
         {
+            await PopupNavigation.Instance.PopAsync();
+        });
+
+        /// <summary>
+        /// Команда для сортировки списка пользователей
+        /// </summary>
+        public ICommand SortEmployeesCommand => new Command(async () =>
+        {
+            if (IsAscendingSort)
+            {
+                MessagingCenter.Send(this, MessageKeys.AscendingSort);
+            }
+            else if (IsDescendingSort)
+            {
+                MessagingCenter.Send(this, MessageKeys.DescendingSort);
+            }
+            else if (IsDateSort)
+            {
+                MessagingCenter.Send(this, MessageKeys.DateSort);
+            }
+            else if(IsDefaultSort)
+            {
+                MessagingCenter.Send(this, MessageKeys.DefaultSort);
+            }
             await PopupNavigation.Instance.PopAsync();
         });
 

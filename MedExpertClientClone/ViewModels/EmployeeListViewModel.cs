@@ -10,6 +10,7 @@ using System.Linq;
 using MedExpertClientClone.Views;
 using MedExpertClientClone.Views.Popups;
 using System.Collections.Generic;
+using MedExpertClientClone.ViewModels.Base;
 
 namespace MedExpertClientClone.ViewModels
 {
@@ -64,6 +65,34 @@ namespace MedExpertClientClone.ViewModels
             var _listOfItems = new DataFactory().GetEmployees();
             Employees = new ObservableCollection<Employee>(_listOfItems);
             _employeesUnfiltered = new ObservableCollection<Employee>(_listOfItems);
+
+            MessagingCenter.Subscribe<SortPopupViewModel>(this,
+                 MessageKeys.AscendingSort, sender =>
+                 {
+                     _employeesFiltered = new ObservableCollection<Employee>(_employeesUnfiltered
+                                           .OrderBy(t => t.FullName));
+                     Employees = _employeesFiltered;
+                 });
+
+            MessagingCenter.Subscribe<SortPopupViewModel>(this,
+               MessageKeys.DescendingSort, sender =>
+               {
+                   _employeesFiltered = new ObservableCollection<Employee>(_employeesUnfiltered
+                                         .OrderByDescending(t => t.FullName));
+                   Employees = _employeesFiltered;
+               });
+
+            MessagingCenter.Subscribe<SortPopupViewModel>(this,
+               MessageKeys.DefaultSort, sender =>
+               {
+                   Employees = _employeesUnfiltered;
+               });
+
+            MessagingCenter.Subscribe<SortPopupViewModel>(this,
+             MessageKeys.DateSort, sender =>
+             {
+                 Employees = _employeesUnfiltered;
+             });
         }
 
         /// <summary>
