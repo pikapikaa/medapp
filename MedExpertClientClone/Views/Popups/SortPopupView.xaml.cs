@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using MedExpertClientClone.ViewModels;
 using Rg.Plugins.Popup.Pages;
 using Rg.Plugins.Popup.Services;
 using Xamarin.Forms;
@@ -11,11 +12,7 @@ namespace MedExpertClientClone.Views
         public SortPopupView()
         {
             InitializeComponent();
-        }
-
-        void Button_Clicked(System.Object sender, System.EventArgs e)
-        {
-            PopupNavigation.Instance.PopAsync();
+            this.BindingContext = new SortPopupViewModel();
         }
     }
 }
