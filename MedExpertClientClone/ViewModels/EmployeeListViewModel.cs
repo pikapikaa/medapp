@@ -77,7 +77,7 @@ namespace MedExpertClientClone.ViewModels
         /// <summary>
         /// Команда выбора пользователя из списка
         /// </summary>
-        public ICommand ClickCheckBoxCommand => new Command(async (emp) =>
+        public ICommand ClickCheckBoxCommand => new Command((emp) =>
         {
             if (emp is Employee employee)
             {
@@ -107,7 +107,7 @@ namespace MedExpertClientClone.ViewModels
         });
 
         /// <summary>
-        /// Команда
+        /// Команда показа строки поиска сотрудника
         /// </summary>
         public ICommand ShowSearchEntryCommand => new Command(() =>
         {
@@ -115,7 +115,7 @@ namespace MedExpertClientClone.ViewModels
         });
 
         /// <summary>
-        /// Команда
+        /// Команда поиска пользователя
         /// </summary>
         public ICommand SearchTextChangedCommand => new Command(() =>
         {
