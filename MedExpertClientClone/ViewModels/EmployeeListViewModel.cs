@@ -9,17 +9,22 @@ using Xamarin.Forms;
 using System.Linq;
 using MedExpertClientClone.Views;
 using MedExpertClientClone.Views.Popups;
+using System.Collections.Generic;
 
 namespace MedExpertClientClone.ViewModels
 {
     public class EmployeeListViewModel : INotifyPropertyChanged
     {
         private bool isEntryVisible = false;
+        private string searchText = "";
 
         public INavigation Navigation { get; set; }
 
         private ObservableCollection<Employee> employees =
            new ObservableCollection<Employee>();
+
+        private ObservableCollection<Employee> _employeesFiltered;
+        private ObservableCollection<Employee> _employeesUnfiltered;
 
         public ObservableCollection<Employee> Employees
         {
@@ -41,21 +46,24 @@ namespace MedExpertClientClone.ViewModels
             }
         }
 
+        public string SearchText
+        {
+            get { return searchText; }
+            set
+            {
+                searchText = value;
+                OnPropertyChanged(nameof(SearchText));
+                OnPropertyChanged(nameof(Employees));
+            }
+        }
+
         public event PropertyChangedEventHandler PropertyChanged;
 
         public EmployeeListViewModel()
         {
-            Employees = new ObservableCollection<Employee>()
-            {
-                new Employee(){FullName = "Батожаб Будаев"},
-                new Employee(){ FullName = "Раднаев Жамбал"},
-                new Employee(){FullName = "Будаев Будажаб"},
-                new Employee(){ FullName = "Потапов Александр"},
-                new Employee(){FullName = "Миронов Вячеслав"},
-                new Employee(){ FullName = "Воронин Роман"},
-                new Employee(){FullName = "Аранзаев Михаил"},
-                new Employee(){ FullName = "Деревянко Александр"},
-            };
+            var _listOfItems = new DataFactory().GetEmployees();
+            Employees = new ObservableCollection<Employee>(_listOfItems);
+            _employeesUnfiltered = new ObservableCollection<Employee>(_listOfItems);
         }
 
         /// <summary>
@@ -71,7 +79,7 @@ namespace MedExpertClientClone.ViewModels
         /// </summary>
         public ICommand ClickCheckBoxCommand => new Command(async (emp) =>
         {
-            if(emp is Employee employee)
+            if (emp is Employee employee)
             {
                 var item = Employees.FirstOrDefault(i => i.FullName == employee.FullName);
                 if (item != null)
@@ -106,9 +114,44 @@ namespace MedExpertClientClone.ViewModels
             IsEntryVisible = !IsEntryVisible;
         });
 
+        /// <summary>
+        /// Команда
+        /// </summary>
+        public ICommand SearchTextChangedCommand => new Command(() =>
+        {
+            if (string.IsNullOrWhiteSpace(SearchText))
+                Employees = _employeesUnfiltered;
+            else
+            {
+                _employeesFiltered = new ObservableCollection<Employee>(_employeesUnfiltered
+                                            .Where(i => (i is Employee && (((Employee)i)
+                                            .FullName.ToLower()
+                                            .Contains(SearchText.ToLower())))));
+                Employees = _employeesFiltered;
+            }
+        });
+
         void OnPropertyChanged([CallerMemberName] string name = "")
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
+        }
+    }
+
+    internal class DataFactory
+    {
+        public List<Employee> GetEmployees()
+        {
+            return new List<Employee>()
+            {
+                new Employee(){FullName = "Батожаб Будаев"},
+                new Employee(){ FullName = "Раднаев Жамбал"},
+                new Employee(){FullName = "Будаев Будажаб"},
+                new Employee(){ FullName = "Потапов Александр"},
+                new Employee(){FullName = "Миронов Вячеслав"},
+                new Employee(){ FullName = "Воронин Роман"},
+                new Employee(){FullName = "Аранзаев Михаил"},
+                new Employee(){ FullName = "Деревянко Александр"}
+            };
         }
     }
 }

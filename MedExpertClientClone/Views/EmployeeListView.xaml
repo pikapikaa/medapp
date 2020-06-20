@@ -2,6 +2,7 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:MedExpertClientClone.Renderers"
+             xmlns:behaviors="clr-namespace:MedExpertClientClone.Behaviors"
              x:Name="employeetListView"
              x:Class="MedExpertClientClone.Views.EmployeeListView">
 
@@ -23,13 +24,20 @@
                    HorizontalTextAlignment="Start"
                    IsVisible="{Binding IsEntryVisible, Converter={StaticResource InverseBoolConverter}}"
                    Style="{StaticResource Title}"/>
-            <local:CustomEntryRenderer Margin="5,0,0,0"
+            <local:CustomEntryRenderer Margin="5,0,0,0" 
+                                       Text="{Binding SearchText}"
                                        HorizontalOptions="FillAndExpand"
                                        BackgroundColor="Transparent"
                                        HorizontalTextAlignment="Start"
                                        IsVisible="{Binding IsEntryVisible}"
                                        Placeholder="Поиск"
-                                       Style="{StaticResource Title}"/>
+                                       Style="{StaticResource Title}">
+                <local:CustomEntryRenderer.Behaviors>
+                    <behaviors:EventToCommandBehavior EventName="TextChanged"
+                                                      Command="{Binding SearchTextChangedCommand}"
+                                                      />
+                </local:CustomEntryRenderer.Behaviors>
+            </local:CustomEntryRenderer>
         </StackLayout>
     </NavigationPage.TitleView>
 
