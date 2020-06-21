@@ -9,6 +9,8 @@ using Rg.Plugins.Popup.Services;
 using MedExpertClientClone.Models;
 using System.Runtime.CompilerServices;
 using System.Globalization;
+using System.Collections.ObjectModel;
+using System.Collections.Generic;
 
 namespace MedExpertClientClone.ViewModels
 {
@@ -16,8 +18,32 @@ namespace MedExpertClientClone.ViewModels
     {
         private bool isChangedStartDate = false;
         private bool isChangedEndDate = false;
+        private double listViewSelectedEmployeesHeight = 0;
+
+        private ObservableCollection<Employee> selectedEmployees =
+           new ObservableCollection<Employee>();
 
         private NewAudit Audit { get; set; }
+
+        public ObservableCollection<Employee> SelectedEmployees
+        {
+            get { return selectedEmployees; }
+            set
+            {
+                selectedEmployees = value;
+                OnPropertyChanged(nameof(SelectedEmployees));
+            }
+        }
+
+        public double ListViewSelectedEmployeesHeight
+        {
+            get { return listViewSelectedEmployeesHeight; }
+            set
+            {
+                listViewSelectedEmployeesHeight = value;
+                OnPropertyChanged(nameof(ListViewSelectedEmployeesHeight));
+            }
+        }
 
         public DateTime PeriodDateIn
         {
@@ -118,6 +144,10 @@ namespace MedExpertClientClone.ViewModels
                       PeriodDateOut = sender.SelectedDate;
                       IsChangedEndDate = true;
                   });
+
+            var _listOfItems = new DataFactory().GetEmployees();
+            SelectedEmployees = new ObservableCollection<Employee>(_listOfItems);
+            ListViewSelectedEmployeesHeight = (40 * _listOfItems.Count);
         }
 
         /// <summary>

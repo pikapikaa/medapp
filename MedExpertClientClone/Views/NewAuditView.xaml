@@ -11,257 +11,289 @@
     </NavigationPage.TitleView>
 
     <ContentPage.Content>
-        <AbsoluteLayout Padding="0"
-                        HorizontalOptions="FillAndExpand"
-                        VerticalOptions="FillAndExpand">
 
-            <ScrollView AbsoluteLayout.LayoutBounds="0, 0, 1, 1" AbsoluteLayout.LayoutFlags="All">
-                <StackLayout Padding="15">
+        <ScrollView>
+            <StackLayout Padding="15">
 
-                    <Label Text="Проверка WAEF32FESDFS" Style="{StaticResource Title}" Margin="0,0,0,15"/>
+                <Label Text="Проверка WAEF32FESDFS" Style="{StaticResource Title}" Margin="0,0,0,15"/>
 
-                    <!-- Предмет проверки -->
-                    <StackLayout Orientation="Horizontal" Margin="15,0,0,0">
-                        <Image Source="subject_new_audit"/>
-                        <Label Text="Предмет проверки" Style="{StaticResource DarkGrayText}"/>
-                    </StackLayout>
+                <!-- Предмет проверки -->
+                <StackLayout Orientation="Horizontal" Margin="15,0,0,0">
+                    <Image Source="subject_new_audit"/>
+                    <Label Text="Предмет проверки" Style="{StaticResource DarkGrayText}"/>
+                </StackLayout>
 
-                    <pancake:PancakeView BackgroundColor="#F2F2F2"
+                <pancake:PancakeView BackgroundColor="#F2F2F2"
                                          Padding="10"
                                          Margin="0,0,0,10"
                                          CornerRadius="5">
-                        <Grid>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="*" />
-                                <ColumnDefinition Width="Auto" />
-                            </Grid.ColumnDefinitions>
-
-                            <Label Text="Выбрать"
-                                   Style="{StaticResource Text}"
-                                   VerticalOptions="Center"
-                                   HorizontalOptions="Start"/>
-
-                            <Image Grid.Column="1"
-                                   Source="dropdown"
-                                   WidthRequest="10"
-                                   HeightRequest="10"/>
-
-                        </Grid>
-                        <pancake:PancakeView.GestureRecognizers>
-                            <TapGestureRecognizer Command="{Binding OpenAddSubjectAuditCommand}"/>
-                        </pancake:PancakeView.GestureRecognizers>
-                    </pancake:PancakeView>
-
-                    <!-- Основание -->
-                    <StackLayout Orientation="Horizontal" Margin="15,0,0,0">
-                        <Image Source="foundation_new_audit"/>
-                        <Label Text="Основание" Style="{StaticResource DarkGrayText}"/>
-                    </StackLayout>
-
-                    <pancake:PancakeView BackgroundColor="#F2F2F2"
-                                         Padding="10"
-                                         Margin="0,0,0,10"
-                                         CornerRadius="5">
-                        <Grid>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="*" />
-                                <ColumnDefinition Width="Auto" />
-                            </Grid.ColumnDefinitions>
-
-                            <Label Text="Выбрать"
-                                   Style="{StaticResource Text}"
-                                   VerticalOptions="Center"
-                                   HorizontalOptions="Start"/>
-
-                            <Image Grid.Column="1"
-                                   Source="dropdown"
-                                   WidthRequest="10"
-                                   HeightRequest="10"/>
-
-                        </Grid>
-                        <pancake:PancakeView.GestureRecognizers>
-                            <TapGestureRecognizer Command="{Binding OpenAuditBaseListViewCommand}"/>
-                        </pancake:PancakeView.GestureRecognizers>
-                    </pancake:PancakeView>
-
-                    <!-- Вид проверки -->
-                    <StackLayout Orientation="Horizontal"  Margin="15,0,0,0">
-                        <Image Source="type_new_audit"/>
-                        <Label Text="Вид проверки" Style="{StaticResource DarkGrayText}"/>
-                    </StackLayout>
-
-                    <pancake:PancakeView BackgroundColor="#F2F2F2"
-                                         Padding="10"
-                                         Margin="0,0,0,10"
-                                         CornerRadius="5">
-                        <Grid>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="*" />
-                                <ColumnDefinition Width="Auto" />
-                            </Grid.ColumnDefinitions>
-
-                            <Label Text="Выбрать"
-                                   Style="{StaticResource Text}"
-                                   VerticalOptions="Center"
-                                   HorizontalOptions="Start"/>
-
-                            <Image Grid.Column="1"
-                                   Source="dropdown"
-                                   WidthRequest="10"
-                                   HeightRequest="10"/>
-
-                        </Grid>
-                        <pancake:PancakeView.GestureRecognizers>
-                            <TapGestureRecognizer Command="{Binding OpenAuditTypeViewCommand}"/>
-                        </pancake:PancakeView.GestureRecognizers>
-                    </pancake:PancakeView>
-
-                    <!-- Период -->
-                    <StackLayout Orientation="Horizontal"  Margin="15,0,0,0">
-                        <Image Source="period_new_audit"/>
-                        <Label Text="Период" Style="{StaticResource DarkGrayText}"/>
-                    </StackLayout>
-
-                    <Grid ColumnSpacing="10" Margin="0,0,0,10">
+                    <Grid>
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="Auto"/>
-                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="Auto" />
                         </Grid.ColumnDefinitions>
 
-                        <pancake:PancakeView BackgroundColor="#F2F2F2"
+                        <Label Text="Выбрать"
+                                   Style="{StaticResource Text}"
+                                   VerticalOptions="Center"
+                                   HorizontalOptions="Start"/>
+
+                        <Image Grid.Column="1"
+                                   Source="dropdown"
+                                   WidthRequest="10"
+                                   HeightRequest="10"/>
+
+                    </Grid>
+                    <pancake:PancakeView.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding OpenAddSubjectAuditCommand}"/>
+                    </pancake:PancakeView.GestureRecognizers>
+                </pancake:PancakeView>
+
+                <!-- Основание -->
+                <StackLayout Orientation="Horizontal" Margin="15,0,0,0">
+                    <Image Source="foundation_new_audit"/>
+                    <Label Text="Основание" Style="{StaticResource DarkGrayText}"/>
+                </StackLayout>
+
+                <pancake:PancakeView BackgroundColor="#F2F2F2"
+                                         Padding="10"
+                                         Margin="0,0,0,10"
+                                         CornerRadius="5">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+
+                        <Label Text="Выбрать"
+                                   Style="{StaticResource Text}"
+                                   VerticalOptions="Center"
+                                   HorizontalOptions="Start"/>
+
+                        <Image Grid.Column="1"
+                                   Source="dropdown"
+                                   WidthRequest="10"
+                                   HeightRequest="10"/>
+
+                    </Grid>
+                    <pancake:PancakeView.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding OpenAuditBaseListViewCommand}"/>
+                    </pancake:PancakeView.GestureRecognizers>
+                </pancake:PancakeView>
+
+                <!-- Вид проверки -->
+                <StackLayout Orientation="Horizontal"  Margin="15,0,0,0">
+                    <Image Source="type_new_audit"/>
+                    <Label Text="Вид проверки" Style="{StaticResource DarkGrayText}"/>
+                </StackLayout>
+
+                <pancake:PancakeView BackgroundColor="#F2F2F2"
+                                         Padding="10"
+                                         Margin="0,0,0,10"
+                                         CornerRadius="5">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+
+                        <Label Text="Выбрать"
+                                   Style="{StaticResource Text}"
+                                   VerticalOptions="Center"
+                                   HorizontalOptions="Start"/>
+
+                        <Image Grid.Column="1"
+                                   Source="dropdown"
+                                   WidthRequest="10"
+                                   HeightRequest="10"/>
+
+                    </Grid>
+                    <pancake:PancakeView.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding OpenAuditTypeViewCommand}"/>
+                    </pancake:PancakeView.GestureRecognizers>
+                </pancake:PancakeView>
+
+                <!-- Период -->
+                <StackLayout Orientation="Horizontal"  Margin="15,0,0,0">
+                    <Image Source="period_new_audit"/>
+                    <Label Text="Период" Style="{StaticResource DarkGrayText}"/>
+                </StackLayout>
+
+                <Grid ColumnSpacing="10" Margin="0,0,0,10">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+
+                    <pancake:PancakeView BackgroundColor="#F2F2F2"
                                              Padding="10"
                                              CornerRadius="5">
-                            <StackLayout VerticalOptions="Center">
-                                <Label Text="{Binding PeriodDateInText}"
+                        <StackLayout VerticalOptions="Center">
+                            <Label Text="{Binding PeriodDateInText}"
                                        Style="{StaticResource Text}"
                                        VerticalOptions="Center"
                                        HorizontalOptions="Start"/>
-                            </StackLayout>
+                        </StackLayout>
 
-                            <pancake:PancakeView.GestureRecognizers>
-                                <TapGestureRecognizer Command="{Binding OpenStartCalendarPopupCommand}"/>
-                            </pancake:PancakeView.GestureRecognizers>
-                        </pancake:PancakeView>
+                        <pancake:PancakeView.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding OpenStartCalendarPopupCommand}"/>
+                        </pancake:PancakeView.GestureRecognizers>
+                    </pancake:PancakeView>
 
-                        <pancake:PancakeView Grid.Column="1"
+                    <pancake:PancakeView Grid.Column="1"
                                             Padding="10"
                                             BackgroundColor="#F2F2F2"
                                             CornerRadius="5">
-                            <StackLayout VerticalOptions="Center">
-                                <Label Text="{Binding PeriodDateOutText}"
+                        <StackLayout VerticalOptions="Center">
+                            <Label Text="{Binding PeriodDateOutText}"
                                        Style="{StaticResource Text}"
                                        VerticalOptions="Center"
                                        HorizontalOptions="Start"/>
-                            </StackLayout>
+                        </StackLayout>
 
-                            <pancake:PancakeView.GestureRecognizers>
-                                <TapGestureRecognizer Command="{Binding OpenEndCalendarPopupCommand}"/>
-                            </pancake:PancakeView.GestureRecognizers>
-                        </pancake:PancakeView>
-                    </Grid>
+                        <pancake:PancakeView.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding OpenEndCalendarPopupCommand}"/>
+                        </pancake:PancakeView.GestureRecognizers>
+                    </pancake:PancakeView>
+                </Grid>
 
-                    <!-- Члены комиссии -->
-                    <StackLayout Orientation="Horizontal"  Margin="15,0,0,0">
-                        <Image Source="members_new_audit"/>
-                        <Label Text="Члены комиссии" Style="{StaticResource DarkGrayText}"/>
-                    </StackLayout>
+                <!-- Члены комиссии -->
+                <StackLayout Orientation="Horizontal"  Margin="15,0,0,0">
+                    <Image Source="members_new_audit"/>
+                    <Label Text="Члены комиссии" Style="{StaticResource DarkGrayText}"/>
+                </StackLayout>
 
-                    <pancake:PancakeView BackgroundColor="#F2F2F2"
+                <pancake:PancakeView BackgroundColor="#F2F2F2"
                                          Padding="10"
                                          Margin="0,0,0,10"
                                          CornerRadius="5">
-                        <Grid>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="*" />
-                            </Grid.ColumnDefinitions>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
 
-                            <Label Text="Добавить членов комиссии"
+                        <Label Text="Добавить членов комиссии"
                                    Style="{StaticResource GrayText}"
                                    VerticalOptions="Center"
                                    HorizontalOptions="Start"/>
 
-                        </Grid>
-                        <pancake:PancakeView.GestureRecognizers>
-                            <TapGestureRecognizer Command="{Binding OpenEmployeeListViewCommand}"/>
-                        </pancake:PancakeView.GestureRecognizers>
-                    </pancake:PancakeView>
+                    </Grid>
+                    <pancake:PancakeView.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding OpenEmployeeListViewCommand}"/>
+                    </pancake:PancakeView.GestureRecognizers>
+                </pancake:PancakeView>
 
-                    <!-- Добавить проверяющих -->
-                    <StackLayout Orientation="Horizontal" Margin="15,0,0,10">
-                        <Image Source="add_inspector_new_audit"/>
-                        <Label Text="Добавить проверяющих"
+                <!--<ListView ItemsSource="{Binding SelectedEmployees}"
+                          SeparatorVisibility="None"
+                          HeightRequest="{Binding ListViewSelectedEmployeesHeight}"
+                          BackgroundColor="Transparent">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+
+                                <pancake:PancakeView BackgroundColor="#F2F2F2"
+                                                     Margin="3"
+                                                     Padding="10"
+                                                     CornerRadius="5">
+
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="*" />
+                                        </Grid.ColumnDefinitions>
+
+                                        <Label Text="{Binding FullName}"
+                                               Style="{StaticResource GrayText}"
+                                               VerticalOptions="Center"
+                                               HorizontalOptions="Start"/>
+
+                                    </Grid>
+                                    <pancake:PancakeView.GestureRecognizers>
+                                        <TapGestureRecognizer Command="{Binding OpenEmployeeListViewCommand}"/>
+                                    </pancake:PancakeView.GestureRecognizers>
+                                </pancake:PancakeView>
+
+
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>-->
+
+                <!-- Добавить проверяющих -->
+                <StackLayout Orientation="Horizontal" Margin="15,0,0,10">
+                    <Image Source="add_inspector_new_audit"/>
+                    <Label Text="Добавить проверяющих"
                                VerticalTextAlignment="Center"
                                Style="{StaticResource BlueText}"/>
-                    </StackLayout>
+                </StackLayout>
 
-                    <!-- Председатель комиссии -->
-                    <StackLayout Orientation="Horizontal"  Margin="15,0,0,0">
-                        <Image Source="crown_new_audit"/>
-                        <Label Text="Председатель комиссии" Style="{StaticResource DarkGrayText}"/>
-                    </StackLayout>
+                <!-- Председатель комиссии -->
+                <StackLayout Orientation="Horizontal"  Margin="15,0,0,0">
+                    <Image Source="crown_new_audit"/>
+                    <Label Text="Председатель комиссии" Style="{StaticResource DarkGrayText}"/>
+                </StackLayout>
 
-                    <pancake:PancakeView BackgroundColor="#F2F2F2"
+                <pancake:PancakeView BackgroundColor="#F2F2F2"
                                          Padding="10"
                                          Margin="0,0,0,10"
                                          CornerRadius="5">
-                        <Grid>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="*" />
-                                <ColumnDefinition Width="Auto" />
-                            </Grid.ColumnDefinitions>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
 
-                            <Label Text="Выбрать"
+                        <Label Text="Выбрать"
                                    Style="{StaticResource Text}"
                                    VerticalOptions="Center"
                                    HorizontalOptions="Start"/>
 
-                            <Image Grid.Column="1"
+                        <Image Grid.Column="1"
                                    Source="dropdown"
                                    WidthRequest="10"
                                    HeightRequest="10"/>
 
-                        </Grid>
-                        <!--<pancake:PancakeView.GestureRecognizers>
+                    </Grid>
+                    <!--<pancake:PancakeView.GestureRecognizers>
                     <TapGestureRecognizer Command="{Binding OpenAddAuditPageCommand}"/>
                 </pancake:PancakeView.GestureRecognizers>-->
-                    </pancake:PancakeView>
+                </pancake:PancakeView>
 
-                    <!-- Показатели оценки качества -->
-                    <StackLayout Orientation="Horizontal"  Margin="15,0,0,0">
-                        <Image Source="sun_new_audit"/>
-                        <Label Text="Показатели оценки качества" Style="{StaticResource DarkGrayText}"/>
-                    </StackLayout>
+                <!-- Показатели оценки качества -->
+                <StackLayout Orientation="Horizontal"  Margin="15,0,0,0">
+                    <Image Source="sun_new_audit"/>
+                    <Label Text="Показатели оценки качества" Style="{StaticResource DarkGrayText}"/>
+                </StackLayout>
 
-                    <pancake:PancakeView BackgroundColor="#F2F2F2"
+                <pancake:PancakeView BackgroundColor="#F2F2F2"
                                          Padding="10"
                                          Margin="0,0,0,10"
                                          CornerRadius="5">
-                        <Grid>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="*" />
-                            </Grid.ColumnDefinitions>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
 
-                            <Label Text="Добавить показатель"
+                        <Label Text="Добавить показатель"
                                    Style="{StaticResource GrayText}"
                                    VerticalOptions="Center"
                                    HorizontalOptions="Start"/>
 
-                        </Grid>
-                        <!--<pancake:PancakeView.GestureRecognizers>
+                    </Grid>
+                    <!--<pancake:PancakeView.GestureRecognizers>
                     <TapGestureRecognizer Command="{Binding OpenAddAuditPageCommand}"/>
                 </pancake:PancakeView.GestureRecognizers>-->
-                    </pancake:PancakeView>
+                </pancake:PancakeView>
 
-                    <!-- Добавить показатель -->
-                    <StackLayout Orientation="Horizontal" Margin="15,0,0,10">
-                        <Image Source="add_inspector_new_audit"/>
-                        <Label Text="Добавить показатель"
+                <!-- Добавить показатель -->
+                <StackLayout Orientation="Horizontal" Margin="15,0,0,10">
+                    <Image Source="add_inspector_new_audit"/>
+                    <Label Text="Добавить показатель"
                                VerticalTextAlignment="Center"
                                Style="{StaticResource BlueText}"/>
-                    </StackLayout>
+                </StackLayout>
 
-                    <!-- Кнопка Продолжить -->
-                    <pancake:PancakeView HorizontalOptions="Center"
+                <!-- Кнопка Продолжить -->
+                <pancake:PancakeView HorizontalOptions="Center"
                                          VerticalOptions="End"
                                          BackgroundColor="#3960E2"
                                          Elevation="4"
@@ -269,25 +301,25 @@
                                          Padding="10"
                                          CornerRadius="5"
                                          Margin="0,0,0,1">
-                        <Grid>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="*" />
-                            </Grid.ColumnDefinitions>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
 
-                            <Label Text="Продолжить"
+                        <Label Text="Продолжить"
                                    Style="{StaticResource TitleWhite}"
                                    VerticalOptions="Center"
                                    HorizontalOptions="Center"/>
-                        </Grid>
-                        <!--<pancake:PancakeView.GestureRecognizers>
+                    </Grid>
+                    <!--<pancake:PancakeView.GestureRecognizers>
                     <TapGestureRecognizer Command="{Binding OpenAddAuditPageCommand}"/>
                 </pancake:PancakeView.GestureRecognizers>-->
-                    </pancake:PancakeView>
+                </pancake:PancakeView>
 
-                </StackLayout>
-            </ScrollView>
+            </StackLayout>
+        </ScrollView>
 
-            <!--<ContentView x:Name="popupAuditType"
+        <!--<ContentView x:Name="popupAuditType"
                          BackgroundColor="#C0808080"
                          Padding="10, 0"
                          IsVisible="false"
@@ -304,6 +336,6 @@
                 </StackLayout>
             </ContentView>-->
 
-        </AbsoluteLayout>
+
     </ContentPage.Content>
 </ContentPage>
