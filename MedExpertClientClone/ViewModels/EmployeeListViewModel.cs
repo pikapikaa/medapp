@@ -144,6 +144,14 @@ namespace MedExpertClientClone.ViewModels
         });
 
         /// <summary>
+        /// Команда добавления пользователей
+        /// </summary>
+        public ICommand AddEmployeeCommand => new Command(async () =>
+        {
+            await Navigation.PopModalAsync();
+        });
+
+        /// <summary>
         /// Команда поиска пользователя
         /// </summary>
         public ICommand SearchTextChangedCommand => new Command(() =>
@@ -180,7 +188,7 @@ namespace MedExpertClientClone.ViewModels
                 new Employee(){ FullName = "Воронин Роман Владимирович"},
                 new Employee(){FullName = "Аранзаев Михаил Аранзаевич"},
                 new Employee(){ FullName = "Деревянко Александр Леонидович"},
-                 new Employee(){FullName = "Баева Полина Раднаевна"},
+                new Employee(){FullName = "Баева Полина Раднаевна"},
                 new Employee(){ FullName = "Раднаев Нима Петрович"},
                 new Employee(){FullName = "Будаева Елена Дмитриевна"},
                 new Employee(){ FullName = "Потапова Александра Петровна"},

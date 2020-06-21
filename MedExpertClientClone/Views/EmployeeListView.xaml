@@ -110,7 +110,7 @@
                     <BoxView HeightRequest="70"/>
                 </ListView.Footer>
             </ListView>
-       
+
             <pancake:PancakeView AbsoluteLayout.LayoutBounds=".5, 1,300,50"
                                  AbsoluteLayout.LayoutFlags="XProportional,YProportional"
                                  BackgroundColor="#3960E2"
@@ -128,7 +128,11 @@
                        VerticalOptions="Center"
                        HorizontalOptions="Center"/>
                 </Grid>
-               
+
+                <pancake:PancakeView.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding AddEmployeeCommand}"/>
+                </pancake:PancakeView.GestureRecognizers>
+
             </pancake:PancakeView>
         </AbsoluteLayout>
     </ContentPage.Content>
