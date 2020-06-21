@@ -172,14 +172,21 @@ namespace MedExpertClientClone.ViewModels
         {
             return new List<Employee>()
             {
-                new Employee(){FullName = "Батожаб Будаев"},
-                new Employee(){ FullName = "Раднаев Жамбал"},
-                new Employee(){FullName = "Будаев Будажаб"},
-                new Employee(){ FullName = "Потапов Александр"},
-                new Employee(){FullName = "Миронов Вячеслав"},
-                new Employee(){ FullName = "Воронин Роман"},
-                new Employee(){FullName = "Аранзаев Михаил"},
-                new Employee(){ FullName = "Деревянко Александр"}
+                new Employee(){FullName = "Будаев Батожаб Надмит-Цыренович"},
+                new Employee(){ FullName = "Раднаев Жамбал Олегович"},
+                new Employee(){FullName = "Будаев Будажаб Раднаевич"},
+                new Employee(){ FullName = "Потапов Александр Григорьевич"},
+                new Employee(){FullName = "Миронов Вячеслав Владимирович"},
+                new Employee(){ FullName = "Воронин Роман Владимирович"},
+                new Employee(){FullName = "Аранзаев Михаил Аранзаевич"},
+                new Employee(){ FullName = "Деревянко Александр Леонидович"},
+                 new Employee(){FullName = "Баева Полина Раднаевна"},
+                new Employee(){ FullName = "Раднаев Нима Петрович"},
+                new Employee(){FullName = "Будаева Елена Дмитриевна"},
+                new Employee(){ FullName = "Потапова Александра Петровна"},
+                new Employee(){FullName = "Миронов Вячеслав Леонидович"},
+                new Employee(){ FullName = "Доронин Роман Павлович"},
+          
             };
         }
     }
