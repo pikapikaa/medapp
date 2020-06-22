@@ -4,6 +4,7 @@
              xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
              ios:Page.UseSafeArea="True"
              xmlns:pancake="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+             x:Name="newAuditView"
              x:Class="MedExpertClientClone.Views.NewAuditView">
 
     <NavigationPage.TitleView>
@@ -207,15 +208,12 @@
                                                    VerticalOptions="Center"
                                                    HorizontalOptions="Start"/>
 
-                                            <Image Grid.Column="1"
-                                                   HeightRequest="20"
-                                                   WidthRequest="20"
-                                                   Source="delete_icon"/>
+                                            <ImageButton Grid.Column="1"
+                                                         HeightRequest="20"
+                                                         WidthRequest="20"
+                                                         Source="delete_icon"
+                                                         Command="{Binding Source={x:Reference newAuditView}, Path=BindingContext.DeleteSelectedEmployeeCommand}"/>
                                         </Grid>
-
-                                        <pancake:PancakeView.GestureRecognizers>
-                                            <TapGestureRecognizer Command="{Binding OpenEmployeeListViewCommand}"/>
-                                        </pancake:PancakeView.GestureRecognizers>
 
                                     </pancake:PancakeView>
                                 </StackLayout>

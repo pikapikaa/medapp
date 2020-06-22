@@ -212,6 +212,14 @@ namespace MedExpertClientClone.ViewModels
             Navigation.PushModalAsync(new NavigationPage(new EmployeeListView()), true);
         });
 
+        /// <summary>
+        /// Команда для удаления выбранного пользователя
+        /// </summary>
+        public ICommand DeleteSelectedEmployeeCommand => new Command(() =>
+        {
+            Console.WriteLine("delete employee");
+        });
+
         public event PropertyChangedEventHandler PropertyChanged;
 
         void OnPropertyChanged([CallerMemberName] string name = "")
