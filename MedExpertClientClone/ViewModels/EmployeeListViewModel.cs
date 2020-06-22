@@ -148,6 +148,7 @@ namespace MedExpertClientClone.ViewModels
         /// </summary>
         public ICommand AddEmployeeCommand => new Command(async () =>
         {
+            MessagingCenter.Send(this, MessageKeys.AddEmployeers);
             await Navigation.PopModalAsync();
         });
 
@@ -194,7 +195,7 @@ namespace MedExpertClientClone.ViewModels
                 new Employee(){ FullName = "Потапова Александра Петровна"},
                 new Employee(){FullName = "Миронов Вячеслав Леонидович"},
                 new Employee(){ FullName = "Доронин Роман Павлович"},
-          
+
             };
         }
     }

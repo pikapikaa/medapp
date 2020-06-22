@@ -19,6 +19,8 @@ namespace MedExpertClientClone.ViewModels
     {
         private bool isChangedStartDate = false;
         private bool isChangedEndDate = false;
+        private bool isListEmployeesVisible = false;
+
         private double listViewSelectedEmployeesHeight = 0;
 
         private ObservableCollection<Employee> selectedEmployees =
@@ -102,6 +104,19 @@ namespace MedExpertClientClone.ViewModels
             }
         }
 
+        public bool IsListEmployeesVisible
+        {
+            get { return isListEmployeesVisible; }
+            set
+            {
+                if (isChangedEndDate != value)
+                {
+                    isListEmployeesVisible = value;
+                    OnPropertyChanged();
+                }
+            }
+        }
+
         public string PeriodDateInText
         {
             get
@@ -145,6 +160,21 @@ namespace MedExpertClientClone.ViewModels
                       PeriodDateOut = sender.SelectedDate;
                       IsChangedEndDate = true;
                   });
+
+            MessagingCenter.Subscribe<EmployeeListViewModel>(this,
+                 MessageKeys.AddEmployeers, sender =>
+                 {
+
+                     var t = new ObservableCollection<Employee>(sender.Employees
+                                         .Where(i => (i is Employee && (((Employee)i)
+                                         .IsChecked))));
+                     SelectedEmployees = t;
+                     ListViewSelectedEmployeesHeight = (50 * SelectedEmployees.Count);
+                     if (SelectedEmployees.Count != 0)
+                     {
+                         IsListEmployeesVisible = true;
+                     }
+                 });
 
             var _listOfItems = new DataFactory().GetEmployees();
             SelectedEmployees = new ObservableCollection<Employee>(_listOfItems);
@@ -225,6 +255,11 @@ namespace MedExpertClientClone.ViewModels
                                               .FullName.ToLower()
                                               .Contains(employee.FullName.ToLower()))));
                 SelectedEmployees = _employeesFiltered;
+                ListViewSelectedEmployeesHeight = (50 * SelectedEmployees.Count);
+                if (SelectedEmployees.Count == 0)
+                {
+                    IsListEmployeesVisible = false;
+                }
                 OnPropertyChanged(nameof(SelectedEmployees));
             }
 

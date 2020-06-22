@@ -164,7 +164,17 @@
                     <Label Text="Члены комиссии" Style="{StaticResource DarkGrayText}"/>
                 </StackLayout>
 
-                <pancake:PancakeView BackgroundColor="#F2F2F2"
+                <StackLayout Orientation="Horizontal" Margin="15,10,0,10">
+                    <Image Source="add_inspector_new_audit"/>
+                    <Label Text="Добавить членов комиссии"
+                               VerticalTextAlignment="Center"
+                               Style="{StaticResource BlueText}"/>
+                     <StackLayout.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding OpenEmployeeListViewCommand}"/>
+                    </StackLayout.GestureRecognizers>
+                </StackLayout>
+
+                <!--<pancake:PancakeView BackgroundColor="#F2F2F2"
                                      Padding="10"
                                      Margin="0,0,0,10"
                                      CornerRadius="5">
@@ -182,12 +192,13 @@
                     <pancake:PancakeView.GestureRecognizers>
                         <TapGestureRecognizer Command="{Binding OpenEmployeeListViewCommand}"/>
                     </pancake:PancakeView.GestureRecognizers>
-                </pancake:PancakeView>
+                </pancake:PancakeView>-->
 
-                <!--<ListView x:Name="ListSelectedEmployees"
+                <ListView x:Name="ListSelectedEmployees"
                           ItemsSource="{Binding SelectedEmployees}"
                           SeparatorVisibility="None"
                           HasUnevenRows="True"
+                          IsVisible="{Binding IsListEmployeesVisible}"
                           HeightRequest="{Binding ListViewSelectedEmployeesHeight}"
                           BackgroundColor="Transparent">
                     <ListView.ItemTemplate>
@@ -225,15 +236,15 @@
                             </ViewCell>
                         </DataTemplate>
                     </ListView.ItemTemplate>
-                </ListView>-->
+                </ListView>
 
                 <!-- Добавить проверяющих -->
-                <StackLayout Orientation="Horizontal" Margin="15,0,0,10">
+                <!--<StackLayout Orientation="Horizontal" Margin="15,0,0,10">
                     <Image Source="add_inspector_new_audit"/>
                     <Label Text="Добавить проверяющих"
                                VerticalTextAlignment="Center"
                                Style="{StaticResource BlueText}"/>
-                </StackLayout>
+                </StackLayout>-->
 
                 <!-- Председатель комиссии -->
                 <StackLayout Orientation="Horizontal"  Margin="15,0,0,0">

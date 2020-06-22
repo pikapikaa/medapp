@@ -35,5 +35,10 @@ namespace MedExpertClientClone.ViewModels.Base
         /// Сообщение события сортировки по умолчанию
         /// </summary>
         public const string DefaultSort = nameof(DefaultSort);
+
+        /// <summary>
+        /// Сообщение события добавления пользователя
+        /// </summary>
+        public const string AddEmployeers = nameof(AddEmployeers);
     }
 }
