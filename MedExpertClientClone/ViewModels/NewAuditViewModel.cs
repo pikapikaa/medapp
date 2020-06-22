@@ -11,6 +11,7 @@ using System.Runtime.CompilerServices;
 using System.Globalization;
 using System.Collections.ObjectModel;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace MedExpertClientClone.ViewModels
 {
@@ -215,9 +216,19 @@ namespace MedExpertClientClone.ViewModels
         /// <summary>
         /// Команда для удаления выбранного пользователя
         /// </summary>
-        public ICommand DeleteSelectedEmployeeCommand => new Command(() =>
+        public ICommand DeleteSelectedEmployeeCommand => new Command((e) =>
         {
-            Console.WriteLine("delete employee");
+            if (e is Employee employee)
+            {
+                var _employeesFiltered = new ObservableCollection<Employee>(SelectedEmployees
+                                              .Where(i => (i is Employee && !i
+                                              .FullName.ToLower()
+                                              .Contains(employee.FullName.ToLower()))));
+                SelectedEmployees = _employeesFiltered;
+                OnPropertyChanged(nameof(SelectedEmployees));
+            }
+
+
         });
 
         public event PropertyChangedEventHandler PropertyChanged;

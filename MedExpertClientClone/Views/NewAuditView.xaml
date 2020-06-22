@@ -184,7 +184,8 @@
                     </pancake:PancakeView.GestureRecognizers>
                 </pancake:PancakeView>
 
-                <!--<ListView ItemsSource="{Binding SelectedEmployees}"
+                <!--<ListView x:Name="ListSelectedEmployees"
+                          ItemsSource="{Binding SelectedEmployees}"
                           SeparatorVisibility="None"
                           HasUnevenRows="True"
                           HeightRequest="{Binding ListViewSelectedEmployeesHeight}"
@@ -212,7 +213,11 @@
                                                          HeightRequest="20"
                                                          WidthRequest="20"
                                                          Source="delete_icon"
-                                                         Command="{Binding Source={x:Reference newAuditView}, Path=BindingContext.DeleteSelectedEmployeeCommand}"/>
+                                                         
+                                                        
+                                                         Command="{Binding Source={x:Reference newAuditView}, Path=BindingContext.DeleteSelectedEmployeeCommand}"
+                                                            CommandParameter="{Binding .}"
+                                                         />
                                         </Grid>
 
                                     </pancake:PancakeView>
