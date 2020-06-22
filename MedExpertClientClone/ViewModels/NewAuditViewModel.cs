@@ -109,11 +109,8 @@ namespace MedExpertClientClone.ViewModels
             get { return isListEmployeesVisible; }
             set
             {
-                if (isChangedEndDate != value)
-                {
                     isListEmployeesVisible = value;
                     OnPropertyChanged();
-                }
             }
         }
 
@@ -270,6 +267,7 @@ namespace MedExpertClientClone.ViewModels
                     IsListEmployeesVisible = false;
                 }
                 OnPropertyChanged(nameof(SelectedEmployees));
+                OnPropertyChanged(nameof(IsListEmployeesVisible));
             }
 
 

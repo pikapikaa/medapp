@@ -164,7 +164,7 @@
                     <Label Text="Члены комиссии" Style="{StaticResource DarkGrayText}"/>
                 </StackLayout>
 
-                <StackLayout Orientation="Horizontal" Margin="15,10,0,10">
+                <!--<StackLayout Orientation="Horizontal" Margin="15,10,0,10">
                     <Image Source="add_inspector_new_audit"/>
                     <Label Text="Добавить членов комиссии"
                                VerticalTextAlignment="Center"
@@ -172,12 +172,13 @@
                      <StackLayout.GestureRecognizers>
                         <TapGestureRecognizer Command="{Binding OpenEmployeeListViewCommand}"/>
                     </StackLayout.GestureRecognizers>
-                </StackLayout>
+                </StackLayout>-->
 
-                <!--<pancake:PancakeView BackgroundColor="#F2F2F2"
+                <pancake:PancakeView BackgroundColor="#F2F2F2"
                                      Padding="10"
                                      Margin="0,0,0,10"
-                                     CornerRadius="5">
+                                     CornerRadius="5"
+                                     IsVisible="{Binding IsListEmployeesVisible, Converter={StaticResource InverseBoolConverter}}">
                     <Grid>
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="*" />
@@ -192,7 +193,7 @@
                     <pancake:PancakeView.GestureRecognizers>
                         <TapGestureRecognizer Command="{Binding OpenEmployeeListViewCommand}"/>
                     </pancake:PancakeView.GestureRecognizers>
-                </pancake:PancakeView>-->
+                </pancake:PancakeView>
 
                 <ListView x:Name="ListSelectedEmployees"
                           ItemsSource="{Binding SelectedEmployees}"
@@ -237,6 +238,18 @@
                         </DataTemplate>
                     </ListView.ItemTemplate>
                 </ListView>
+
+                <StackLayout Orientation="Horizontal"
+                              Margin="15,0,0,10"
+                              IsVisible="{Binding IsListEmployeesVisible}">
+                    <Image Source="add_inspector_new_audit"/>
+                    <Label Text="Добавить членов комиссии"
+                               VerticalTextAlignment="Center"
+                               Style="{StaticResource BlueText}"/>
+                    <StackLayout.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding OpenEmployeeListViewCommand}"/>
+                    </StackLayout.GestureRecognizers>
+                </StackLayout>
 
                 <!-- Добавить проверяющих -->
                 <!--<StackLayout Orientation="Horizontal" Margin="15,0,0,10">
