@@ -7,6 +7,7 @@ namespace MedExpertClientClone.Models
 {
     public class Employee : INotifyPropertyChanged
     {
+        public int Id { get; set; }
         public string FullName { get; set; }
         private bool isChecked;
 

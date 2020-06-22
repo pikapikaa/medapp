@@ -110,7 +110,7 @@ namespace MedExpertClientClone.ViewModels
         {
             if (emp is Employee employee)
             {
-                var item = Employees.FirstOrDefault(i => i.FullName == employee.FullName);
+                var item = Employees.FirstOrDefault(i => i.Id == employee.Id);
                 if (item != null)
                 {
                     item.IsChecked = !item.IsChecked;
@@ -181,20 +181,20 @@ namespace MedExpertClientClone.ViewModels
         {
             return new List<Employee>()
             {
-                new Employee(){FullName = "Будаев Батожаб Надмит-Цыренович"},
-                new Employee(){ FullName = "Раднаев Жамбал Олегович"},
-                new Employee(){FullName = "Будаев Будажаб Раднаевич"},
-                new Employee(){ FullName = "Потапов Александр Григорьевич"},
-                new Employee(){FullName = "Миронов Вячеслав Владимирович"},
-                new Employee(){ FullName = "Воронин Роман Владимирович"},
-                new Employee(){FullName = "Аранзаев Михаил Аранзаевич"},
-                new Employee(){ FullName = "Деревянко Александр Леонидович"},
-                new Employee(){FullName = "Баева Полина Раднаевна"},
-                new Employee(){ FullName = "Раднаев Нима Петрович"},
-                new Employee(){FullName = "Будаева Елена Дмитриевна"},
-                new Employee(){ FullName = "Потапова Александра Петровна"},
-                new Employee(){FullName = "Миронов Вячеслав Леонидович"},
-                new Employee(){ FullName = "Доронин Роман Павлович"},
+                new Employee(){Id=1,FullName = "Будаев Батожаб Надмит-Цыренович"},
+                new Employee(){Id=2,FullName = "Раднаев Жамбал Олегович"},
+                new Employee(){Id=3,FullName = "Будаев Будажаб Раднаевич"},
+                new Employee(){Id=4, FullName = "Потапов Александр Григорьевич"},
+                new Employee(){Id=5,FullName = "Миронов Вячеслав Владимирович"},
+                new Employee(){Id=6, FullName = "Воронин Роман Владимирович"},
+                new Employee(){Id=7,FullName = "Аранзаев Михаил Аранзаевич"},
+                new Employee(){Id=8, FullName = "Деревянко Александр Леонидович"},
+                new Employee(){Id=9,FullName = "Баева Полина Раднаевна"},
+                new Employee(){Id=10, FullName = "Раднаев Нима Петрович"},
+                new Employee(){Id=11,FullName = "Будаева Елена Дмитриевна"},
+                new Employee(){Id=12, FullName = "Потапова Александра Петровна"},
+                new Employee(){Id=13,FullName = "Миронов Вячеслав Леонидович"},
+                new Employee(){Id=14, FullName = "Доронин Роман Павлович"},
 
             };
         }

@@ -167,8 +167,13 @@ namespace MedExpertClientClone.ViewModels
 
                      var t = new ObservableCollection<Employee>(sender.Employees
                                          .Where(i => (i is Employee && (((Employee)i)
-                                         .IsChecked))));
-                     SelectedEmployees = t;
+                                         .IsChecked) && !IsExistInCurrentList(i))));
+                     if (t.Count != 0)
+                     {
+                         foreach (var item in t)
+                             SelectedEmployees.Add(item);
+                     }
+
                      ListViewSelectedEmployeesHeight = (50 * SelectedEmployees.Count);
                      if (SelectedEmployees.Count != 0)
                      {
@@ -176,9 +181,14 @@ namespace MedExpertClientClone.ViewModels
                      }
                  });
 
-            var _listOfItems = new DataFactory().GetEmployees();
-            SelectedEmployees = new ObservableCollection<Employee>(_listOfItems);
-            ListViewSelectedEmployeesHeight = (50 * _listOfItems.Count);
+            SelectedEmployees = new ObservableCollection<Employee>();
+            ListViewSelectedEmployeesHeight = 0;
+        }
+
+        private bool IsExistInCurrentList(Employee o)
+        {
+            var flag = SelectedEmployees.Any(e => e.Id == o.Id);
+            return flag;
         }
 
         /// <summary>
@@ -251,9 +261,8 @@ namespace MedExpertClientClone.ViewModels
             if (e is Employee employee)
             {
                 var _employeesFiltered = new ObservableCollection<Employee>(SelectedEmployees
-                                              .Where(i => (i is Employee && !i
-                                              .FullName.ToLower()
-                                              .Contains(employee.FullName.ToLower()))));
+                                              .Where(i => (i is Employee && i
+                                              .Id != employee.Id)));
                 SelectedEmployees = _employeesFiltered;
                 ListViewSelectedEmployeesHeight = (50 * SelectedEmployees.Count);
                 if (SelectedEmployees.Count == 0)
