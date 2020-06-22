@@ -147,7 +147,7 @@ namespace MedExpertClientClone.ViewModels
 
             var _listOfItems = new DataFactory().GetEmployees();
             SelectedEmployees = new ObservableCollection<Employee>(_listOfItems);
-            ListViewSelectedEmployeesHeight = (40 * _listOfItems.Count);
+            ListViewSelectedEmployeesHeight = (50 * _listOfItems.Count);
         }
 
         /// <summary>

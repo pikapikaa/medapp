@@ -238,5 +238,8 @@
     <BundleResource Include="Resources\round_check_box_active%402x.png" />
     <BundleResource Include="Resources\round_check_box_active%403x.png" />
     <BundleResource Include="Resources\round_check_box_active.png" />
+    <BundleResource Include="Resources\delete_icon%402x.png" />
+    <BundleResource Include="Resources\delete_icon%403x.png" />
+    <BundleResource Include="Resources\delete_icon.png" />
   </ItemGroup>
 </Project>
