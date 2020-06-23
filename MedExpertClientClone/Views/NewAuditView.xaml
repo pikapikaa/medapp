@@ -174,27 +174,6 @@
                     </StackLayout.GestureRecognizers>
                 </StackLayout>-->
 
-                <pancake:PancakeView BackgroundColor="#F2F2F2"
-                                     Padding="10"
-                                     Margin="0,0,0,10"
-                                     CornerRadius="5"
-                                     IsVisible="{Binding IsListEmployeesVisible, Converter={StaticResource InverseBoolConverter}}">
-                    <Grid>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="*" />
-                        </Grid.ColumnDefinitions>
-
-                        <Label Text="Добавить членов комиссии"
-                               Style="{StaticResource GrayText}"
-                               VerticalOptions="Center"
-                               HorizontalOptions="Start"/>
-
-                    </Grid>
-                    <pancake:PancakeView.GestureRecognizers>
-                        <TapGestureRecognizer Command="{Binding OpenEmployeeListViewCommand}"/>
-                    </pancake:PancakeView.GestureRecognizers>
-                </pancake:PancakeView>
-
                 <ListView x:Name="ListSelectedEmployees"
                           ItemsSource="{Binding SelectedEmployees}"
                           SeparatorVisibility="None"
@@ -224,12 +203,9 @@
                                             <ImageButton Grid.Column="1"
                                                          HeightRequest="20"
                                                          WidthRequest="20"
-                                                         Source="delete_icon"
-                                                         
-                                                        
+                                                         Source="delete_red"
                                                          Command="{Binding Source={x:Reference newAuditView}, Path=BindingContext.DeleteSelectedEmployeeCommand}"
-                                                            CommandParameter="{Binding .}"
-                                                         />
+                                                         CommandParameter="{Binding .}"/>
                                         </Grid>
 
                                     </pancake:PancakeView>
@@ -239,7 +215,32 @@
                     </ListView.ItemTemplate>
                 </ListView>
 
-                <StackLayout Orientation="Horizontal"
+                <pancake:PancakeView BackgroundColor="#F2F2F2"
+                                     Padding="7,7,0,7"
+                                     Margin="0,0,0,10"
+                                     CornerRadius="5">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+
+                        <Label Text="Добавить членов комиссии"
+                               Style="{StaticResource GrayText}"
+                               VerticalOptions="Center"
+                               HorizontalOptions="Start"/>
+                        <Image Grid.Column="1"
+                               Source="add_inspector_new_audit"
+                               WidthRequest="25"
+                               HeightRequest="25"/>
+
+                    </Grid>
+                    <pancake:PancakeView.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding OpenEmployeeListViewCommand}"/>
+                    </pancake:PancakeView.GestureRecognizers>
+                </pancake:PancakeView>
+
+                <!--<StackLayout Orientation="Horizontal"
                               Margin="15,0,0,10"
                               IsVisible="{Binding IsListEmployeesVisible}">
                     <Image Source="add_inspector_new_audit"/>
@@ -249,7 +250,7 @@
                     <StackLayout.GestureRecognizers>
                         <TapGestureRecognizer Command="{Binding OpenEmployeeListViewCommand}"/>
                     </StackLayout.GestureRecognizers>
-                </StackLayout>
+                </StackLayout>-->
 
                 <!-- Добавить проверяющих -->
                 <!--<StackLayout Orientation="Horizontal" Margin="15,0,0,10">

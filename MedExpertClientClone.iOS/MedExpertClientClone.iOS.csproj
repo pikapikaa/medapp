@@ -241,5 +241,8 @@
     <BundleResource Include="Resources\delete_icon%402x.png" />
     <BundleResource Include="Resources\delete_icon%403x.png" />
     <BundleResource Include="Resources\delete_icon.png" />
+    <BundleResource Include="Resources\delete_red%402x.png" />
+    <BundleResource Include="Resources\delete_red%403x.png" />
+    <BundleResource Include="Resources\delete_red.png" />
   </ItemGroup>
 </Project>
