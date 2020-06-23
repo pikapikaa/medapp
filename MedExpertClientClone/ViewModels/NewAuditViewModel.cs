@@ -171,7 +171,7 @@ namespace MedExpertClientClone.ViewModels
                              SelectedEmployees.Add(item);
                      }
 
-                     ListViewSelectedEmployeesHeight = (50 * SelectedEmployees.Count);
+                     ListViewSelectedEmployeesHeight = (49 * SelectedEmployees.Count);
                      if (SelectedEmployees.Count != 0)
                      {
                          IsListEmployeesVisible = true;
@@ -261,7 +261,7 @@ namespace MedExpertClientClone.ViewModels
                                               .Where(i => (i is Employee && i
                                               .Id != employee.Id)));
                 SelectedEmployees = _employeesFiltered;
-                ListViewSelectedEmployeesHeight = (50 * SelectedEmployees.Count);
+                ListViewSelectedEmployeesHeight = (49 * SelectedEmployees.Count);
                 if (SelectedEmployees.Count == 0)
                 {
                     IsListEmployeesVisible = false;

@@ -180,6 +180,7 @@
                           HasUnevenRows="True"
                           IsVisible="{Binding IsListEmployeesVisible}"
                           HeightRequest="{Binding ListViewSelectedEmployeesHeight}"
+                          VerticalScrollBarVisibility="Never"
                           BackgroundColor="Transparent">
                     <ListView.ItemTemplate>
                         <DataTemplate>
