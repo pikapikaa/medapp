@@ -14,12 +14,12 @@
     <ContentPage.Content>
 
         <ScrollView>
-            <StackLayout Padding="15">
+            <StackLayout Padding="15" Spacing="0">
 
                 <Label Text="Проверка WAEF32FESDFS" Style="{StaticResource Title}" Margin="0,0,0,15"/>
 
                 <!-- Предмет проверки -->
-                <StackLayout Orientation="Horizontal" Margin="15,0,0,0">
+                <StackLayout Orientation="Horizontal" Margin="15,0,0,5">
                     <Image Source="subject_new_audit"/>
                     <Label Text="Предмет проверки" Style="{StaticResource DarkGrayText}"/>
                 </StackLayout>
@@ -51,7 +51,7 @@
                 </pancake:PancakeView>
 
                 <!-- Основание -->
-                <StackLayout Orientation="Horizontal" Margin="15,0,0,0">
+                <StackLayout Orientation="Horizontal" Margin="15,0,0,5">
                     <Image Source="foundation_new_audit"/>
                     <Label Text="Основание" Style="{StaticResource DarkGrayText}"/>
                 </StackLayout>
@@ -83,7 +83,7 @@
                 </pancake:PancakeView>
 
                 <!-- Вид проверки -->
-                <StackLayout Orientation="Horizontal"  Margin="15,0,0,0">
+                <StackLayout Orientation="Horizontal"  Margin="15,0,0,5">
                     <Image Source="type_new_audit"/>
                     <Label Text="Вид проверки" Style="{StaticResource DarkGrayText}"/>
                 </StackLayout>
@@ -115,7 +115,7 @@
                 </pancake:PancakeView>
 
                 <!-- Период -->
-                <StackLayout Orientation="Horizontal"  Margin="15,0,0,0">
+                <StackLayout Orientation="Horizontal"  Margin="15,0,0,5">
                     <Image Source="period_new_audit"/>
                     <Label Text="Период" Style="{StaticResource DarkGrayText}"/>
                 </StackLayout>
@@ -159,7 +159,7 @@
                 </Grid>
 
                 <!-- Члены комиссии -->
-                <StackLayout Orientation="Horizontal"  Margin="15,0,0,0">
+                <StackLayout Orientation="Horizontal"  Margin="15,0,0,5">
                     <Image Source="members_new_audit"/>
                     <Label Text="Члены комиссии" Style="{StaticResource DarkGrayText}"/>
                 </StackLayout>
@@ -185,7 +185,7 @@
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <ViewCell>
-                                <StackLayout Padding="0,0,0,7">
+                                <StackLayout Padding="0,0,0,7" BackgroundColor="Transparent">
                                     <pancake:PancakeView BackgroundColor="#F2F2F2"
                                                          Padding="5,10,5,10"
                                                          CornerRadius="5">
@@ -197,6 +197,7 @@
                                             </Grid.ColumnDefinitions>
 
                                             <Label Text="{Binding FullName}"
+                                                   LineBreakMode="TailTruncation"
                                                    Style="{StaticResource GrayText}"
                                                    VerticalOptions="Center"
                                                    HorizontalOptions="Start"/>
@@ -262,7 +263,7 @@
                 </StackLayout>-->
 
                 <!-- Председатель комиссии -->
-                <StackLayout Orientation="Horizontal"  Margin="15,0,0,0">
+                <StackLayout Orientation="Horizontal"  Margin="15,0,0,5">
                     <Image Source="crown_new_audit"/>
                     <Label Text="Председатель комиссии" Style="{StaticResource DarkGrayText}"/>
                 </StackLayout>
@@ -294,7 +295,7 @@
                 </pancake:PancakeView>
 
                 <!-- Показатели оценки качества -->
-                <StackLayout Orientation="Horizontal"  Margin="15,0,0,0">
+                <StackLayout Orientation="Horizontal"  Margin="15,0,0,5">
                     <Image Source="sun_new_audit"/>
                     <Label Text="Показатели оценки качества" Style="{StaticResource DarkGrayText}"/>
                 </StackLayout>
@@ -320,12 +321,12 @@
                 </pancake:PancakeView>
 
                 <!-- Добавить показатель -->
-                <StackLayout Orientation="Horizontal" Margin="15,0,0,10">
+                <!--<StackLayout Orientation="Horizontal" Margin="15,0,0,10">
                     <Image Source="add_inspector_new_audit"/>
                     <Label Text="Добавить показатель"
                                VerticalTextAlignment="Center"
                                Style="{StaticResource BlueText}"/>
-                </StackLayout>
+                </StackLayout>-->
 
                 <!-- Кнопка Продолжить -->
                 <pancake:PancakeView HorizontalOptions="Center"
@@ -335,7 +336,7 @@
                                          HasShadow="True"
                                          Padding="10"
                                          CornerRadius="5"
-                                         Margin="0,0,0,1">
+                                         Margin="0,15,0,1">
                     <Grid>
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="*" />
