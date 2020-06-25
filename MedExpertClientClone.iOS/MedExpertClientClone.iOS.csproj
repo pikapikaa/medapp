@@ -244,5 +244,11 @@
     <BundleResource Include="Resources\delete_red%402x.png" />
     <BundleResource Include="Resources\delete_red%403x.png" />
     <BundleResource Include="Resources\delete_red.png" />
+    <BundleResource Include="Resources\right_arrow_calendar%402x.png" />
+    <BundleResource Include="Resources\right_arrow_calendar%403x.png" />
+    <BundleResource Include="Resources\right_arrow_calendar.png" />
+    <BundleResource Include="Resources\left_arrow_calendar%402x.png" />
+    <BundleResource Include="Resources\left_arrow_calendar%403x.png" />
+    <BundleResource Include="Resources\left_arrow_calendar.png" />
   </ItemGroup>
 </Project>
