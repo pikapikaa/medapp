@@ -1,0 +1,80 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<pages:PopupPage xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
+                 xmlns="http://xamarin.com/schemas/2014/forms"
+                 xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                 xmlns:plugin="clr-namespace:Xamarin.Plugin.Calendar.Controls;assembly=Xamarin.Plugin.Calendar"
+                 x:Class="MedExpertClientClone.Views.CalendarPopupView">
+    <StackLayout VerticalOptions="Center"
+                 HorizontalOptions="FillAndExpand"
+                 Padding="20,20,20,20">
+        <Frame Padding="0">
+            <StackLayout BackgroundColor="White" Padding="0, 10, 0, 10">
+                <plugin:Calendar Padding="10,0"
+                                 Culture="{Binding Culture}"
+                                 FooterSectionVisible="False"
+                                 HorizontalOptions="Center"
+                                 SelectedDate="{Binding SelectedDate}"
+                                 VerticalOptions="Center"
+                                 DaysTitleLabelStyle="{StaticResource SmallText}"
+                                 DaysLabelStyle="{StaticResource DarkGrayText}"
+                                 WidthRequest="320">
+
+                    <plugin:Calendar.HeaderSectionTemplate>
+                        <DataTemplate>
+                            <Grid Margin="7,6"
+                                  Padding="0"
+                                  HorizontalOptions="FillAndExpand"
+                                  IsVisible="{Binding ShowMonthPicker}"
+                                  VerticalOptions="Start">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto" />
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto" />
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="Auto" />
+                                </Grid.ColumnDefinitions>
+
+                                <ImageButton Grid.Column="0"
+                                             Source="left_arrow_calendar"
+                                             WidthRequest="10"
+                                             HeightRequest="10"
+                                             Aspect="AspectFit"
+                                             Padding="0"
+                                             Command="{Binding PrevMonthCommand}"/>
+
+                                <Label
+                                    Grid.Column="1"
+                                    Style="{StaticResource Title}"
+                                    HorizontalOptions="Center"
+                                    VerticalOptions="Center">
+                                    <Label.FormattedText>
+                                        <FormattedString>
+                                            <Span Text="{Binding MonthText, Mode=TwoWay}" />
+                                            <Span Text=" " />
+                                            <Span Text="{Binding Year, Mode=TwoWay}" />
+                                        </FormattedString>
+                                    </Label.FormattedText>
+                                </Label>
+
+                                <ImageButton Grid.Column="2"
+                                             Padding="0"
+                                             Source="right_arrow_calendar"
+                                             WidthRequest="10"
+                                             HeightRequest="10"
+                                             Aspect="AspectFit"
+                                             Command="{Binding NextMonthCommand}"/>
+                            </Grid>
+                        </DataTemplate>
+                    </plugin:Calendar.HeaderSectionTemplate>
+                </plugin:Calendar>
+                <Button Text="Выбрать"
+                        Style="{StaticResource TitleWhite}"
+                        BackgroundColor="#3960E2"
+                        Command="{Binding SelectStartDateCommand}"
+                        Margin="10"/>
+            </StackLayout>
+        </Frame>
+
+    </StackLayout>
+</pages:PopupPage>
