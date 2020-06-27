@@ -250,5 +250,14 @@
     <BundleResource Include="Resources\left_arrow_calendar%402x.png" />
     <BundleResource Include="Resources\left_arrow_calendar%403x.png" />
     <BundleResource Include="Resources\left_arrow_calendar.png" />
+    <BundleResource Include="Resources\location%402x.png" />
+    <BundleResource Include="Resources\location%403x.png" />
+    <BundleResource Include="Resources\location.png" />
+    <BundleResource Include="Resources\structural_unit%402x.png" />
+    <BundleResource Include="Resources\structural_unit%403x.png" />
+    <BundleResource Include="Resources\structural_unit.png" />
+    <BundleResource Include="Resources\check_list%402x.png" />
+    <BundleResource Include="Resources\check_list%403x.png" />
+    <BundleResource Include="Resources\check_list.png" />
   </ItemGroup>
 </Project>
