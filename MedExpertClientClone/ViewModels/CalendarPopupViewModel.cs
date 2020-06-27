@@ -13,9 +13,23 @@ namespace MedExpertClientClone.ViewModels
         private DateTime _selectedDate = DateTime.Today;
         private CultureInfo _culture = new CultureInfo("ru", false);
         private CalendarType calendarType;
+        private NewAuditViewModel newAuditViewModel;
 
         public CalendarPopupViewModel()
         {
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public NewAuditViewModel NewAuditViewModel
+        {
+            get { return newAuditViewModel; }
+            set
+            {
+                newAuditViewModel = value;
+                SetProperty(ref newAuditViewModel, value);
+            }
         }
 
         /// <summary>
@@ -62,15 +76,20 @@ namespace MedExpertClientClone.ViewModels
         /// </summary>
         public ICommand SelectStartDateCommand => new Command(async () =>
         {
-            if (CalendarType == CalendarType.StartDate)
+            var r = NewAuditViewModel;
+            if ((CalendarType == CalendarType.StartDate && SelectedDate < NewAuditViewModel.PeriodDateOut) ||
+            (CalendarType == CalendarType.StartDate && NewAuditViewModel.IsChangedEndDate == false))
             {
                 MessagingCenter.Send(this, MessageKeys.StartDateAudit);
+                await PopupNavigation.Instance.PopAsync();
             }
-            else if (CalendarType == CalendarType.EndDate)
+            else if ((CalendarType == CalendarType.EndDate && SelectedDate > NewAuditViewModel.PeriodDateIn) ||
+            (CalendarType == CalendarType.EndDate && NewAuditViewModel.IsChangedStartDate == false))
             {
                 MessagingCenter.Send(this, MessageKeys.EndDateAudit);
+                await PopupNavigation.Instance.PopAsync();
             }
-            await PopupNavigation.Instance.PopAsync();
+           
         });
 
     }

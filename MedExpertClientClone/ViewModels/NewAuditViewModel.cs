@@ -249,7 +249,8 @@ namespace MedExpertClientClone.ViewModels
         {
             var calendarViewModel = new CalendarPopupViewModel
             {
-                CalendarType = CalendarType.StartDate
+                CalendarType = CalendarType.StartDate,
+                NewAuditViewModel = this
             };
 
             var page = new CalendarPopupView();
@@ -264,7 +265,8 @@ namespace MedExpertClientClone.ViewModels
         {
             var calendarViewModel = new CalendarPopupViewModel
             {
-                CalendarType = CalendarType.EndDate
+                CalendarType = CalendarType.EndDate,
+                NewAuditViewModel = this
             };
 
             var page = new CalendarPopupView();
