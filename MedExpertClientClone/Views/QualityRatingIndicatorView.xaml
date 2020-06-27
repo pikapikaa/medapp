@@ -119,9 +119,9 @@
                                HeightRequest="25"/>
 
                     </Grid>
-                    <!--<pancake:PancakeView.GestureRecognizers>
-                        <TapGestureRecognizer Command="{Binding OpenEmployeeListViewCommand}"/>
-                    </pancake:PancakeView.GestureRecognizers>-->
+                    <pancake:PancakeView.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding OpenCheckListViewCommand}"/>
+                    </pancake:PancakeView.GestureRecognizers>
                 </pancake:PancakeView>
 
                 <!-- Присутствующие -->
@@ -153,6 +153,30 @@
                     <!--<pancake:PancakeView.GestureRecognizers>
                         <TapGestureRecognizer Command="{Binding OpenEmployeeListViewCommand}"/>
                     </pancake:PancakeView.GestureRecognizers>-->
+                </pancake:PancakeView>
+
+                <!-- Кнопка -->
+                <pancake:PancakeView HorizontalOptions="Center"
+                                     VerticalOptions="EndAndExpand"
+                                     BackgroundColor="#3960E2"
+                                     Elevation="4"
+                                     HasShadow="True"
+                                     Padding="10"
+                                     CornerRadius="5"
+                                     Margin="0,15,0,1">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+
+                        <Label Text="Добавить показатель"
+                               Style="{StaticResource TitleWhite}"
+                               VerticalOptions="Center"
+                               HorizontalOptions="Center"/>
+                    </Grid>
+                    <!--<pancake:PancakeView.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding OpenAddAuditPageCommand}"/>
+                </pancake:PancakeView.GestureRecognizers>-->
                 </pancake:PancakeView>
 
             </StackLayout>

@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-
+using MedExpertClientClone.ViewModels;
 using Xamarin.Forms;
 
 namespace MedExpertClientClone.Views
@@ -10,6 +10,10 @@ namespace MedExpertClientClone.Views
         public QualityRatingIndicatorView()
         {
             InitializeComponent();
+            this.BindingContext = new QualityRatingIndicatorViewModel()
+            {
+                Navigation = this.Navigation
+            };
         }
 
         void ImageButton_Clicked(System.Object sender, System.EventArgs e)
