@@ -51,6 +51,18 @@ namespace MedExpertClientClone.ViewModels
             }
         }
 
+        public string ChairmanText
+        {
+            get
+            {
+                if(Chairman?.FullName != null)
+                {
+                    return $"{Chairman.FullName}";
+                }
+                return "Выбрать";
+            }
+        }
+
         public bool IsChairmanVisible
         {
             get { return isChairmanVisible; }
@@ -204,8 +216,8 @@ namespace MedExpertClientClone.ViewModels
             MessagingCenter.Subscribe<Employee>(this,
                 MessageKeys.AddChairman, sender =>
                 {
-                    IsChairmanVisible = true;
                     Chairman = sender;
+                    OnPropertyChanged(nameof(ChairmanText));
                 });
 
             SelectedEmployees = new ObservableCollection<Employee>();
@@ -319,6 +331,15 @@ namespace MedExpertClientClone.ViewModels
             Chairman = new Employee();
             IsChairmanVisible = false;
         });
+
+        /// <summary>
+        /// Команда для открытия показателя оценки качества
+        /// </summary>
+        public ICommand OpenQualityRatingIndicatorCommand => new Command(() =>
+        {
+            Navigation.PushModalAsync(new NavigationPage(new QualityRatingIndicatorView()), true);
+        });
+
 
         public event PropertyChangedEventHandler PropertyChanged;
 
