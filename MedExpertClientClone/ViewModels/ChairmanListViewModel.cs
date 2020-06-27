@@ -155,8 +155,12 @@ namespace MedExpertClientClone.ViewModels
         /// </summary>
         public ICommand AddChairmanCommand => new Command(async () =>
         {
-            MessagingCenter.Send(this, MessageKeys.AddChairman);
-            await Navigation.PopModalAsync();
+            var item = Employees.FirstOrDefault(i => i.IsChecked);
+            if (item != null)
+            {
+                MessagingCenter.Send(item, MessageKeys.AddChairman);
+                await Navigation.PopModalAsync();
+            }
         });
 
         public event PropertyChangedEventHandler PropertyChanged;

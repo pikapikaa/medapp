@@ -239,6 +239,34 @@
                 </StackLayout>
 
                 <pancake:PancakeView BackgroundColor="#F2F2F2"
+                                     IsVisible="{Binding IsChairmanVisible}"
+                                     Margin="0,0,0,10"
+                                     Padding="5,10,5,10"
+                                     CornerRadius="5">
+
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+
+                        <Label Text="{Binding Chairman.FullName}"
+                               LineBreakMode="TailTruncation"
+                               Style="{StaticResource GrayText}"
+                               VerticalOptions="Center"
+                               HorizontalOptions="Start"/>
+
+                        <ImageButton Grid.Column="1"
+                                     HeightRequest="20"
+                                     WidthRequest="20"
+                                     Source="delete_red"
+                                     Command="{Binding Source={x:Reference newAuditView}, Path=BindingContext.DeleteSelectedChairmanCommand}"
+                                     CommandParameter="{Binding .}"/>
+                    </Grid>
+
+                </pancake:PancakeView>
+
+                <pancake:PancakeView BackgroundColor="#F2F2F2"
                                      Padding="7,7,0,7"
                                      Margin="0,0,0,10"
                                      CornerRadius="5">

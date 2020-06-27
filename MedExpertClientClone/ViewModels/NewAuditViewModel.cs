@@ -20,6 +20,9 @@ namespace MedExpertClientClone.ViewModels
         private bool isChangedStartDate = false;
         private bool isChangedEndDate = false;
         private bool isListEmployeesVisible = false;
+        private bool isChairmanVisible = false;
+
+        private Employee chairman = new Employee();
 
         private double listViewSelectedEmployeesHeight = 0;
 
@@ -35,6 +38,26 @@ namespace MedExpertClientClone.ViewModels
             {
                 selectedEmployees = value;
                 OnPropertyChanged(nameof(SelectedEmployees));
+            }
+        }
+
+        public Employee Chairman
+        {
+            get { return chairman; }
+            set
+            {
+                chairman = value;
+                OnPropertyChanged();
+            }
+        }
+
+        public bool IsChairmanVisible
+        {
+            get { return isChairmanVisible; }
+            set
+            {
+                isChairmanVisible = value;
+                OnPropertyChanged();
             }
         }
 
@@ -109,8 +132,8 @@ namespace MedExpertClientClone.ViewModels
             get { return isListEmployeesVisible; }
             set
             {
-                    isListEmployeesVisible = value;
-                    OnPropertyChanged();
+                isListEmployeesVisible = value;
+                OnPropertyChanged();
             }
         }
 
@@ -178,10 +201,11 @@ namespace MedExpertClientClone.ViewModels
                      }
                  });
 
-            MessagingCenter.Subscribe<EmployeeListViewModel>(this,
+            MessagingCenter.Subscribe<Employee>(this,
                 MessageKeys.AddChairman, sender =>
                 {
-
+                    IsChairmanVisible = true;
+                    Chairman = sender;
                 });
 
             SelectedEmployees = new ObservableCollection<Employee>();
@@ -275,8 +299,6 @@ namespace MedExpertClientClone.ViewModels
                 OnPropertyChanged(nameof(SelectedEmployees));
                 OnPropertyChanged(nameof(IsListEmployeesVisible));
             }
-
-
         });
 
         /// <summary>
@@ -285,6 +307,15 @@ namespace MedExpertClientClone.ViewModels
         public ICommand OpenChairmanListViewCommand => new Command(() =>
         {
             Navigation.PushModalAsync(new NavigationPage(new ChairmanListView()), true);
+        });
+
+        /// <summary>
+        /// Команда для удаления выбранного председателя
+        /// </summary>
+        public ICommand DeleteSelectedChairmanCommand => new Command((e) =>
+        {
+            Chairman = new Employee();
+            IsChairmanVisible = false;
         });
 
         public event PropertyChangedEventHandler PropertyChanged;
