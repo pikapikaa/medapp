@@ -22,9 +22,9 @@
     <ContentPage.Content>
 
          <ListView ItemsSource="{Binding AuditTypes}"
-                  SeparatorVisibility="None"
-                  HasUnevenRows="True"
-                  Margin="20,10,10,0">
+                   SeparatorVisibility="None"
+                   HasUnevenRows="True"
+                   Margin="20,10,10,0">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>

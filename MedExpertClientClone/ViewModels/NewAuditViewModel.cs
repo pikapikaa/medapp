@@ -178,6 +178,12 @@ namespace MedExpertClientClone.ViewModels
                      }
                  });
 
+            MessagingCenter.Subscribe<EmployeeListViewModel>(this,
+                MessageKeys.AddChairman, sender =>
+                {
+
+                });
+
             SelectedEmployees = new ObservableCollection<Employee>();
             ListViewSelectedEmployeesHeight = 0;
         }
@@ -271,6 +277,14 @@ namespace MedExpertClientClone.ViewModels
             }
 
 
+        });
+
+        /// <summary>
+        /// Команда для открытия списка сотрудников
+        /// </summary>
+        public ICommand OpenChairmanListViewCommand => new Command(() =>
+        {
+            Navigation.PushModalAsync(new NavigationPage(new ChairmanListView()), true);
         });
 
         public event PropertyChangedEventHandler PropertyChanged;

@@ -1,0 +1,139 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:MedExpertClientClone.Renderers"
+             xmlns:behaviors="clr-namespace:MedExpertClientClone.Behaviors"
+             xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+             ios:Page.UseSafeArea="True"
+             xmlns:pancake="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+             x:Class="MedExpertClientClone.Views.ChairmanListView"
+             x:Name="chairmanListView">
+
+      <NavigationPage.TitleView>
+        <StackLayout Orientation="Horizontal"
+                     Margin="10"
+                     VerticalOptions="CenterAndExpand">
+            <ImageButton Source="close_page_icon"
+                         BackgroundColor="Transparent"
+                         VerticalOptions="Center"
+                         HorizontalOptions="Start"
+                         Command="{Binding ClosePageCommand}"
+                         HeightRequest="15"
+                         WidthRequest="15"
+                         />
+            <Label Text="Список сотрудников" 
+                   MaxLines="1"
+                   Margin="20,0,0,0"
+                   HorizontalTextAlignment="Start"
+                   IsVisible="{Binding IsEntryVisible, Converter={StaticResource InverseBoolConverter}}"
+                   Style="{StaticResource Title}"/>
+            <local:CustomEntryRenderer Margin="5,0,0,0" 
+                                       Text="{Binding SearchText}"
+                                       HorizontalOptions="FillAndExpand"
+                                       BackgroundColor="Transparent"
+                                       HorizontalTextAlignment="Start"
+                                       IsVisible="{Binding IsEntryVisible}"
+                                       Placeholder="Поиск"
+                                       Style="{StaticResource Title}">
+                <local:CustomEntryRenderer.Behaviors>
+                    <behaviors:EventToCommandBehavior EventName="TextChanged"
+                                                      Command="{Binding SearchTextChangedCommand}"
+                                                      />
+                </local:CustomEntryRenderer.Behaviors>
+            </local:CustomEntryRenderer>
+        </StackLayout>
+    </NavigationPage.TitleView>
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem IconImageSource="search_icon" Command="{Binding ShowSearchEntryCommand}"/>
+        <ToolbarItem IconImageSource="three_dots_icon" Command="{Binding OpenMenuPopupCommand}" />
+    </ContentPage.ToolbarItems>
+
+    <ContentPage.Content>
+        <AbsoluteLayout Padding="20">
+
+            <ListView AbsoluteLayout.LayoutBounds="0,0,1,1"
+                      AbsoluteLayout.LayoutFlags="WidthProportional,HeightProportional"
+                      ItemsSource="{Binding Employees}"
+                      SeparatorVisibility="None"
+                      HasUnevenRows="True">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid RowSpacing="0">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="Auto" />
+                                </Grid.ColumnDefinitions>
+
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                </Grid.RowDefinitions>
+
+                                <Label Grid.Column="0"
+                                   Grid.Row="0"
+                                   Text="{Binding FullName}"
+                                   VerticalTextAlignment="Center"
+                                   Style="{StaticResource NormalText}">
+                                </Label>
+
+                                <Image Source="check_box_inactive"
+                                   Grid.Column="1"
+                                   Grid.Row="0"
+                                   IsVisible="{Binding IsChecked, Converter={StaticResource InverseBoolConverter}}"/>
+
+                                <Image Source="check_box_active"
+                                   Grid.Column="1"
+                                   Grid.Row="0"
+                                   IsVisible="{Binding IsChecked}"/>
+
+                                <BoxView Grid.ColumnSpan="2"
+                                     Grid.Row="1"
+                                     HorizontalOptions="FillAndExpand"
+                                     HeightRequest="1"
+                                     Margin="0,15,0,15"
+                                     Color="#E3E3E3"/>
+
+                                <Grid.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding Source={x:Reference chairmanListView}, Path=BindingContext.ClickCheckBoxCommand}"
+                                                  CommandParameter="{Binding .}"
+                                                  NumberOfTapsRequired="1" />
+                                </Grid.GestureRecognizers>
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+
+                <ListView.Footer>
+                    <BoxView HeightRequest="70"/>
+                </ListView.Footer>
+            </ListView>
+
+            <pancake:PancakeView AbsoluteLayout.LayoutBounds=".5, 1,300,50"
+                                 AbsoluteLayout.LayoutFlags="XProportional,YProportional"
+                                 BackgroundColor="#3960E2"
+                                 Elevation="4"
+                                 HasShadow="True"
+                                 CornerRadius="25">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+
+                    <Label Text="Добавить председателя"
+                       Style="{StaticResource TitleWhite}"
+                       x:Name="AddAuditBtn"
+                       VerticalOptions="Center"
+                       HorizontalOptions="Center"/>
+                </Grid>
+
+                <pancake:PancakeView.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding AddChairmanCommand}"/>
+                </pancake:PancakeView.GestureRecognizers>
+
+            </pancake:PancakeView>
+        </AbsoluteLayout>
+    </ContentPage.Content>
+
+</ContentPage>

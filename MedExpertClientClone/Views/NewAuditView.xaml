@@ -164,16 +164,6 @@
                     <Label Text="Члены комиссии" Style="{StaticResource DarkGrayText}"/>
                 </StackLayout>
 
-                <!--<StackLayout Orientation="Horizontal" Margin="15,10,0,10">
-                    <Image Source="add_inspector_new_audit"/>
-                    <Label Text="Добавить членов комиссии"
-                               VerticalTextAlignment="Center"
-                               Style="{StaticResource BlueText}"/>
-                     <StackLayout.GestureRecognizers>
-                        <TapGestureRecognizer Command="{Binding OpenEmployeeListViewCommand}"/>
-                    </StackLayout.GestureRecognizers>
-                </StackLayout>-->
-
                 <ListView x:Name="ListSelectedEmployees"
                           ItemsSource="{Binding SelectedEmployees}"
                           SeparatorVisibility="None"
@@ -242,26 +232,6 @@
                     </pancake:PancakeView.GestureRecognizers>
                 </pancake:PancakeView>
 
-                <!--<StackLayout Orientation="Horizontal"
-                              Margin="15,0,0,10"
-                              IsVisible="{Binding IsListEmployeesVisible}">
-                    <Image Source="add_inspector_new_audit"/>
-                    <Label Text="Добавить членов комиссии"
-                               VerticalTextAlignment="Center"
-                               Style="{StaticResource BlueText}"/>
-                    <StackLayout.GestureRecognizers>
-                        <TapGestureRecognizer Command="{Binding OpenEmployeeListViewCommand}"/>
-                    </StackLayout.GestureRecognizers>
-                </StackLayout>-->
-
-                <!-- Добавить проверяющих -->
-                <!--<StackLayout Orientation="Horizontal" Margin="15,0,0,10">
-                    <Image Source="add_inspector_new_audit"/>
-                    <Label Text="Добавить проверяющих"
-                               VerticalTextAlignment="Center"
-                               Style="{StaticResource BlueText}"/>
-                </StackLayout>-->
-
                 <!-- Председатель комиссии -->
                 <StackLayout Orientation="Horizontal"  Margin="15,0,0,5">
                     <Image Source="crown_new_audit"/>
@@ -269,29 +239,29 @@
                 </StackLayout>
 
                 <pancake:PancakeView BackgroundColor="#F2F2F2"
-                                         Padding="10"
-                                         Margin="0,0,0,10"
-                                         CornerRadius="5">
+                                     Padding="7,7,0,7"
+                                     Margin="0,0,0,10"
+                                     CornerRadius="5">
                     <Grid>
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="*" />
                             <ColumnDefinition Width="Auto" />
                         </Grid.ColumnDefinitions>
 
-                        <Label Text="Выбрать"
-                                   Style="{StaticResource Text}"
-                                   VerticalOptions="Center"
-                                   HorizontalOptions="Start"/>
+                        <Label Text="Добавить председателя комиссии"
+                               Style="{StaticResource GrayText}"
+                               VerticalOptions="Center"
+                               HorizontalOptions="Start"/>
 
                         <Image Grid.Column="1"
-                                   Source="dropdown"
-                                   WidthRequest="10"
-                                   HeightRequest="10"/>
+                               Source="add_inspector_new_audit"
+                               WidthRequest="25"
+                               HeightRequest="25"/>
 
                     </Grid>
-                    <!--<pancake:PancakeView.GestureRecognizers>
-                    <TapGestureRecognizer Command="{Binding OpenAddAuditPageCommand}"/>
-                </pancake:PancakeView.GestureRecognizers>-->
+                    <pancake:PancakeView.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding OpenChairmanListViewCommand}"/>
+                    </pancake:PancakeView.GestureRecognizers>
                 </pancake:PancakeView>
 
                 <!-- Показатели оценки качества -->
