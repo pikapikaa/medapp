@@ -45,5 +45,10 @@ namespace MedExpertClientClone.ViewModels.Base
         /// Сообщение события добавления председателя
         /// </summary>
         public const string AddChairman = nameof(AddChairman);
+
+        /// <summary>
+        /// Сообщение события добавления чек-листа
+        /// </summary>
+        public const string AddCheckLists = nameof(AddCheckLists);
     }
 }

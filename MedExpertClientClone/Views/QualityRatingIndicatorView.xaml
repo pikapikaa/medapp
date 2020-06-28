@@ -4,7 +4,8 @@
              xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
              ios:Page.UseSafeArea="True"
              xmlns:pancake="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
-             x:Class="MedExpertClientClone.Views.QualityRatingIndicatorView">
+             x:Class="MedExpertClientClone.Views.QualityRatingIndicatorView"
+             x:Name="qualityRatingIndicatorView">
 
     <!-- Шапка -->
     <NavigationPage.TitleView>
@@ -68,9 +69,9 @@
                 </StackLayout>
 
                 <pancake:PancakeView BackgroundColor="#F2F2F2"
-                                         Padding="10"
-                                         Margin="0,0,0,10"
-                                         CornerRadius="5">
+                                     Padding="10"
+                                     Margin="0,0,0,10"
+                                     CornerRadius="5">
                     <Grid>
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="*" />
@@ -78,14 +79,14 @@
                         </Grid.ColumnDefinitions>
 
                         <Label Text="Выбрать"
-                                   Style="{StaticResource Text}"
-                                   VerticalOptions="Center"
-                                   HorizontalOptions="Start"/>
+                               Style="{StaticResource Text}"
+                               VerticalOptions="Center"
+                               HorizontalOptions="Start"/>
 
                         <Image Grid.Column="1"
-                                   Source="dropdown"
-                                   WidthRequest="10"
-                                   HeightRequest="10"/>
+                               Source="dropdown"
+                               WidthRequest="10"
+                               HeightRequest="10"/>
 
                     </Grid>
                     <!--<pancake:PancakeView.GestureRecognizers>
@@ -98,6 +99,42 @@
                     <Image Source="check_list"/>
                     <Label Text="Чек-лист" Style="{StaticResource DarkGrayText}"/>
                 </StackLayout>
+
+                <CollectionView HeightRequest="{Binding ListViewSelectedCheckListsHeight}"
+                                IsVisible="{Binding IsListCheckListsVisible}"
+                                BackgroundColor="Transparent"
+                                ItemsSource="{Binding SelectedCheckLists}" >
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <StackLayout Padding="0,0,0,7" BackgroundColor="Transparent">
+                                <pancake:PancakeView BackgroundColor="#F2F2F2"
+                                                     Padding="5,10,5,10"
+                                                     CornerRadius="5">
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="*" />
+                                            <ColumnDefinition Width="Auto" />
+                                        </Grid.ColumnDefinitions>
+
+                                        <Label Text="{Binding Name}"
+                                               LineBreakMode="TailTruncation"
+                                               Style="{StaticResource GrayText}"
+                                               VerticalOptions="Center"
+                                               HorizontalOptions="Start"/>
+
+                                        <ImageButton Grid.Column="1"
+                                                     HeightRequest="20"
+                                                     WidthRequest="20"
+                                                     Source="delete_red"
+                                                     Command="{Binding Source={x:Reference qualityRatingIndicatorView}, Path=BindingContext.DeleteSelectedCheckListCommand}"
+                                                     CommandParameter="{Binding .}"/>
+                                    </Grid>
+
+                                </pancake:PancakeView>
+                            </StackLayout>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
 
                 <pancake:PancakeView BackgroundColor="#F2F2F2"
                                      Padding="7,7,0,7"

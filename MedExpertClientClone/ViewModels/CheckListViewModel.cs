@@ -6,6 +6,7 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Windows.Input;
 using MedExpertClientClone.Models;
+using MedExpertClientClone.ViewModels.Base;
 using Xamarin.Forms;
 
 namespace MedExpertClientClone.ViewModels
@@ -58,9 +59,9 @@ namespace MedExpertClientClone.ViewModels
 
         public INavigation Navigation { get; set; }
 
-        public ICommand CloseCheckListViewCommand => new Command(() =>
+        public ICommand CloseCheckListViewCommand => new Command(async () =>
         {
-            Navigation.PopModalAsync();
+            await Navigation.PopModalAsync();
         });
 
         public ICommand ClickCheckBoxCommand => new Command((emp) =>
@@ -93,7 +94,13 @@ namespace MedExpertClientClone.ViewModels
                                             .Contains(SearchText.ToLower())))));
                 CheckLists = _checkListsFiltered;
             }
-        }); 
+        });
+
+        public ICommand AddCheckListsCommand => new Command(async () =>
+        {
+            MessagingCenter.Send(this, MessageKeys.AddCheckLists);
+            await Navigation.PopModalAsync();
+        });
 
         public event PropertyChangedEventHandler PropertyChanged;
 
