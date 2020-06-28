@@ -9,6 +9,8 @@ using MedExpertClientClone.Views;
 using Xamarin.Forms;
 using System.Collections.Generic;
 using System.Linq;
+using Rg.Plugins.Popup.Services;
+using MedExpertClientClone.Views.Popups;
 
 namespace MedExpertClientClone.ViewModels
 {
@@ -69,23 +71,31 @@ namespace MedExpertClientClone.ViewModels
         /// <summary>
         /// Команда для 
         /// </summary>
-        public ICommand DeleteSelectedCheckListCommand => new Command((e) =>
+        public ICommand DeleteSelectedCheckListCommand => new Command(async (e) =>
         {
-            if (e is CheckList employee)
+            var checkListViewModel = new MenuCheckListPopupViewModel()
             {
-                var _employeesFiltered = new ObservableCollection<CheckList>(SelectedCheckLists
-                                              .Where(i => (i is CheckList && i
-                                              .Id != employee.Id)));
-                SelectedCheckLists = _employeesFiltered;
-                ListViewSelectedCheckListsHeight = (49 * SelectedCheckLists.Count);
-                if (SelectedCheckLists.Count == 0)
-                {
-                    IsListCheckListsVisible = false;
-                }
-                OnPropertyChanged(nameof(SelectedCheckLists));
-                OnPropertyChanged(nameof(IsListCheckListsVisible));
-            }
-        }); 
+                QualityRatingIndicatorViewModel = this
+            };
+            var page = new MenuCheckListPopupView();
+            page.BindingContext = checkListViewModel;
+
+            await PopupNavigation.Instance.PushAsync(page, false);
+            //if (e is CheckList employee)
+            //{
+            //    var _employeesFiltered = new ObservableCollection<CheckList>(SelectedCheckLists
+            //                                  .Where(i => (i is CheckList && i
+            //                                  .Id != employee.Id)));
+            //    SelectedCheckLists = _employeesFiltered;
+            //    ListViewSelectedCheckListsHeight = (49 * SelectedCheckLists.Count);
+            //    if (SelectedCheckLists.Count == 0)
+            //    {
+            //        IsListCheckListsVisible = false;
+            //    }
+            //    OnPropertyChanged(nameof(SelectedCheckLists));
+            //    OnPropertyChanged(nameof(IsListCheckListsVisible));
+            //}
+        });
 
         public QualityRatingIndicatorViewModel()
         {
