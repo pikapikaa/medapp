@@ -69,33 +69,24 @@ namespace MedExpertClientClone.ViewModels
         });
 
         /// <summary>
-        /// Команда для 
+        /// Команда для открытия контекстного меню для отдельного чек-листа
         /// </summary>
-        public ICommand DeleteSelectedCheckListCommand => new Command(async (e) =>
+        public ICommand OpenContextMenuCheckListCommand => new Command(async (e) =>
         {
-            var checkListViewModel = new MenuCheckListPopupViewModel()
+            if (e is CheckList employee)
             {
-                QualityRatingIndicatorViewModel = this
-            };
-            var page = new MenuCheckListPopupView();
-            page.BindingContext = checkListViewModel;
+                var checkListViewModel = new MenuCheckListPopupViewModel()
+                {
+                    QualityRatingIndicatorViewModel = this,
+                    SelectedCheckList = employee
+                };
 
-            await PopupNavigation.Instance.PushAsync(page, false);
-            //if (e is CheckList employee)
-            //{
-            //    var _employeesFiltered = new ObservableCollection<CheckList>(SelectedCheckLists
-            //                                  .Where(i => (i is CheckList && i
-            //                                  .Id != employee.Id)));
-            //    SelectedCheckLists = _employeesFiltered;
-            //    ListViewSelectedCheckListsHeight = (49 * SelectedCheckLists.Count);
-            //    if (SelectedCheckLists.Count == 0)
-            //    {
-            //        IsListCheckListsVisible = false;
-            //    }
-            //    OnPropertyChanged(nameof(SelectedCheckLists));
-            //    OnPropertyChanged(nameof(IsListCheckListsVisible));
-            //}
-        });
+                var page = new MenuCheckListPopupView();
+                page.BindingContext = checkListViewModel;
+
+                await PopupNavigation.Instance.PushAsync(page, false);
+            }
+        }); 
 
         public QualityRatingIndicatorViewModel()
         {

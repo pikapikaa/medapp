@@ -30,7 +30,7 @@
                 </Label>
                 <Label Text="Удалить" Style="{StaticResource Text}">
                     <Label.GestureRecognizers>
-                        <TapGestureRecognizer Command="{Binding OpenSortPopupCommand}"
+                        <TapGestureRecognizer Command="{Binding DeleteSelectedCheckListCommand}"
                                               NumberOfTapsRequired="1"  />
                     </Label.GestureRecognizers>
                 </Label>

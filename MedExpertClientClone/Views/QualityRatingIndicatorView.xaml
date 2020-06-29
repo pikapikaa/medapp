@@ -128,7 +128,8 @@
                                                      HeightRequest="15"
                                                      WidthRequest="10"
                                                      Source="three_dots_icon"
-                                                     Command="{Binding Source={x:Reference qualityRatingIndicatorView}, Path=BindingContext.DeleteSelectedCheckListCommand}"
+                                                     Command="{Binding Source={x:Reference qualityRatingIndicatorView},
+                                                               Path=BindingContext.OpenContextMenuCheckListCommand}"
                                                      CommandParameter="{Binding .}"/>
                                     </Grid>
 
