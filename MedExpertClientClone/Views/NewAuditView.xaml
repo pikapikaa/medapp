@@ -98,7 +98,7 @@
                             <ColumnDefinition Width="Auto" />
                         </Grid.ColumnDefinitions>
 
-                        <Label Text="Выбрать"
+                        <Label Text="{Binding AuditTypeText}"
                                    Style="{StaticResource Text}"
                                    VerticalOptions="Center"
                                    HorizontalOptions="Start"/>

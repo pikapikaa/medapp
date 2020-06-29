@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Name="auditTypeListView"
              x:Class="MedExpertClientClone.Views.AuditTypeListView">
 
     <NavigationPage.TitleView>
@@ -21,7 +22,7 @@
 
     <ContentPage.Content>
 
-         <ListView ItemsSource="{Binding AuditTypes}"
+        <ListView ItemsSource="{Binding AuditTypes}"
                    SeparatorVisibility="None"
                    HasUnevenRows="True"
                    Margin="20,10,10,0">
@@ -44,22 +45,13 @@
                                    Text="{Binding Name}"
                                    VerticalTextAlignment="Center"
                                    Style="{StaticResource NormalText}">
-                                <!--<Label.GestureRecognizers>
-                                    <TapGestureRecognizer Command="{Binding Source={x:Reference auditSubjectListView}, Path=BindingContext.ClickCheckBoxCommand}"
-                                                          CommandParameter="{Binding .}"
-                                                          NumberOfTapsRequired="1" />
-                                </Label.GestureRecognizers>-->
                             </Label>
-                            <!--<CheckBox Grid.Column="1"
-                                      Grid.Row="0"
-                                      Color="Black"
-                                      />-->
-                            <!--<BoxView Grid.ColumnSpan="2"
-                                     Grid.Row="1"
-                                     HorizontalOptions="FillAndExpand"
-                                     HeightRequest="1"
-                                     Margin="0,5,0,5"
-                                     Color="#E3E3E3"/>-->
+
+                            <Grid.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding Source={x:Reference auditTypeListView}, Path=BindingContext.SelectAuditTypeCommand}"
+                                                      CommandParameter="{Binding .}"
+                                                      NumberOfTapsRequired="1" />
+                            </Grid.GestureRecognizers>
                         </Grid>
                     </ViewCell>
                 </DataTemplate>
