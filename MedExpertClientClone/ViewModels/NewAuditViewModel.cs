@@ -23,6 +23,7 @@ namespace MedExpertClientClone.ViewModels
         private bool isChairmanVisible = false;
 
         private Employee chairman = new Employee();
+        private AuditSubject auditSubject = new AuditSubject();
 
         private double listViewSelectedEmployeesHeight = 0;
 
@@ -48,6 +49,28 @@ namespace MedExpertClientClone.ViewModels
             {
                 chairman = value;
                 OnPropertyChanged();
+            }
+        }
+
+        public AuditSubject AuditSubject
+        {
+            get { return auditSubject; }
+            set
+            {
+                auditSubject = value;
+                OnPropertyChanged();
+            }
+        }
+
+        public string AuditSubjectText
+        {
+            get
+            {
+                if (AuditSubject?.Name != null)
+                {
+                    return $"{AuditSubject.Name}";
+                }
+                return "Выбрать";
             }
         }
 
@@ -219,6 +242,13 @@ namespace MedExpertClientClone.ViewModels
                     Chairman = sender;
                     OnPropertyChanged(nameof(ChairmanText));
                 });
+
+            MessagingCenter.Subscribe<AuditSubject>(this,
+              MessageKeys.AddAuditSubject, sender =>
+              {
+                  AuditSubject = sender;
+                  OnPropertyChanged(nameof(AuditSubjectText));
+              });
 
             SelectedEmployees = new ObservableCollection<Employee>();
             ListViewSelectedEmployeesHeight = 0;

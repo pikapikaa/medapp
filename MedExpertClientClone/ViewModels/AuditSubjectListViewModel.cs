@@ -2,9 +2,11 @@
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Windows.Input;
+using System.Linq;
 using MedExpertClientClone.Models;
 using MedExpertClientClone.Views;
 using Xamarin.Forms;
+using MedExpertClientClone.ViewModels.Base;
 
 namespace MedExpertClientClone.ViewModels
 {
@@ -12,7 +14,7 @@ namespace MedExpertClientClone.ViewModels
     {
         private ObservableCollection<AuditSubject> auditSubjects =
             new ObservableCollection<AuditSubject>();
-        
+
         public ObservableCollection<AuditSubject> AuditSubjects
         {
             get { return auditSubjects; }
@@ -56,6 +58,22 @@ namespace MedExpertClientClone.ViewModels
                 }
             }
         }
+
+        public ICommand AddAuditSubjectCommand => new Command(async () =>
+        {
+            var selectedAuditSubject = AuditSubjects.FirstOrDefault(i => i.IsChecked);
+
+            if (selectedAuditSubject != null)
+            {
+                MessagingCenter.Send(selectedAuditSubject, MessageKeys.AddAuditSubject);
+                await Navigation.PopModalAsync();
+            }
+        });
+
+        public ICommand ClosePageCommand => new Command(async () =>
+        {
+            await Navigation.PopModalAsync();
+        });
 
         protected void OnPropertyChanged(string propName)
         {

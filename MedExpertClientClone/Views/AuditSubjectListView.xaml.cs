@@ -14,12 +14,6 @@ namespace MedExpertClientClone.Views
             {
                 Navigation = this.Navigation
             };
-            auditSubjectlistView.ItemSelected += (sender, e) =>
-            {
-                if (e.SelectedItem == null) return;
-              
-                ((ListView)sender).SelectedItem = null;
-            };
         }
 
         void Button_Clicked(System.Object sender, System.EventArgs e)

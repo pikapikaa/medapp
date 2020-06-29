@@ -34,7 +34,7 @@
                             <ColumnDefinition Width="Auto" />
                         </Grid.ColumnDefinitions>
 
-                        <Label Text="Выбрать"
+                        <Label Text="{Binding AuditSubjectText}"
                                    Style="{StaticResource Text}"
                                    VerticalOptions="Center"
                                    HorizontalOptions="Start"/>

@@ -50,5 +50,10 @@ namespace MedExpertClientClone.ViewModels.Base
         /// Сообщение события добавления чек-листа
         /// </summary>
         public const string AddCheckLists = nameof(AddCheckLists);
+
+        /// <summary>
+        /// Сообщение события добавления предмета проверки
+        /// </summary>
+        public const string AddAuditSubject = nameof(AddAuditSubject);
     }
 }
