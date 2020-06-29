@@ -55,5 +55,10 @@ namespace MedExpertClientClone.ViewModels.Base
         /// Сообщение события добавления предмета проверки
         /// </summary>
         public const string AddAuditSubject = nameof(AddAuditSubject);
+
+        /// <summary>
+        /// Сообщение события добавления основания проверки
+        /// </summary>
+        public const string AddAuditBase = nameof(AddAuditBase);
     }
 }

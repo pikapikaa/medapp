@@ -24,6 +24,7 @@ namespace MedExpertClientClone.ViewModels
 
         private Employee chairman = new Employee();
         private AuditSubject auditSubject = new AuditSubject();
+        private AuditBase auditBase = new AuditBase();
 
         private double listViewSelectedEmployeesHeight = 0;
 
@@ -62,6 +63,16 @@ namespace MedExpertClientClone.ViewModels
             }
         }
 
+        public AuditBase AuditBase
+        {
+            get { return auditBase; }
+            set
+            {
+                auditBase = value;
+                OnPropertyChanged();
+            }
+        }
+
         public string AuditSubjectText
         {
             get
@@ -74,11 +85,23 @@ namespace MedExpertClientClone.ViewModels
             }
         }
 
+        public string AuditBaseText
+        {
+            get
+            {
+                if (AuditBase?.Name != null)
+                {
+                    return $"{AuditBase.Name}";
+                }
+                return "Выбрать";
+            }
+        }
+
         public string ChairmanText
         {
             get
             {
-                if(Chairman?.FullName != null)
+                if (Chairman?.FullName != null)
                 {
                     return $"{Chairman.FullName}";
                 }
@@ -248,6 +271,13 @@ namespace MedExpertClientClone.ViewModels
               {
                   AuditSubject = sender;
                   OnPropertyChanged(nameof(AuditSubjectText));
+              });
+
+            MessagingCenter.Subscribe<AuditBase>(this,
+              MessageKeys.AddAuditBase, sender =>
+              {
+                  AuditBase = sender;
+                  OnPropertyChanged(nameof(AuditBaseText));
               });
 
             SelectedEmployees = new ObservableCollection<Employee>();

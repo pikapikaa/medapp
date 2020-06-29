@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
+using System.Linq;
 using System.Windows.Input;
 using MedExpertClientClone.Models;
+using MedExpertClientClone.ViewModels.Base;
 using Xamarin.Forms;
 
 namespace MedExpertClientClone.ViewModels
@@ -51,6 +53,22 @@ namespace MedExpertClientClone.ViewModels
                 }
             }
         }
+
+        public ICommand ClosePageCommand => new Command(async () =>
+        {
+            await Navigation.PopModalAsync();
+        });
+
+        public ICommand AddAuditBaseCommand => new Command(async () =>
+        {
+            var selectedAuditBase = AuditBases.FirstOrDefault(i => i.IsChecked);
+
+            if (selectedAuditBase != null)
+            {
+                MessagingCenter.Send(selectedAuditBase, MessageKeys.AddAuditBase);
+                await Navigation.PopModalAsync();
+            }
+        });
 
         protected void OnPropertyChanged(string propName)
         {
