@@ -26,10 +26,7 @@
         <Grid Padding="20,20,20,10" RowSpacing="15">
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
                 <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
@@ -50,85 +47,67 @@
                              Command="{Binding CloseAuditorListPopupViewCommand}"/>
             </Grid>
 
-            <Grid Grid.Row="1">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="Auto"/>
-                </Grid.ColumnDefinitions>
+            <ListView Grid.Row="1"
+                      HeightRequest="{Binding ListAuditorsHeight}"
+                      ItemsSource="{Binding Auditors}"
+                      SeparatorVisibility="None"
+                      HasUnevenRows="True"
+                      x:Name="auditorslistView">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid RowSpacing="0">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="Auto" />
+                                </Grid.ColumnDefinitions>
 
-                <Label Text="Иванов Иван Иванович"
-                       Style="{StaticResource NormalText}"/>
-                <Image Grid.Column="1"
-                       Source="round_check_box_active"/>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                </Grid.RowDefinitions>
 
-                <!--<Grid.GestureRecognizers>
-                    <TapGestureRecognizer Command="{Binding Source={x:Reference sortPopupView}, Path=BindingContext.ClickDefaultSortCommand}"
-                                          CommandParameter="{Binding .}"
-                                          NumberOfTapsRequired="1" />
-                </Grid.GestureRecognizers>-->
-            </Grid>
+                                <Label Grid.Column="0"
+                                       Grid.Row="0"
+                                       Text="{Binding FullName}"
+                                       VerticalTextAlignment="Center"
+                                       Style="{StaticResource NormalText}">
+                                </Label>
 
-            <Grid Grid.Row="2">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="Auto"/>
-                </Grid.ColumnDefinitions>
+                                <!--<Image Source="check_box_inactive"
+                                       Grid.Column="1"
+                                       Grid.Row="0"
+                                       IsVisible="{Binding IsChecked, Converter={StaticResource InverseBoolConverter}}"/>-->
 
-                <Label Text="Баиров Баир Баирович"
-                       Style="{StaticResource NormalText}"/>
-                <Image Grid.Column="1"
-                       Source="round_check_box_inactive"/>
+                                <Image Source="check_box_active"
+                                       Grid.Column="1"
+                                       Grid.Row="0"/>
 
-                <Grid.GestureRecognizers>
-                    <!--<TapGestureRecognizer Command="{Binding Source={x:Reference sortPopupView}, Path=BindingContext.ClickDateSortCommand}"
-                                          CommandParameter="{Binding .}"
-                                          NumberOfTapsRequired="1" />-->
-                </Grid.GestureRecognizers>
-            </Grid>
+                                <BoxView Grid.ColumnSpan="2"
+                                         Grid.Row="1"
+                                         HorizontalOptions="FillAndExpand"
+                                         HeightRequest="1"
+                                         Margin="0,15,0,15"
+                                         Color="#E3E3E3"/>
 
-            <Grid Grid.Row="3">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="Auto"/>
-                </Grid.ColumnDefinitions>
+                                <!--<Grid.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding Source={x:Reference employeetListView}, Path=BindingContext.ClickCheckBoxCommand}"
+                                                          CommandParameter="{Binding .}"
+                                                          NumberOfTapsRequired="1" />
+                                </Grid.GestureRecognizers>-->
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
 
-                <Label Text="Павлов Павел Павлович"
-                       Style="{StaticResource NormalText}"/>
-                <Image Grid.Column="1"
-                       Source="round_check_box_inactive"/>
-
-                <Grid.GestureRecognizers>
-                    <!--<TapGestureRecognizer Command="{Binding Source={x:Reference sortPopupView}, Path=BindingContext.ClickAscendingSortCommand}"
-                                          CommandParameter="{Binding .}"
-                                          NumberOfTapsRequired="1" />-->
-                </Grid.GestureRecognizers>
-            </Grid>
-
-            <Grid Grid.Row="4">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="Auto"/>
-                </Grid.ColumnDefinitions>
-
-                <Label Text="Бадмаев Бадма Бадмаевич"
-                       Style="{StaticResource NormalText}"/>
-                <Image Grid.Column="1"
-                       Source="round_check_box_inactive"/>
-
-                <!--<Grid.GestureRecognizers>
-                    <TapGestureRecognizer Command="{Binding Source={x:Reference sortPopupView}, Path=BindingContext.ClickDescendingSortCommand}"
-                                          CommandParameter="{Binding .}"
-                                          NumberOfTapsRequired="1" />
-                </Grid.GestureRecognizers>-->
-            </Grid>
-
-            <Button Grid.Row="5" 
-                    Text="Установить аудитора"
+            <Button Grid.Row="2" 
+                    Text="Выбрать аудитора"
                     Style="{StaticResource TitleWhite}"
-                    Margin="0,10,0,0"
+                    Margin="0,10,0,10"
                     BackgroundColor="#3960E2"
                     Command="{Binding SortEmployeesCommand}"/>
-        </Grid>
 
+        </Grid>
     </Frame>
 </pages:PopupPage>
