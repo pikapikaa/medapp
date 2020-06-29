@@ -63,7 +63,7 @@ namespace MedExpertClientClone.ViewModels
         });
 
         /// <summary>
-        /// Команда для выбора аудитора для чек-листа
+        /// Команда для открытия списка аудиторов
         /// </summary>
         public ICommand SelectAuditorCommand => new Command(async () =>
         {

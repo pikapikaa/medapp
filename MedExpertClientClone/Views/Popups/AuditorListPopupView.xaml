@@ -42,12 +42,12 @@
                     <ColumnDefinition Width="Auto"/>
                 </Grid.ColumnDefinitions>
 
-                <Label Text="Установить аудитора"
+                <Label Text="Список аудиторов"
                        Style="{StaticResource Text}"
                        VerticalOptions="Center"/>
                 <ImageButton Grid.Column="1"
                              Source="close_page_icon"
-                             Clicked="ImageButton_Clicked"/>
+                             Command="{Binding CloseAuditorListPopupViewCommand}"/>
             </Grid>
 
             <Grid Grid.Row="1">

@@ -7,7 +7,26 @@ namespace MedExpertClientClone.Models
     public class CheckList : INotifyPropertyChanged
     {
         public int Id { get; set; }
+
         public string Name { get; set; }
+        private Employee auditor;
+
+        /// <summary>
+        /// Аудитор
+        /// </summary>
+        public Employee Auditor
+        {
+            get { return auditor; }
+            set
+            {
+                if (value != auditor)
+                {
+                    auditor = value;
+                    NotifyPropertyChanged();
+                }
+            }
+        }
+
         private bool isChecked;
 
         public bool IsChecked
