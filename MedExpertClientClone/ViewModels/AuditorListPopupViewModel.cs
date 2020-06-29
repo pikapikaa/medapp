@@ -7,6 +7,7 @@ using System.Windows.Input;
 using MedExpertClientClone.Models;
 using Rg.Plugins.Popup.Services;
 using Xamarin.Forms;
+using System.Linq;
 
 namespace MedExpertClientClone.ViewModels
 {
@@ -14,13 +15,38 @@ namespace MedExpertClientClone.ViewModels
     {
         private ObservableCollection<Employee> auditors =
            new ObservableCollection<Employee>();
+
         private double listAuditorsHeight = 0;
+
+        private QualityRatingIndicatorViewModel qualityRatingIndicatorViewModel;
+        private CheckList _selectedCheckList;
 
         public AuditorListPopupViewModel()
         {
             var mockData = new DataAuditorsFactory().GetAuditors();
             Auditors = new ObservableCollection<Employee>(mockData);
             ListAuditorsHeight = 55 * Auditors.Count;
+        }
+
+        public QualityRatingIndicatorViewModel QualityRatingIndicatorViewModel
+        {
+            get { return qualityRatingIndicatorViewModel; }
+            set
+            {
+                qualityRatingIndicatorViewModel = value;
+                OnPropertyChanged();
+            }
+        }
+
+        // Выбранный чек-лист
+        public CheckList SelectedCheckList
+        {
+            get { return _selectedCheckList; }
+            set
+            {
+                _selectedCheckList = value;
+                OnPropertyChanged();
+            }
         }
 
         public ObservableCollection<Employee> Auditors
@@ -71,6 +97,30 @@ namespace MedExpertClientClone.ViewModels
                     i.IsChecked = false;
                 }
             }
+        });
+
+        /// <summary>
+        /// Команда добавления аудитора к чек-листу
+        /// </summary>
+        public ICommand AddAuditorToTheCheckList => new Command(async () =>
+        {
+            var selectedAuditor = Auditors.FirstOrDefault(item => item.IsChecked);
+
+            if (selectedAuditor != null)
+            {
+                var t = QualityRatingIndicatorViewModel.SelectedCheckLists.FirstOrDefault(i => i.Id == SelectedCheckList.Id);
+                if (t != null)
+                {
+                    t.Auditor = selectedAuditor;
+                }
+
+                await PopupNavigation.Instance.PopAsync();
+            }
+            else
+            {
+                Console.WriteLine("Не выбран аудитор");
+            }
+
         });
 
         public event PropertyChangedEventHandler PropertyChanged;

@@ -68,7 +68,17 @@ namespace MedExpertClientClone.ViewModels
         public ICommand SelectAuditorCommand => new Command(async () =>
         {
             await PopupNavigation.Instance.PopAsync();
-            await PopupNavigation.Instance.PushAsync(new AuditorListPopupView(), true);
+
+            var auditorListViewModel = new AuditorListPopupViewModel()
+            {
+                QualityRatingIndicatorViewModel = this.QualityRatingIndicatorViewModel,
+                SelectedCheckList = this.SelectedCheckList
+            };
+
+            var page = new AuditorListPopupView();
+            page.BindingContext = auditorListViewModel;
+
+            await PopupNavigation.Instance.PushAsync(page, true);
         });
 
         void OnPropertyChanged([CallerMemberName] string name = "")

@@ -108,7 +108,7 @@
                     Style="{StaticResource TitleWhite}"
                     Margin="0,10,0,10"
                     BackgroundColor="#3960E2"
-                    Command="{Binding SortEmployeesCommand}"/>
+                    Command="{Binding AddAuditorToTheCheckList}"/>
 
         </Grid>
     </Frame>
