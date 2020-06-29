@@ -55,6 +55,24 @@ namespace MedExpertClientClone.ViewModels
             await PopupNavigation.Instance.PopAsync();
         });
 
+        /// <summary>
+        /// Команда переключения флажка выбора аудитора
+        /// </summary>
+        public ICommand ClickCheckBoxCommand => new Command((sender) =>
+        {
+            foreach (var i in Auditors)
+            {
+                if (i.Equals(sender as Employee))
+                {
+                    i.IsChecked = true;
+                }
+                else
+                {
+                    i.IsChecked = false;
+                }
+            }
+        });
+
         public event PropertyChangedEventHandler PropertyChanged;
 
         void OnPropertyChanged([CallerMemberName] string name = "")

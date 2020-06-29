@@ -5,6 +5,7 @@
              xmlns:animations="clr-namespace:Rg.Plugins.Popup.Animations;assembly=Rg.Plugins.Popup"
              xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
              ios:Page.UseSafeArea="True"
+             x:Name="auditorListPopupView"
              x:Class="MedExpertClientClone.Views.Popups.AuditorListPopupView">
     <pages:PopupPage.Animation>
         <animations:MoveAnimation 
@@ -74,14 +75,15 @@
                                        Style="{StaticResource NormalText}">
                                 </Label>
 
-                                <!--<Image Source="check_box_inactive"
+                                <Image Source="check_box_inactive"
                                        Grid.Column="1"
                                        Grid.Row="0"
-                                       IsVisible="{Binding IsChecked, Converter={StaticResource InverseBoolConverter}}"/>-->
+                                       IsVisible="{Binding IsChecked, Converter={StaticResource InverseBoolConverter}}"/>
 
                                 <Image Source="check_box_active"
                                        Grid.Column="1"
-                                       Grid.Row="0"/>
+                                       Grid.Row="0"
+                                       IsVisible="{Binding IsChecked}"/>
 
                                 <BoxView Grid.ColumnSpan="2"
                                          Grid.Row="1"
@@ -90,11 +92,11 @@
                                          Margin="0,15,0,15"
                                          Color="#E3E3E3"/>
 
-                                <!--<Grid.GestureRecognizers>
-                                    <TapGestureRecognizer Command="{Binding Source={x:Reference employeetListView}, Path=BindingContext.ClickCheckBoxCommand}"
+                                <Grid.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding Source={x:Reference auditorListPopupView}, Path=BindingContext.ClickCheckBoxCommand}"
                                                           CommandParameter="{Binding .}"
                                                           NumberOfTapsRequired="1" />
-                                </Grid.GestureRecognizers>-->
+                                </Grid.GestureRecognizers>
                             </Grid>
                         </ViewCell>
                     </DataTemplate>
