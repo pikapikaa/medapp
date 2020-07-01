@@ -46,20 +46,20 @@
                             <ColumnDefinition Width="Auto" />
                         </Grid.ColumnDefinitions>
 
-                        <Label Text="Выбрать"
-                                   Style="{StaticResource Text}"
-                                   VerticalOptions="Center"
-                                   HorizontalOptions="Start"/>
+                        <Label Text="{Binding AuditLocationText}"
+                               Style="{StaticResource Text}"
+                               VerticalOptions="Center"
+                               HorizontalOptions="Start"/>
 
                         <Image Grid.Column="1"
-                                   Source="dropdown"
-                                   WidthRequest="10"
-                                   HeightRequest="10"/>
+                               Source="dropdown"
+                               WidthRequest="10"
+                               HeightRequest="10"/>
 
                     </Grid>
-                    <!--<pancake:PancakeView.GestureRecognizers>
-                        <TapGestureRecognizer Command="{Binding OpenAddSubjectAuditCommand}"/>
-                    </pancake:PancakeView.GestureRecognizers>-->
+                    <pancake:PancakeView.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding OpenAuditPlaceListViewCommand}"/>
+                    </pancake:PancakeView.GestureRecognizers>
                 </pancake:PancakeView>
 
                 <!-- Структурное подразделение -->

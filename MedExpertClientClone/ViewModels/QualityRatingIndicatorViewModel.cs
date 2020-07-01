@@ -30,6 +30,30 @@ namespace MedExpertClientClone.ViewModels
         private ObservableCollection<CheckList> selectedCheckLists =
            new ObservableCollection<CheckList>();
 
+        private AuditPlace auditLocation;
+
+        public AuditPlace AuditLocation
+        {
+            get { return auditLocation; }
+            set
+            {
+                auditLocation = value;
+                OnPropertyChanged();
+            }
+        }
+
+        public string AuditLocationText
+        {
+            get
+            {
+                if (AuditLocation?.Name != null)
+                {
+                    return $"{AuditLocation.Name}";
+                }
+                return "Выбрать";
+            }
+        }
+
         public ObservableCollection<CheckList> SelectedCheckLists
         {
             get { return selectedCheckLists; }
@@ -86,7 +110,15 @@ namespace MedExpertClientClone.ViewModels
 
                 await PopupNavigation.Instance.PushAsync(page, false);
             }
-        }); 
+        });
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public ICommand OpenAuditPlaceListViewCommand => new Command(() =>
+        {
+            Navigation.PushModalAsync(new NavigationPage(new AuditPlaceListView()), true);
+        });
 
         public QualityRatingIndicatorViewModel()
         {
