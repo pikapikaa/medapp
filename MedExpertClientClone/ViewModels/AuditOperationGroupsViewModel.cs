@@ -10,10 +10,18 @@ namespace MedExpertClientClone.ViewModels
     {
         public event PropertyChangedEventHandler PropertyChanged;
         public ICommand OpenAddAuditPageCommand { protected set; get; }
+        public ICommand OpenAllAuditsPageCommand { protected set; get; }
+
         public INavigation Navigation { get; set; }
         public AuditOperationGroupsViewModel()
         {
             OpenAddAuditPageCommand = new Command(OpenAddAuditPage);
+            OpenAllAuditsPageCommand = new Command(OpenAllAuditsPage);
+        }
+
+        private void OpenAllAuditsPage(object obj)
+        {
+            Navigation.PushAsync(new AllAuditListView());
         }
 
         private void OpenAddAuditPage()

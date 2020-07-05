@@ -143,10 +143,10 @@
                              Grid.Column="1"
                              BackgroundColor="White"
                              CornerRadius="8">
-                <!--<pancake:PancakeView.GestureRecognizers>
-                <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"
-                                      NumberOfTapsRequired="1" />
-            </pancake:PancakeView.GestureRecognizers>-->
+                <pancake:PancakeView.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding OpenAllAuditsPageCommand}"
+                                          NumberOfTapsRequired="1" />
+                </pancake:PancakeView.GestureRecognizers>
                 <Grid>
                     <Grid.RowDefinitions>
                         <RowDefinition Height="Auto"/>
