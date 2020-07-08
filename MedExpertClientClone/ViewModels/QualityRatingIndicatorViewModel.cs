@@ -89,7 +89,7 @@ namespace MedExpertClientClone.ViewModels
         /// </summary>
         public ICommand OpenCheckListViewCommand => new Command(() =>
         {
-            Navigation.PushModalAsync(new NavigationPage(new CheckListView()), true);
+            //Navigation.PushModalAsync(new NavigationPage(new CheckListView()), true);
         });
 
         /// <summary>

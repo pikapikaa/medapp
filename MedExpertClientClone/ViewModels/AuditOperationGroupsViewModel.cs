@@ -2,6 +2,7 @@
 using System.ComponentModel;
 using System.Windows.Input;
 using MedExpertClientClone.Views;
+using MedExpertClientClone.Views.Audits;
 using Xamarin.Forms;
 
 namespace MedExpertClientClone.ViewModels

@@ -10,10 +10,10 @@ namespace MedExpertClientClone.Views
         public AuditPlaceListView()
         {
             InitializeComponent();
-            BindingContext = new AuditPlaceListViewModel()
-            {
-                Navigation = this.Navigation
-            };
+            //BindingContext = new AuditPlaceListViewModel()
+            //{
+            //    Navigation = this.Navigation
+            //};
         }
     }
 }

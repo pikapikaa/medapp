@@ -3,11 +3,11 @@ using System.Collections.Generic;
 
 using Xamarin.Forms;
 
-namespace MedExpertClientClone.Views
+namespace MedExpertClientClone.Views.Audits
 {
-    public partial class AllAuditListView : TabbedPage
+    public partial class AuditsCarouselView : ContentPage
     {
-        public AllAuditListView()
+        public AuditsCarouselView()
         {
             InitializeComponent();
         }
