@@ -8,6 +8,15 @@
             BarTextColor="#2B3845"
             x:Class="MedExpertClientClone.Views.Audits.AuditTabbedView">
 
+    <NavigationPage.TitleView>
+        <Label Margin="70,0,0,0"
+            FontFamily="{StaticResource BoldFont}"
+            FontSize="20"
+            Text="Все проверки"
+            TextColor="Black"
+            VerticalOptions="Center" />
+    </NavigationPage.TitleView>
+
     <ContentPage Title="Tab 1" />
     <ContentPage Title="Tab 2" />
     <ContentPage Title="Tab 3" />
