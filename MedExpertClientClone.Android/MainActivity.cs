@@ -6,6 +6,7 @@ using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using Android.OS;
+using Rg.Plugins.Popup.Services;
 
 namespace MedExpertClientClone.Droid
 {
@@ -33,6 +34,14 @@ namespace MedExpertClientClone.Droid
             Xamarin.Essentials.Platform.OnRequestPermissionsResult(requestCode, permissions, grantResults);
 
             base.OnRequestPermissionsResult(requestCode, permissions, grantResults);
+        }
+        public override void OnBackPressed()
+        {
+            if (Rg.Plugins.Popup.Popup.SendBackPressed(base.OnBackPressed))
+            {
+                PopupNavigation.Instance.PopAsync();
+            }
+            base.OnBackPressed();
         }
     }
 }
