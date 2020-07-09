@@ -22,7 +22,7 @@ namespace MedExpertClientClone.ViewModels
 
         private void OpenAllAuditsPage(object obj)
         {
-            Navigation.PushAsync(new AuditsCarouselView());
+            Navigation.PushAsync(new AuditTabbedView());
         }
 
         private void OpenAddAuditPage()
