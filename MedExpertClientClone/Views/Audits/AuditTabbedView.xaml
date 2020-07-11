@@ -17,6 +17,12 @@
                VerticalOptions="Center"/>
     </NavigationPage.TitleView>
 
+    <TabbedPage.ToolbarItems>
+        <ToolbarItem
+            IconImageSource="three_dots_icon"
+            Command="{Binding SelectToolbar}"/>
+    </TabbedPage.ToolbarItems>
+
     <ContentPage Title="Список" Padding="10">
 
         <ListView ItemsSource="{Binding Audits}"

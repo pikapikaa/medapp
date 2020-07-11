@@ -3,7 +3,11 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
+using System.Windows.Input;
 using MedExpertClientClone.Models;
+using MedExpertClientClone.Views.Popups;
+using Rg.Plugins.Popup.Services;
+using Xamarin.Forms;
 
 namespace MedExpertClientClone.ViewModels
 {
@@ -28,6 +32,11 @@ namespace MedExpertClientClone.ViewModels
             var _listOfItems = new DataAuditFactory().GetAudits();
             Audits = new ObservableCollection<NewAudit>(_listOfItems);
         }
+
+        public ICommand SelectToolbar => new Command(async() =>
+        {
+            await PopupNavigation.Instance.PushAsync(new MenuAuditListPopupView(), false);
+        });
 
         void OnPropertyChanged([CallerMemberName] string name = "")
         {
