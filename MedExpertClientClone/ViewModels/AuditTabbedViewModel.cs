@@ -49,7 +49,7 @@ namespace MedExpertClientClone.ViewModels
                     PeriodDateOut=new DateTime(2020,6,5),
                     Status = AuditOperationStatus.Created,
                     CheckLists = new List<CheckList>{
-                        new CheckList()
+                          new CheckList()
                         {
                             Id=1,
                             Auditor=null,
@@ -61,7 +61,14 @@ namespace MedExpertClientClone.ViewModels
                             Id=2,
                             Auditor=null,
                             IsChecked=false,
-                            Name="Соблюдение прав животных"
+                            Name="Проверка кабинетов, в том числе соблюдение условий хранения ЛС и МИ"
+                        },
+                        new CheckList()
+                        {
+                            Id=3,
+                            Auditor=null,
+                            IsChecked=false,
+                            Name="Размещение информации на информационных стендах и сайте организации"
                         },
                     } },
                 new NewAudit(){
@@ -107,7 +114,14 @@ namespace MedExpertClientClone.ViewModels
                             Id=2,
                             Auditor=null,
                             IsChecked=false,
-                            Name="Соблюдение прав животных"
+                            Name="Проверка кабинетов, в том числе соблюдение условий хранения ЛС и МИ"
+                        },
+                        new CheckList()
+                        {
+                            Id=3,
+                            Auditor=null,
+                            IsChecked=false,
+                            Name="Размещение информации на информационных стендах и сайте организации"
                         },
                     } },
                  new NewAudit(){
@@ -141,7 +155,7 @@ namespace MedExpertClientClone.ViewModels
                     PeriodDateOut=new DateTime(2020,6,5),
                     Status = AuditOperationStatus.Signing,
                     CheckLists = new List<CheckList>{
-                        new CheckList()
+                         new CheckList()
                         {
                             Id=1,
                             Auditor=null,
@@ -153,7 +167,14 @@ namespace MedExpertClientClone.ViewModels
                             Id=2,
                             Auditor=null,
                             IsChecked=false,
-                            Name="Соблюдение прав животных"
+                            Name="Проверка кабинетов, в том числе соблюдение условий хранения ЛС и МИ"
+                        },
+                        new CheckList()
+                        {
+                            Id=3,
+                            Auditor=null,
+                            IsChecked=false,
+                            Name="Размещение информации на информационных стендах и сайте организации"
                         },
                     } }
 

@@ -20,7 +20,8 @@
     <ContentPage Title="Список" Padding="10">
 
         <ListView ItemsSource="{Binding Audits}"
-                  RowHeight="190"
+                  VerticalOptions="FillAndExpand"
+                  HasUnevenRows="True"
                   SeparatorVisibility="None">
             <ListView.ItemTemplate>
                 <DataTemplate>
@@ -81,6 +82,7 @@
 
                                     <CollectionView Grid.Row="2"
                                                     Grid.ColumnSpan="2"
+                                                    HeightRequest="{Binding CheckListHeight}"
                                                     ItemsSource="{Binding CheckLists}">
                                         <CollectionView.ItemTemplate>
                                             <DataTemplate>
@@ -91,7 +93,9 @@
                                                     </Grid.ColumnDefinitions>
 
                                                     <Label Text="{Binding Name}"
-                                                       Style="{StaticResource GrayText}"
+                                                           Style="{StaticResource GrayText}"
+                                                           MaxLines="2"
+                                                           LineBreakMode="TailTruncation"
                                                            VerticalOptions="Center"/>
 
                                                     <Image Grid.Column="1"

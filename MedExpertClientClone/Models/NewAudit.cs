@@ -8,8 +8,10 @@ namespace MedExpertClientClone.Models
     /// <summary>
     /// Модель записи новой операции аудита
     /// </summary>
-    public class NewAudit
+    public class NewAudit : INotifyPropertyChanged
     {
+        private List<CheckList> _checkLists = new List<CheckList>();
+
         public int Id { get; set; }
 
         public int Num { get; set; }
@@ -41,15 +43,29 @@ namespace MedExpertClientClone.Models
             get { return $"{PeriodDateOut:dd.MM.yyyy} г."; }
         }
 
-        public List<CheckList> CheckLists { get; set; }
+        public List<CheckList> CheckLists
+        {
+            get { return _checkLists; }
+            set
+            {
+                _checkLists = value;
+                OnChanged(nameof(CheckLists));
+                OnChanged(nameof(CheckListHeight));
+            }
+        }
+
+        public double CheckListHeight
+        {
+            get { return CheckLists.Count * 50; }
+        }
 
         public AuditOperationStatus Status { get; set; }
 
-        //protected void OnChanged(string propertyName)
-        //{
-        //    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        //}
+        protected void OnChanged(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
 
-        //public event PropertyChangedEventHandler PropertyChanged;
+        public event PropertyChangedEventHandler PropertyChanged;
     }
 }
