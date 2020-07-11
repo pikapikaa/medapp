@@ -11,6 +11,8 @@
         <!-- CONVERTERS -->
         <converters:InverseBoolConverter x:Key="InverseBoolConverter" />
         <converters:BoolToImageConverter x:Key="BoolToImageConverter" />
+        <converters:BoolToColorConverter x:Key="BoolToColorConverter"/>
+        <converters:StatusToImageConverter x:Key="StatusToImageConverter"/>
 
         <!--  font families  -->
         <OnPlatform x:Key="BoldFont" x:TypeArguments="x:String">

@@ -259,5 +259,29 @@
     <BundleResource Include="Resources\check_list%402x.png" />
     <BundleResource Include="Resources\check_list%403x.png" />
     <BundleResource Include="Resources\check_list.png" />
+    <BundleResource Include="Resources\audit_all%402x.png" />
+    <BundleResource Include="Resources\audit_all%403x.png" />
+    <BundleResource Include="Resources\audit_all.png" />
+    <BundleResource Include="Resources\audit_finished%402x.png" />
+    <BundleResource Include="Resources\audit_finished%403x.png" />
+    <BundleResource Include="Resources\audit_finished.png" />
+    <BundleResource Include="Resources\audit_running%402x.png" />
+    <BundleResource Include="Resources\audit_running%403x.png" />
+    <BundleResource Include="Resources\audit_running.png" />
+    <BundleResource Include="Resources\audit_new%402x.png" />
+    <BundleResource Include="Resources\audit_new%403x.png" />
+    <BundleResource Include="Resources\audit_new.png" />
+    <BundleResource Include="Resources\audit_signed%402x.png" />
+    <BundleResource Include="Resources\audit_signed%403x.png" />
+    <BundleResource Include="Resources\audit_signed.png" />
+    <BundleResource Include="Resources\audit_signing%402x.png" />
+    <BundleResource Include="Resources\audit_signing%403x.png" />
+    <BundleResource Include="Resources\audit_signing.png" />
+    <BundleResource Include="Resources\dot_green%402x.png" />
+    <BundleResource Include="Resources\dot_green%403x.png" />
+    <BundleResource Include="Resources\dot_green.png" />
+    <BundleResource Include="Resources\dot_yellow%402x.png" />
+    <BundleResource Include="Resources\dot_yellow%403x.png" />
+    <BundleResource Include="Resources\dot_yellow.png" />
   </ItemGroup>
 </Project>
