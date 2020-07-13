@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 
 using Foundation;
+using Naxam.Controls.Platform.iOS;
 using UIKit;
 
 namespace MedExpertClientClone.iOS
@@ -23,7 +24,7 @@ namespace MedExpertClientClone.iOS
         public override bool FinishedLaunching(UIApplication app, NSDictionary options)
         {
             Rg.Plugins.Popup.Popup.Init();
-
+            TopTabbedRenderer.Init();
             global::Xamarin.Forms.Forms.Init();
             LoadApplication(new App());
 
