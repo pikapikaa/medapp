@@ -144,6 +144,7 @@
                      BackgroundColor="White"
                      Opacity="0"
                      x:Class="MedExpertClientClone.Views.Audits.AuditTabbedView">
+
     <NavigationPage.TitleView>
         <Label Margin="70,0,0,0"
                FontFamily="{StaticResource BoldFont}"
@@ -152,6 +153,13 @@
                TextColor="Black"
                VerticalOptions="Center"/>
     </NavigationPage.TitleView>
+
+    <forms:TopTabbedPage.ToolbarItems>
+         <ToolbarItem
+            IconImageSource="three_dots_icon"
+            Command="{Binding SelectToolbar}"/>
+    </forms:TopTabbedPage.ToolbarItems>
+
     <ContentPage Title="Список"
                  Padding="10">
         <ListView ItemsSource="{Binding Audits}"
