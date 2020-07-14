@@ -12,12 +12,11 @@ using Xamarin.Forms.Xaml;
 namespace MedExpertClientClone.Views.Audits
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class AuditTabbedView : TabbedPage
+    public partial class AuditTabbedView : TopTabbedPage
     {
         public AuditTabbedView()
         {
             InitializeComponent();
-            this.BindingContext = new AuditTabbedViewModel();
         }
     }
 }
