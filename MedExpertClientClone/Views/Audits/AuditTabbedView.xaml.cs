@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using MedExpertClientClone.Renderers;
 using MedExpertClientClone.ViewModels;
+using MedExpertClientClone.ViewModels.Audits;
 using Naxam.Controls.Forms;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -17,6 +18,7 @@ namespace MedExpertClientClone.Views.Audits
         public AuditTabbedView()
         {
             InitializeComponent();
+            this.BindingContext = new AuditTabbedViewModel();
         }
     }
 }

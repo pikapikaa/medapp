@@ -32,6 +32,7 @@
     <Folder Include="Renderers\" />
     <Folder Include="Behaviors\" />
     <Folder Include="Views\Audits\" />
+    <Folder Include="ViewModels\Audits\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Condition=" '$(EnableDefaultCompileItems)' == 'true' " Update="Views\Popups\AuditTypePopupView.xaml.cs">
