@@ -52,31 +52,13 @@
                              Command="{Binding CloseSortPopupCommand}"/>
             </Grid>
 
-            <Grid Grid.Row="1">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="Auto"/>
-                </Grid.ColumnDefinitions>
-
-                <Label Text="Все"
-                       Style="{StaticResource NormalText}"/>
-                <Image Grid.Column="1"
-                       Source="{Binding IsDefaultSort, Converter={StaticResource BoolToImageConverter}}"/>
-
-                <Grid.GestureRecognizers>
-                    <TapGestureRecognizer Command="{Binding Source={x:Reference sortAuditsPopupView}, Path=BindingContext.ClickDefaultSortCommand}"
-                                          CommandParameter="{Binding .}"
-                                          NumberOfTapsRequired="1" />
-                </Grid.GestureRecognizers>
-            </Grid>
-
             <Grid Grid.Row="2">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="Auto"/>
                 </Grid.ColumnDefinitions>
 
-                <Label Text="По дате создания сотрудника"
+                <Label Text="По дате  загрузки"
                        Style="{StaticResource NormalText}"/>
                 <Image Grid.Column="1"
                        Source="{Binding IsDateSort, Converter={StaticResource BoolToImageConverter}}"/>

@@ -53,7 +53,7 @@ namespace MedExpertClientClone.ViewModels
                 new NewAudit(){
                     Id=1,
                     Num=443,
-                    Location="Проверка №1 ГБУЗ «Городская поликлиника № 1», г. Улан-Удэ, ул. Каландарашвили, 27",
+                    Location="ГБУЗ «Городская поликлиника № 1», г. Улан-Удэ, ул. Каландарашвили, 27",
                     PeriodDateIn=new DateTime(2020,5,5),
                     PeriodDateOut=new DateTime(2020,6,5),
                     Status = AuditOperationStatus.Created,
@@ -83,7 +83,7 @@ namespace MedExpertClientClone.ViewModels
                 new NewAudit(){
                     Id=2,
                     Num=24,
-                    Location="Проверка №1 ГБУЗ «Городская поликлиника № 1», г. Улан-Удэ, ул. Каландарашвили, 27",
+                    Location="ГБУЗ «Городская поликлиника № 1», г. Улан-Удэ, ул. Каландарашвили, 27",
                     PeriodDateIn=new DateTime(2020,5,5),
                     PeriodDateOut=new DateTime(2020,6,5),
                     Status = AuditOperationStatus.Executed,
@@ -106,7 +106,7 @@ namespace MedExpertClientClone.ViewModels
                  new NewAudit(){
                     Id=3,
                     Num=56,
-                    Location="Проверка №1 ГБУЗ «Городская поликлиника № 1», г. Улан-Удэ, ул. Каландарашвили, 27",
+                    Location="ГБУЗ «Городская поликлиника № 1», г. Улан-Удэ, ул. Каландарашвили, 27",
                     PeriodDateIn=new DateTime(2020,5,5),
                     PeriodDateOut=new DateTime(2020,6,5),
                     Status = AuditOperationStatus.Running,
@@ -136,7 +136,7 @@ namespace MedExpertClientClone.ViewModels
                  new NewAudit(){
                     Id=4,
                     Num=57,
-                    Location="Проверка №1 ГБУЗ «Городская поликлиника № 1», г. Улан-Удэ, ул. Каландарашвили, 27",
+                    Location="ГБУЗ «Городская поликлиника № 1», г. Улан-Удэ, ул. Каландарашвили, 27",
                     PeriodDateIn=new DateTime(2020,5,5),
                     PeriodDateOut=new DateTime(2020,6,5),
                     Status = AuditOperationStatus.Signed,
@@ -159,7 +159,7 @@ namespace MedExpertClientClone.ViewModels
                 new NewAudit(){
                     Id=5,
                     Num=38,
-                    Location="Проверка №1 ГБУЗ «Городская поликлиника № 1», г. Улан-Удэ, ул. Каландарашвили, 27",
+                    Location="ГБУЗ «Городская поликлиника № 1», г. Улан-Удэ, ул. Каландарашвили, 27",
                     PeriodDateIn=new DateTime(2020,5,5),
                     PeriodDateOut=new DateTime(2020,6,5),
                     Status = AuditOperationStatus.Signing,

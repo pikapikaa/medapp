@@ -33,7 +33,7 @@
                                              BackgroundColor="{Binding Status, Converter={StaticResource BoolToColorConverter}}"/>
 
                                 <Grid Grid.Column="1"
-                                      Padding="5,10,5,0">
+                                      Padding="5,10,5,0" RowSpacing="0">
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition Width="*"/>
                                         <ColumnDefinition Width="Auto"/>
@@ -42,9 +42,22 @@
                                         <RowDefinition Height="Auto"/>
                                         <RowDefinition Height="Auto"/>
                                         <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
                                     </Grid.RowDefinitions>
 
-                                    <Label Text="{Binding Location}"
+                                    <Label FontFamily="{StaticResource SemiBoldFont}"
+                                           TextColor="#2B3845"
+                                           FontSize="17">
+                                        <Label.FormattedText>
+                                            <FormattedString>
+                                                <Span Text="Проверка №"/>
+                                                <Span Text="{Binding Num}"/>
+                                            </FormattedString>
+                                        </Label.FormattedText>
+                                    </Label>
+
+                                    <Label Grid.Row="1"
+                                           Text="{Binding Location}"
                                            FontFamily="{StaticResource SemiBoldFont}"
                                            TextColor="#2B3845"
                                            FontSize="17"/>
@@ -53,7 +66,7 @@
                                            Source="{Binding Status, Converter={StaticResource StatusToImageConverter}}"
                                            VerticalOptions="StartAndExpand"/>
 
-                                    <Label Grid.Row="1"  Style="{StaticResource GrayText}">
+                                    <Label Grid.Row="2"  Style="{StaticResource GrayText}">
                                         <Label.FormattedText>
                                             <FormattedString>
                                                 <Span Text="C "/>
@@ -69,7 +82,7 @@
                                         </Label.FormattedText>
                                     </Label>
 
-                                    <CollectionView Grid.Row="2"
+                                    <CollectionView Grid.Row="3"
                                                     Grid.ColumnSpan="2"
                                                     HeightRequest="{Binding CheckListHeight}"
                                                     ItemsSource="{Binding CheckLists}">
