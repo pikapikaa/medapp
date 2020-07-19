@@ -8,6 +8,7 @@ namespace MedExpertClientClone
     {
         public App()
         {
+            Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("Mjg4NDU2QDMxMzgyZTMyMmUzMG82a3ZvOTZQblBRdmNJYm92NjhKbEpuTWFuOFI4bVAxRVY5RFRPYitrZVE9");
             InitializeComponent();
 
             MainPage = new MedExpertMasterDetailPage();

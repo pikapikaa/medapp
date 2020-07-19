@@ -2,10 +2,34 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+             xmlns:syncfusion="clr-namespace:Syncfusion.SfCalendar.XForms;assembly=Syncfusion.SfCalendar.XForms"
              ios:Page.UseSafeArea="True"
              Title="Дата"
              x:Class="MedExpertClientClone.Views.Audits.AuditListWithDateTabbedView">
     <ContentPage.Content>
-        <Label Text="AuditListWithDateTabbedView"/>
+        <StackLayout>
+            <Label Text="AuditListWithDateTabbedView"/>
+
+            <syncfusion:SfCalendar  x:Name="calendar"
+                                    EnableDatesInPast="False"
+                                    SelectionMode="RangeSelection">
+                <syncfusion:SfCalendar.MonthViewSettings>
+                    <syncfusion:MonthViewSettings
+                            CurrentMonthTextColor="#989BA8"
+                            DateSelectionColor="#3960E2"
+                            DayHeaderTextColor="Black">
+
+                        <syncfusion:MonthViewSettings.HeaderFontFamily>
+                            <OnPlatform x:TypeArguments="x:String"
+                                        iOS="Gilroy-SemiBold"
+                                        Android="Gilroy-SemiBold.ttf#Gilroy-SemiBold"/>
+                        </syncfusion:MonthViewSettings.HeaderFontFamily>
+
+                    </syncfusion:MonthViewSettings>
+                </syncfusion:SfCalendar.MonthViewSettings>
+            </syncfusion:SfCalendar>
+
+        </StackLayout>
+
     </ContentPage.Content>
 </ContentPage>

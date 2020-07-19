@@ -67,6 +67,9 @@
     <PackageReference Include="Naxam.TopTabbedPage.Forms">
       <Version>0.0.3.5</Version>
     </PackageReference>
+    <PackageReference Include="Syncfusion.Xamarin.SfCalendar">
+      <Version>18.2.0.45</Version>
+    </PackageReference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="MainActivity.cs" />
