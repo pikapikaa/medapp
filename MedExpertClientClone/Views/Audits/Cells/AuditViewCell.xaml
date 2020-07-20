@@ -1,0 +1,108 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ViewCell xmlns="http://xamarin.com/schemas/2014/forms"
+          xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+          xmlns:pancake="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+          x:Class="MedExpertClientClone.Views.Audits.Cells.AuditViewCell">
+    <ViewCell.View>
+        <pancake:PancakeView Elevation="1"
+                             BackgroundColor="White"
+                             HorizontalOptions="Center"
+                             VerticalOptions="Center"
+                             Margin="3,0,3,10"
+                             CornerRadius="8">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <StackLayout Grid.Column="0"
+                             WidthRequest="5"
+                             BackgroundColor="{Binding Status, Converter={StaticResource BoolToColorConverter}}"/>
+
+                <Grid Grid.Column="1"
+                      Padding="5,10,5,0"
+                      RowSpacing="0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+
+                    <Label FontFamily="{StaticResource SemiBoldFont}"
+                           TextColor="#2B3845"
+                           FontSize="17">
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <Span Text="Проверка №"/>
+                                <Span Text="{Binding Num}"/>
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
+
+                    <Label Grid.Row="1"
+                           Text="{Binding Location}"
+                           FontFamily="{StaticResource SemiBoldFont}"
+                           TextColor="#2B3845"
+                           FontSize="17"/>
+
+                    <Image Grid.Column="1"
+                           Source="{Binding Status, Converter={StaticResource StatusToImageConverter}}"
+                           VerticalOptions="StartAndExpand"/>
+
+                    <Label Grid.Row="2"
+                           Style="{StaticResource GrayText}">
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <Span Text="C "/>
+                                <Span Text="{Binding PeriodDateInText}"/>
+                                <Span Text=" по "/>
+                                <Span Text="{Binding PeriodDateOutText}"/>
+                                <Span Text="default">
+                                    <Span.GestureRecognizers>
+                                        <TapGestureRecognizer Command="{Binding blabla}" />
+                                    </Span.GestureRecognizers>
+                                </Span>
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
+
+                    <CollectionView Grid.Row="3"
+                                    Grid.ColumnSpan="2"
+                                    HeightRequest="{Binding CheckListHeight}"
+                                    ItemsSource="{Binding CheckLists}">
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <Grid Margin="0,0,0,10">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="Auto"/>
+                                    </Grid.ColumnDefinitions>
+
+                                    <Label Text="{Binding Name}"
+                                           Style="{StaticResource GrayText}"
+                                           MaxLines="2"
+                                           LineBreakMode="TailTruncation"
+                                           VerticalOptions="Center"/>
+
+                                    <Image Grid.Column="1"
+                                           Source="dot_green"
+                                           Margin="0,0,10,0"
+                                           WidthRequest="10"
+                                           HeightRequest="10"
+                                           VerticalOptions="Center"/>
+                                </Grid>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+
+                </Grid>
+            </Grid>
+        </pancake:PancakeView>
+    </ViewCell.View>
+</ViewCell>
