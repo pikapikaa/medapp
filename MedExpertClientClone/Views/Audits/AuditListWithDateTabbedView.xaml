@@ -40,6 +40,29 @@
 
             </syncfusion:SfCalendar>
 
+            <Grid Margin="10">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+
+                <Label Style="{StaticResource DarkGrayText}">
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span Text="Найдено "/>
+                            <Span Text="123"/>
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+
+                <StackLayout Grid.Column="1"
+                             Spacing="10"
+                             Orientation="Horizontal">
+                    <Label Text="Все" Style="{StaticResource Text}"/>
+                    <Image Source="dropdown"/>
+                </StackLayout>
+            </Grid>
+
             <!-- Список проверок -->
             <ListView ItemsSource="{Binding Audits}"
                       VerticalOptions="FillAndExpand"
