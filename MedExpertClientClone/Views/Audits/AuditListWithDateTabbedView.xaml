@@ -3,7 +3,6 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
              xmlns:syncfusion="clr-namespace:Syncfusion.SfCalendar.XForms;assembly=Syncfusion.SfCalendar.XForms"
-             xmlns:local="clr-namespace:MedExpertClientClone.ViewModels.Audits"
              xmlns:cells="clr-namespace:MedExpertClientClone.Views.Audits.Cells"
              ios:Page.UseSafeArea="True"
              Title="Дата"
@@ -23,10 +22,6 @@
                            FontAttributes="Bold"
                            FontSize="Large"/>
                 </syncfusion:SfCalendar.HeaderView>-->
-
-                <syncfusion:SfCalendar.BindingContext>
-                    <local:AuditListWithDateTabbedViewModel/>
-                </syncfusion:SfCalendar.BindingContext>
 
                 <syncfusion:SfCalendar.MonthViewSettings>
                     <syncfusion:MonthViewSettings DateSelectionColor="#3960E2">

@@ -54,8 +54,8 @@ namespace MedExpertClientClone.ViewModels
                     Id=1,
                     Num=443,
                     Location="ГБУЗ «Городская поликлиника № 1», г. Улан-Удэ, ул. Каландарашвили, 27",
-                    PeriodDateIn=new DateTime(2020,5,5),
-                    PeriodDateOut=new DateTime(2020,6,5),
+                    PeriodDateIn=new DateTime(2020,7,5),
+                    PeriodDateOut=new DateTime(2020,7,10),
                     Status = AuditOperationStatus.Created,
                     CheckLists = new List<CheckList>{
                           new CheckList()
@@ -85,7 +85,7 @@ namespace MedExpertClientClone.ViewModels
                     Num=24,
                     Location="ГБУЗ «Городская поликлиника № 1», г. Улан-Удэ, ул. Каландарашвили, 27",
                     PeriodDateIn=new DateTime(2020,5,5),
-                    PeriodDateOut=new DateTime(2020,6,5),
+                    PeriodDateOut=new DateTime(2020,5,8),
                     Status = AuditOperationStatus.Executed,
                     CheckLists = new List<CheckList>{
                         new CheckList()
@@ -107,8 +107,8 @@ namespace MedExpertClientClone.ViewModels
                     Id=3,
                     Num=56,
                     Location="ГБУЗ «Городская поликлиника № 1», г. Улан-Удэ, ул. Каландарашвили, 27",
-                    PeriodDateIn=new DateTime(2020,5,5),
-                    PeriodDateOut=new DateTime(2020,6,5),
+                    PeriodDateIn=new DateTime(2020,7,1),
+                    PeriodDateOut=new DateTime(2020,7,5),
                     Status = AuditOperationStatus.Running,
                     CheckLists = new List<CheckList>{
                         new CheckList()
@@ -137,8 +137,8 @@ namespace MedExpertClientClone.ViewModels
                     Id=4,
                     Num=57,
                     Location="ГБУЗ «Городская поликлиника № 1», г. Улан-Удэ, ул. Каландарашвили, 27",
-                    PeriodDateIn=new DateTime(2020,5,5),
-                    PeriodDateOut=new DateTime(2020,6,5),
+                    PeriodDateIn=new DateTime(2020,7,16),
+                    PeriodDateOut=new DateTime(2020,7,27),
                     Status = AuditOperationStatus.Signed,
                     CheckLists = new List<CheckList>{
                         new CheckList()
@@ -160,8 +160,8 @@ namespace MedExpertClientClone.ViewModels
                     Id=5,
                     Num=38,
                     Location="ГБУЗ «Городская поликлиника № 1», г. Улан-Удэ, ул. Каландарашвили, 27",
-                    PeriodDateIn=new DateTime(2020,5,5),
-                    PeriodDateOut=new DateTime(2020,6,5),
+                    PeriodDateIn=new DateTime(2020,6,5),
+                    PeriodDateOut=new DateTime(2020,6,15),
                     Status = AuditOperationStatus.Signing,
                     CheckLists = new List<CheckList>{
                          new CheckList()
