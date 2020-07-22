@@ -45,7 +45,7 @@
                     <Label.FormattedText>
                         <FormattedString>
                             <Span Text="Найдено "/>
-                            <Span Text="123"/>
+                            <Span Text="{Binding NumberOfAudits}"/>
                         </FormattedString>
                     </Label.FormattedText>
                 </Label>

@@ -13,26 +13,46 @@ namespace MedExpertClientClone.ViewModels.Audits
 {
     public class AuditListWithDateTabbedViewModel : INotifyPropertyChanged
     {
+        private double listViewHeight = 0;
+        private int numberOfAudits = 0;
+        private ObservableCollection<NewAudit> audits;
+        private ObservableCollection<NewAudit> _auditsFiltered = new ObservableCollection<NewAudit>();
+        private ObservableCollection<NewAudit> _auditsUnfiltered = new ObservableCollection<NewAudit>();
+
+        /// <summary>
+        /// Выбранный диапазон дат
+        /// </summary>
         public SelectionRange SelectedRange { get; set; }
 
-        private double listViewHeight = 0;
-
+        /// <summary>
+        /// Высота ListView(списка проверок)
+        /// </summary>
         public double ListViewHeight
         {
             get { return listViewHeight; }
             set
             {
                 listViewHeight = value;
-                OnPropertyChanged(nameof(ListViewHeight));
+                OnPropertyChanged();
             }
         }
 
-        private ObservableCollection<NewAudit> audits;
+        /// <summary>
+        /// Количество проверок
+        /// </summary>
+        public int NumberOfAudits
+        {
+            get { return numberOfAudits; }
+            set
+            {
+                numberOfAudits = value;
+                OnPropertyChanged();
+            }
+        }
 
-        private ObservableCollection<NewAudit> _auditsFiltered = new ObservableCollection<NewAudit>();
-
-        private ObservableCollection<NewAudit> _auditsUnfiltered = new ObservableCollection<NewAudit>();
-
+        /// <summary>
+        /// Список всех проверок
+        /// </summary>
         public ObservableCollection<NewAudit> Audits
         {
             get { return audits; }
@@ -43,30 +63,21 @@ namespace MedExpertClientClone.ViewModels.Audits
             }
         }
 
-        private string selectionChangedCommandText;
-
-        public string SelectionChangedCommandText
-        {
-            get { return selectionChangedCommandText; }
-            set
-            {
-                selectionChangedCommandText = value;
-                OnPropertyChanged();
-            }
-        }
-
         public AuditListWithDateTabbedViewModel()
         {
             SelectedRange = new SelectionRange();
-            SelectedRange.StartDate = new DateTime(2020, 07, 10);
-            SelectedRange.EndDate = new DateTime(2020, 07, 20);
 
             var _listOfItems = new DataAuditFactory().GetAudits();
             Audits = new ObservableCollection<NewAudit>(_listOfItems);
             _auditsUnfiltered = new ObservableCollection<NewAudit>(_listOfItems);
+
+            NumberOfAudits = Audits.Count;
             setHeightListView();
         }
 
+        /// <summary>
+        /// Команда выбора диапазона дат в календаре
+        /// </summary>
         [Obsolete]
         public ICommand OnSelectionChanged => new Command<SelectionChangedEventArgs>((SelectionChangedEventArgs obj) =>
         {
@@ -83,10 +94,14 @@ namespace MedExpertClientClone.ViewModels.Audits
             }
 
             Audits = _auditsFiltered;
-            setHeightListView();
 
+            NumberOfAudits = Audits.Count;
+            setHeightListView();
         });
 
+        /// <summary>
+        /// Метод вычисления высоты ListView(списка проверок)
+        /// </summary>
         private void setHeightListView()
         {
             double countOfCheckLists = 0;
