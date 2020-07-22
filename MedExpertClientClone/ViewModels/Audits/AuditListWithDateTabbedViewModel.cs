@@ -100,6 +100,14 @@ namespace MedExpertClientClone.ViewModels.Audits
         });
 
         /// <summary>
+        /// Команда открытия окна????????????????????????
+        /// </summary>
+        public ICommand OpenCheckListGroupCommand => new Command(() =>
+        {
+            Console.WriteLine("OpenCheckListGroupCommandOpenCheckListGroupCommand");
+        });
+
+        /// <summary>
         /// Метод вычисления высоты ListView(списка проверок)
         /// </summary>
         private void setHeightListView()
