@@ -293,5 +293,8 @@
     <BundleResource Include="Resources\background%402x.png" />
     <BundleResource Include="Resources\background%403x.png" />
     <BundleResource Include="Resources\background.png" />
+    <BundleResource Include="Resources\icon%402x.png" />
+    <BundleResource Include="Resources\icon%403x.png" />
+    <BundleResource Include="Resources\icon.png" />
   </ItemGroup>
 </Project>
