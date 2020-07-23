@@ -100,7 +100,7 @@ namespace MedExpertClientClone.ViewModels
                             Id=2,
                             Auditor=null,
                             IsChecked=false,
-                            Name="Соблюдение прав животных"
+                            Name="Соблюдение прав пациентов"
                         },
                     } },
                  new NewAudit(){
@@ -153,7 +153,7 @@ namespace MedExpertClientClone.ViewModels
                             Id=2,
                             Auditor=null,
                             IsChecked=false,
-                            Name="Соблюдение прав животных"
+                            Name="Соблюдение прав пациентов"
                         },
                     } },
                 new NewAudit(){
