@@ -10,7 +10,11 @@ namespace MedExpertClientClone.Views.Audits
         public AuditListWithDateTabbedView()
         {
             InitializeComponent();
-            this.BindingContext = new AuditListWithDateTabbedViewModel();
+            this.BindingContext = new AuditListWithDateTabbedViewModel()
+            {
+                Navigation = this.Navigation
+            };
+
             calendar.Locale = new System.Globalization.CultureInfo("ru-RU");
         }
     }

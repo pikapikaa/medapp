@@ -6,6 +6,7 @@
              xmlns:cells="clr-namespace:MedExpertClientClone.Views.Audits.Cells"
              ios:Page.UseSafeArea="True"
              Title="Дата"
+             x:Name="auditListWithDateTabbedView"
              x:Class="MedExpertClientClone.Views.Audits.AuditListWithDateTabbedView">
 
     <ScrollView>
@@ -64,12 +65,12 @@
                       HasUnevenRows="True"
                       SeparatorVisibility="None"
                       VerticalScrollBarVisibility="Never"
-                      IsEnabled="False"
+                      IsEnabled="True"
                       HeightRequest="{Binding ListViewHeight}"
                       Margin="10">
                 <ListView.ItemTemplate>
                     <DataTemplate>
-                        <cells:AuditViewCell/>
+                        <cells:AuditViewCell ParentContext="{Binding BindingContext, Source={x:Reference auditListWithDateTabbedView}}"/>
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>

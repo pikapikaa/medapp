@@ -8,6 +8,7 @@ using MedExpertClientClone.Models;
 using Syncfusion.SfCalendar.XForms;
 using Xamarin.Forms;
 using SelectionChangedEventArgs = Syncfusion.SfCalendar.XForms.SelectionChangedEventArgs;
+using MedExpertClientClone.Views.Audits;
 
 namespace MedExpertClientClone.ViewModels.Audits
 {
@@ -18,6 +19,8 @@ namespace MedExpertClientClone.ViewModels.Audits
         private ObservableCollection<NewAudit> audits;
         private ObservableCollection<NewAudit> _auditsFiltered = new ObservableCollection<NewAudit>();
         private ObservableCollection<NewAudit> _auditsUnfiltered = new ObservableCollection<NewAudit>();
+
+        public INavigation Navigation { get; set; }
 
         /// <summary>
         /// Выбранный диапазон дат
@@ -102,9 +105,9 @@ namespace MedExpertClientClone.ViewModels.Audits
         /// <summary>
         /// Команда открытия окна????????????????????????
         /// </summary>
-        public ICommand OpenCheckListGroupCommand => new Command(() =>
+        public ICommand OpenCheckListGroupCommand => new Command<CheckList>((CheckList list) =>
         {
-            Console.WriteLine("OpenCheckListGroupCommandOpenCheckListGroupCommand");
+            Navigation.PushAsync(new CheckListGroupView());
         });
 
         /// <summary>
