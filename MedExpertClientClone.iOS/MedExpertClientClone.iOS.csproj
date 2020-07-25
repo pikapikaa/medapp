@@ -296,5 +296,6 @@
     <BundleResource Include="Resources\icon%402x.png" />
     <BundleResource Include="Resources\icon%403x.png" />
     <BundleResource Include="Resources\icon.png" />
+    <BundleResource Include="Resources\logotype.svg" />
   </ItemGroup>
 </Project>
