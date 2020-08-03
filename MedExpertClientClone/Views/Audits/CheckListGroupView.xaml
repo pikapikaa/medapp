@@ -1,6 +1,8 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:pancake="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:syncfusion="clr-namespace:Syncfusion.XForms.TreeView;assembly=Syncfusion.SfTreeView.XForms"
+             xmlns:treeviewengine="clr-namespace:Syncfusion.TreeView.Engine;assembly=Syncfusion.SfTreeView.XForms" xmlns:local="clr-namespace:MedExpertClientClone.Helpers"
              x:Class="MedExpertClientClone.Views.Audits.CheckListGroupView">
     <!-- Шапка -->
     <NavigationPage.TitleView>
@@ -12,39 +14,28 @@
                VerticalOptions="Center"/>
     </NavigationPage.TitleView>
 
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <local:TemplateSelector x:Key="Template"/>
+
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="{Binding Name}"/>
-            <Label Text="Начало проверки: "/>
-            <Label Text="Конец проверки: "/>
-            <pancake:PancakeView Grid.Row="2"
-                             Grid.ColumnSpan="2"
-                             x:Name="SwapPanel"
-                             HorizontalOptions="Center"
-                             VerticalOptions="End"
-                             BackgroundColor="#3960E2"
-                             Elevation="4"
-                             HasShadow="True"
-                             CornerRadius="25"
-                             HeightRequest="50"
-                             WidthRequest="350"
-                             Margin="0,0,0,1">
-                <Grid>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*" />
-                    </Grid.ColumnDefinitions>
+        <StackLayout Padding="10">
 
-                    <Label Text="Подписать"
-                       Style="{StaticResource TitleWhite}"
-                       x:Name="AddAuditBtn"
-                       VerticalOptions="Center"
-                       HorizontalOptions="Center"/>
-                </Grid>
-                <pancake:PancakeView.GestureRecognizers>
-                    <TapGestureRecognizer Command="{Binding OpenAddAuditPageCommand}"/>
-                </pancake:PancakeView.GestureRecognizers>
-            </pancake:PancakeView>
 
+            <syncfusion:SfTreeView x:Name="treeView"
+                                   QueryNodeSize="treeView_QueryNodeSize"
+                                   Indentation="5"
+                                   ExpanderWidth="0"
+                                   SelectionMode="None"
+                                   ChildPropertyName="SubFiles"
+                                   ItemsSource="{Binding ImageNodeInfo}"
+                                   ItemTemplate="{StaticResource Template}"
+                                   AutoExpandMode="AllNodesExpanded"
+                                   ExpandActionTarget="Node">
+            </syncfusion:SfTreeView>
         </StackLayout>
 
     </ContentPage.Content>

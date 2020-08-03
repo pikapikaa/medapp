@@ -99,7 +99,7 @@
                                            VerticalOptions="Center"/>
                                     <Grid.GestureRecognizers>
                                             <TapGestureRecognizer Command="{Binding ParentContext.OpenCheckListGroupCommand, Source={x:Reference auditViewCell}}"
-                                      CommandParameter="{Binding .}"/>
+                                                            CommandParameter="{Binding .}"/>
                                     </Grid.GestureRecognizers>
                                 </Grid>
                             </DataTemplate>

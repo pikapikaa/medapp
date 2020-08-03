@@ -5,6 +5,7 @@ using System.Linq;
 using Foundation;
 using Naxam.Controls.Platform.iOS;
 using Syncfusion.SfCalendar.XForms.iOS;
+using Syncfusion.XForms.iOS.TreeView;
 using UIKit;
 
 namespace MedExpertClientClone.iOS
@@ -26,8 +27,10 @@ namespace MedExpertClientClone.iOS
         {
             Rg.Plugins.Popup.Popup.Init();
             TopTabbedRenderer.Init();
+            new Syncfusion.XForms.iOS.ComboBox.SfComboBoxRenderer();
             global::Xamarin.Forms.Forms.Init();
             SfCalendarRenderer.Init();
+            SfTreeViewRenderer.Init();
             LoadApplication(new App());
 
             return base.FinishedLaunching(app, options);

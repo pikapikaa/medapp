@@ -142,6 +142,12 @@
     <PackageReference Include="Syncfusion.Xamarin.SfCalendar">
       <Version>18.2.0.45</Version>
     </PackageReference>
+    <PackageReference Include="Syncfusion.Xamarin.SfTreeView">
+      <Version>18.2.0.46</Version>
+    </PackageReference>
+    <PackageReference Include="Syncfusion.Xamarin.SfComboBox">
+      <Version>18.2.0.46</Version>
+    </PackageReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <ItemGroup>
@@ -297,5 +303,17 @@
     <BundleResource Include="Resources\icon%403x.png" />
     <BundleResource Include="Resources\icon.png" />
     <BundleResource Include="Resources\logotype.svg" />
+    <BundleResource Include="Resources\circle_checkbox%402x.png" />
+    <BundleResource Include="Resources\circle_checkbox%403x.png" />
+    <BundleResource Include="Resources\circle_checkbox.png" />
+    <BundleResource Include="Resources\circle_checkbox_yes%402x.png" />
+    <BundleResource Include="Resources\circle_checkbox_yes%403x.png" />
+    <BundleResource Include="Resources\circle_checkbox_yes.png" />
+    <BundleResource Include="Resources\circle_checkbox_inapplicable%402x.png" />
+    <BundleResource Include="Resources\circle_checkbox_inapplicable%403x.png" />
+    <BundleResource Include="Resources\circle_checkbox_inapplicable.png" />
+    <BundleResource Include="Resources\circle_checkbox_no%402x.png" />
+    <BundleResource Include="Resources\circle_checkbox_no%403x.png" />
+    <BundleResource Include="Resources\circle_checkbox_no.png" />
   </ItemGroup>
 </Project>

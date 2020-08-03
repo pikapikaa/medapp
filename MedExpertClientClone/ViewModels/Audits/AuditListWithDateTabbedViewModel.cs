@@ -113,7 +113,7 @@ namespace MedExpertClientClone.ViewModels.Audits
             };
 
             var page = new CheckListGroupView();
-            page.BindingContext = checkListGroupViewModel;
+            page.BindingContext = new FileManagerViewModel();
 
             Navigation.PushAsync(page);
         });
