@@ -103,18 +103,11 @@ namespace MedExpertClientClone.ViewModels.Audits
         });
 
         /// <summary>
-        /// Команда открытия окна????????????????????????
+        /// Команда открытия окна
         /// </summary>
         public ICommand OpenCheckListGroupCommand => new Command<CheckList>((CheckList list) =>
         {
-            var checkListGroupViewModel = new CheckListGroupViewModel
-            {
-                Name = list.Name
-            };
-
             var page = new CheckListGroupView();
-            page.BindingContext = new FileManagerViewModel();
-
             Navigation.PushAsync(page);
         });
 

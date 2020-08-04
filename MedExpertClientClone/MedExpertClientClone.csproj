@@ -49,8 +49,5 @@
       <DependentUpon>CalendarPopupView.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Views\Audits\CheckListGroupView.xaml.cs">
-      <DependentUpon>CheckListGroupView.xaml</DependentUpon>
-    </Compile>
   </ItemGroup>
 </Project>
