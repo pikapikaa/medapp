@@ -2,8 +2,10 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:syncfusion="clr-namespace:Syncfusion.XForms.TreeView;assembly=Syncfusion.SfTreeView.XForms"
-             xmlns:treeviewengine="clr-namespace:Syncfusion.TreeView.Engine;assembly=Syncfusion.SfTreeView.XForms" xmlns:local="clr-namespace:MedExpertClientClone.Helpers"
+             xmlns:treeviewengine="clr-namespace:Syncfusion.TreeView.Engine;assembly=Syncfusion.SfTreeView.XForms" 
+             xmlns:local="clr-namespace:MedExpertClientClone.Helpers"
              x:Class="MedExpertClientClone.Views.Audits.CheckListGroupView">
+
     <!-- Шапка -->
     <NavigationPage.TitleView>
         <Label Margin="70,0,0,0"
@@ -23,7 +25,6 @@
 
     <ContentPage.Content>
         <StackLayout Padding="10">
-
 
             <syncfusion:SfTreeView x:Name="treeView"
                                    QueryNodeSize="treeView_QueryNodeSize"

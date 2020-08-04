@@ -17,29 +17,12 @@ namespace MedExpertClientClone.Views.Audits.Templates
             InitializeComponent();
         }
 
-        public static readonly BindableProperty ParentContextProperty =
-            BindableProperty.Create("ParentContext", typeof(object), typeof(ChildCheckBoxTemplate), null, propertyChanged: OnParentContextPropertyChanged);
-
-        public object ParentContext
-        {
-            get { return GetValue(ParentContextProperty); }
-            set { SetValue(ParentContextProperty, value); }
-        }
-
-        private static void OnParentContextPropertyChanged(BindableObject bindable, object oldValue, object newValue)
-        {
-            if (newValue != oldValue && newValue != null)
-            {
-                (bindable as ChildCheckBoxTemplate).ParentContext = newValue;
-            }
-        }
-
         void TapGestureRecognizer_Tapped(System.Object sender, System.EventArgs e)
         {
-            //var imageIcon = sender as Image;
-            //var treeViewNode = imageIcon.BindingContext as TreeViewNode;
+            var imageIcon = sender as Image;
+            var context = imageIcon.BindingContext;
 
-            Console.WriteLine();
+            Console.WriteLine(context);
         }
     }
 }
