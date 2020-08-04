@@ -107,7 +107,7 @@ namespace MedExpertClientClone.ViewModels.Audits
         /// </summary>
         public ICommand OpenCheckListGroupCommand => new Command<CheckList>((CheckList list) =>
         {
-            var page = new CheckListGroupView();
+            var page = new CheckListGroupsView();
             Navigation.PushAsync(page);
         });
 

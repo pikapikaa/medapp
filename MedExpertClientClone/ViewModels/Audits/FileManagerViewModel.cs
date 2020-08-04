@@ -5,12 +5,14 @@ using System.Windows.Input;
 using MedExpertClientClone.Models;
 using MedExpertClientClone.Views.Audits;
 using Xamarin.Forms;
+using Syncfusion.XForms.TreeView;
 
 namespace MedExpertClientClone.ViewModels.Audits
 {
     public class FileManagerViewModel
     {
         private ObservableCollection<FileManager> imageNodeInfo;
+  
         public INavigation Navigation { get; set; }
 
         public FileManagerViewModel()
@@ -27,7 +29,7 @@ namespace MedExpertClientClone.ViewModels.Audits
         /// <summary>
         /// Команда открытия детального представления чек-листа
         /// </summary>
-        public ICommand OpenCheckListDetailViewCommand => new Command<FileManager>((FileManager list) =>
+        public ICommand OpenCheckListDetailViewCommand => new Command<object>((object list) =>
         {
             Navigation.PushAsync(new CheckListDetailView());
         });
@@ -35,7 +37,7 @@ namespace MedExpertClientClone.ViewModels.Audits
         private void GenerateSource()
         {
             var nodeImageInfo = new ObservableCollection<FileManager>();
-            Assembly assembly = typeof(CheckListGroupView).GetTypeInfo().Assembly;
+            Assembly assembly = typeof(CheckListGroupsView).GetTypeInfo().Assembly;
 
             var check1 = new FileManager()
             {

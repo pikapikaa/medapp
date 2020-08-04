@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:syncfusion="clr-namespace:Syncfusion.XForms.TreeView;assembly=Syncfusion.SfTreeView.XForms"
+             xmlns:local="clr-namespace:MedExpertClientClone.Helpers"
+             x:Class="MedExpertClientClone.Views.Audits.CheckListGroupsView">
+
+    <!-- Шапка -->
+    <NavigationPage.TitleView>
+        <Label Margin="70,0,0,0"
+               FontFamily="{StaticResource SemiBoldFont}"
+               FontSize="20"
+               Text="Проверки"
+               TextColor="Black"
+               VerticalOptions="Center"/>
+    </NavigationPage.TitleView>
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <local:TemplateSelector x:Key="Template"/>
+
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <ContentPage.Content>
+        <StackLayout Padding="10">
+            <syncfusion:SfTreeView x:Name="treeView"
+                                   QueryNodeSize="treeView_QueryNodeSize"
+                                   Indentation="5"
+                                   ExpanderWidth="0"
+                                   SelectionMode="None"
+                                   ChildPropertyName="SubFiles"
+                                   ItemsSource="{Binding ImageNodeInfo}"
+                                   ItemTemplate="{StaticResource Template}"
+                                   AutoExpandMode="AllNodesExpanded"
+                                   ExpandActionTarget="Node">
+            </syncfusion:SfTreeView>
+        </StackLayout>
+
+    </ContentPage.Content>
+</ContentPage>
