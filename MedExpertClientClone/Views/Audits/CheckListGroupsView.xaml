@@ -17,8 +17,103 @@
 
     <ContentPage.Resources>
         <ResourceDictionary>
-            <local:TemplateSelector x:Key="Template"/>
 
+            <DataTemplate x:Key="HeaderTemplate">
+                <ViewCell>
+                    <ViewCell.View>
+                        <Grid x:Name="grid"
+                              VerticalOptions="Center"
+                              Margin="0,5,0,5"
+                              BackgroundColor="Transparent">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="Auto"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+
+                            <Label Text="{Binding ItemName}"
+                                    Style="{StaticResource BoldText}"/>
+                            <Label Grid.Column="1"
+                                   VerticalTextAlignment="Start"
+                                   Style="{StaticResource BoldText}"
+                                   Text="3/1/4"/>
+                        </Grid>
+                    </ViewCell.View>
+                </ViewCell>
+            </DataTemplate>
+
+            <DataTemplate x:Key="ChildTemplate">
+                <ViewCell>
+                    <ViewCell.View>
+
+                        <Grid x:Name="grid"
+                              BackgroundColor="Transparent"
+                              Margin="0,5,0,5">
+
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="Auto" />
+                            </Grid.ColumnDefinitions>
+
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+
+                            <Label Text="{Binding ItemName}"
+                                   Style="{StaticResource Text}"
+                                   VerticalTextAlignment="Center"/>
+
+                            <Label Grid.Column="1"
+                                   Style="{StaticResource Text}"
+                                   VerticalTextAlignment="Center"
+                                   Text="7/4/6"/>
+                        </Grid>
+
+
+                    </ViewCell.View>
+                </ViewCell>
+            </DataTemplate>
+
+            <DataTemplate x:Key="ChildCheckBoxTemplate">
+                <ViewCell>
+                    <ViewCell.View>
+                        <Grid x:Name="grid"
+                              RowSpacing="0"
+                              ColumnSpacing="20"
+                              BackgroundColor="#E3E3E3"
+                              Padding="5"
+                              Margin="0,5,0,5">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="Auto" />
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+
+                            <Label Text="{Binding ItemName}"
+                                   VerticalTextAlignment="Center"
+                                   Style="{StaticResource Text}"/>
+                            <Image Grid.Column="1"
+                                   Margin="5"
+                                   Source="{Binding AnswerType, Converter={StaticResource CheckBoxConverter}}">
+                                <Image.GestureRecognizers>
+                                    <TapGestureRecognizer CommandParameter="{Binding .}"
+                                                          Command="{Binding Path=BindingContext.GiveQuickAnswerCommand, Source={x:Reference treeView}}"/>
+                                </Image.GestureRecognizers>
+                            </Image>
+
+                        </Grid>
+                    </ViewCell.View>
+                </ViewCell>
+            </DataTemplate>
+
+            <local:TemplateSelector x:Key="Template"
+                                    HeaderTemplate="{StaticResource HeaderTemplate}"
+                                    ChildTemplate="{StaticResource ChildTemplate}"
+                                    ChildCheckBoxTemplate="{StaticResource ChildCheckBoxTemplate}"/>
         </ResourceDictionary>
     </ContentPage.Resources>
 
@@ -32,6 +127,8 @@
                                    ChildPropertyName="SubFiles"
                                    ItemsSource="{Binding ImageNodeInfo}"
                                    ItemTemplate="{StaticResource Template}"
+                                   TapCommand="{Binding OpenCheckListDetailViewCommand}"
+                                   HoldCommand="{Binding OpenSameAnswerPopup}"
                                    AutoExpandMode="AllNodesExpanded"
                                    ExpandActionTarget="Node">
             </syncfusion:SfTreeView>

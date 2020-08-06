@@ -11,12 +11,12 @@ namespace MedExpertClientClone.Helpers
         public DataTemplate ChildTemplate { get; set; }
         public DataTemplate ChildCheckBoxTemplate { get; set; }
 
-        public TemplateSelector()
-        {
-            this.HeaderTemplate = new DataTemplate(typeof(HeaderTemplate));
-            this.ChildTemplate = new DataTemplate(typeof(ChildTemplate));
-            this.ChildCheckBoxTemplate = new DataTemplate(typeof(ChildCheckBoxTemplate));
-        }
+        //public TemplateSelector()
+        //{
+        //    this.HeaderTemplate = new DataTemplate(typeof(HeaderTemplate));
+        //    this.ChildTemplate = new DataTemplate(typeof(ChildTemplate));
+        //    this.ChildCheckBoxTemplate = new DataTemplate(typeof(ChildCheckBoxTemplate));
+        //}
 
         protected override DataTemplate OnSelectTemplate(object item, BindableObject container)
         {

@@ -14,10 +14,12 @@ namespace MedExpertClientClone.Views.Audits
             InitializeComponent();
            
             var viewModel = new FileManagerViewModel();
+            viewModel.Navigation = this.Navigation;
             this.BindingContext = viewModel;
+           
 
-            treeView.ItemTapped += TreeView_ItemTapped;
-            treeView.ItemHolding += TreeView_ItemHolding;
+            //treeView.ItemTapped += TreeView_ItemTapped;
+            //treeView.ItemHolding += TreeView_ItemHolding;
         }
 
         private void TreeView_ItemHolding(object sender, Syncfusion.XForms.TreeView.ItemHoldingEventArgs e)

@@ -6,13 +6,17 @@ using MedExpertClientClone.Models;
 using MedExpertClientClone.Views.Audits;
 using Xamarin.Forms;
 using Syncfusion.XForms.TreeView;
+using Rg.Plugins.Popup.Services;
+using MedExpertClientClone.Views;
+using MedExpertClientClone.Views.Popups;
+using System.Linq;
 
 namespace MedExpertClientClone.ViewModels.Audits
 {
     public class FileManagerViewModel
     {
         private ObservableCollection<FileManager> imageNodeInfo;
-  
+
         public INavigation Navigation { get; set; }
 
         public FileManagerViewModel()
@@ -29,9 +33,26 @@ namespace MedExpertClientClone.ViewModels.Audits
         /// <summary>
         /// Команда открытия детального представления чек-листа
         /// </summary>
-        public ICommand OpenCheckListDetailViewCommand => new Command<object>((object list) =>
+        public ICommand OpenCheckListDetailViewCommand => new Command<object>((object obj) =>
         {
             Navigation.PushAsync(new CheckListDetailView());
+        });
+
+        /// <summary>
+        /// Команда быстрого ответа на чек-лист
+        /// </summary>
+        public ICommand GiveQuickAnswerCommand => new Command<object>((object obj) =>
+        {
+            var res = (obj as FileManager).ItemName;
+            var result = ImageNodeInfo.Where(i => i.ItemName.Contains(res));
+        });
+
+        /// <summary>
+        /// Команда открытия модального окна для одинакового выбора ответа
+        /// </summary>
+        public ICommand OpenSameAnswerPopup => new Command<object>(async (object obj) =>
+        {
+            await PopupNavigation.Instance.PushAsync(new SameAnswerPopupView(), false);
         });
 
         private void GenerateSource()
